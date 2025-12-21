@@ -14,6 +14,27 @@
             "name": "default_sp"
         },
         {
+            "name": "default_centcom"
+        },
+        {
+            "name": "idcentcomservise"
+        },
+        {
+            "name": "idcentcomengineer"
+        },
+        {
+            "name": "idcentcomhos"
+        },
+        {
+            "name": "idcentcommedic"
+        },
+        {
+            "name": "idhigher"
+        },
+        {
+            "name": "idcentcomsecurityofficer"
+        },
+        {
             "name": "idguardiannt"
         },
         {
