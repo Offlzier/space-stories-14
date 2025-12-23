@@ -105,3 +105,30 @@
   components:
   - type: Sprite
     sprite: _Stories/Clothing/Neck/Cloaks/cloak_collector.rsi
+
+- type: entity
+  parent: ClothingNeckCloakCentcom
+  id: ClothingNeckCloakChiefStaffCentcom
+  name: плащ начальника штаба Центком
+  description: Помпезный и элитнейший бирюзовый плащ с изящной золотой отделкой, сшитый специально для начальника штаба Центрального командования. Он такой тяжёлый, что золотая отделка вполне может быть настоящей.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/chief_staff_centcom.rsi
+
+- type: entity
+  parent: ClothingNeckCloakCentcom
+  id: ClothingNeckCloakOperatorCentcom
+  name: плащ оператора Центком
+  description: Помпезный и элитнейший зелёный плащ с изящной золотой отделкой, сшитый специально для оператор Центрального командования. Он такой тяжёлый, что золотая отделка вполне может быть настоящей.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/operator_centcom.rsi
+
+- type: entity
+  parent: ClothingNeckCloakCentcom
+  id: ClothingNeckCloakHeadOfSecurityCentcom
+  name: плащ главы безопасности Центком
+  description: Помпезный и элитнейший зелёный плащ с изящной золотой отделкой, сшитый специально для главы безопасности Центрального командования. Он такой тяжёлый, что золотая отделка вполне может быть настоящей.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/head_security.rsi

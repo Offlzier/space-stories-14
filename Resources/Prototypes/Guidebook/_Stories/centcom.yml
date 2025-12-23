@@ -1,0 +1,29 @@
+- type: guideEntry
+  id: Centcom
+  name: guide-entry-centcom
+  text: "/ServerInfo/_Stories/Centcom/Centcom.xml"
+  children:
+  - ChiefStaffCentcom
+  - Representative
+  - Operator
+  - HeadSecurity
+
+- type: guideEntry
+  id: ChiefStaffCentcom
+  name: guide-entry-representative #не забыть
+  text: "/ServerInfo/_Stories/Centcom/ChiefStaffCentcom.xml"
+
+- type: guideEntry
+  id: Representative
+  name: guide-entry-representative
+  text: "/ServerInfo/_Stories/Centcom/Representative.xml"
+
+- type: guideEntry
+  id: Operator
+  name: guide-entry-representative
+  text: "/ServerInfo/_Stories/Centcom/Operator.xml"
+
+- type: guideEntry
+  id: HeadSecurity
+  name: guide-entry-representative
+  text: "/ServerInfo/_Stories/Centcom/HeadSecurity.xml"

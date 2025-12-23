@@ -1,0 +1,27 @@
+- type: entity #очки ЦК
+  id: ClothingEyesGlassesCentcom
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseCentcommContraband]
+  name: очки Центком
+  description: Модернизированные солнцезащитные очки с функцией защиты от вспышек, оснащены медицинским и СБ визором.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Eyes/Glasses/centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Eyes/Glasses/centcom.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Construction
+    graph: GlassesSecHUD
+    node: glassesSec
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - HudMedical
+    - WhitelistChameleon
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: IdentityBlocker
+    coverage: EYES

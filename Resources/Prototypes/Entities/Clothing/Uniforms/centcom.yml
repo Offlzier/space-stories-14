@@ -1,0 +1,65 @@
+- type: entity #униформа НШЦК
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitCentcomChiefStaff
+  name: униформа начальника штаба Центком
+  description: Повседневная, но элегантная униформа бюрозового цвета, используемая начальником штаба центрального командования. От неё веет алоэ.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/chief_staff_cencom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/chief_staff_cencom.rsi
+
+- type: entity #униформа OCO
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitSpecialOperationsOfficer
+  name: униформа офицера специальных операций
+  description: Усовершенствованный бронированный комбинезон, используемый спецназом в специальных операциях.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/special_operations_officer.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/special_operations_officer.rsi
+
+- type: entity #униформа ГСБ_ЦК
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitCentcomHeadOfSecurity
+  name: комбинезон главы безопасности Центком
+  description: Это комбинезон, который носят офицеры Центком высшего звена.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/head_security_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/head_security_centcom.rsi
+
+- type: entity #униформа ОБ_ЦК
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitCentcomSecurityOfficer
+  name: комбинезон офицера безопасности Центком
+  description: Это комбинезон, который носят высококвалифицированные офицера безопасности.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/officer_security_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/officer_security_centcom.rsi
+
+- type: entity #униформа М_ЦК
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitCentcomMedic
+  name: комбинезон медика Центком
+  description: Это комбинезон, который носят высококвалифицированные врачи.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/medic_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/medic_centcom.rsi
+
+- type: entity #униформа И_ЦК
+  parent: ClothingUniformJumpsuitCentcomOfficial
+  id: ClothingUniformJumpsuitCentcomEngineer
+  name: комбинезон инженера Центком
+  description: Это комбинезон, который носят высококвалифицированные инженеры.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/engineer_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/engineer_centcom.rsi
