@@ -72,3 +72,128 @@
     sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
     state: SecurityClown
   allowSelection: false
+
+# Centcom jobs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: Centcom
+  jobName: Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomEngineer
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomEngineer
+  jobName: инженер Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomHos
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomHos
+  jobName: глава безопасности Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomMedic
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomMedic
+  jobName: врач Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomSecurity
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomSecurity
+  jobName: офицер безопасности Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomService
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomService
+  jobName: работник Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentcomHigher
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomHigher
+  jobName: высший Центком
+  allowSelection: false
+
+#DSO jobs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSODeathSquade
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: DeathSquad
+  jobName: агент Центком
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOLeader
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTLeader
+  jobName: лидер отряда
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOERTMedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTMedical
+  jobName: медик ОБР
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconERTEngineer
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTEngineer
+  jobName: инженер ОБР
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOERTSecurity
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTSecurity
+  jobName: офицер ОБР
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOERTChaplain
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTChaplain
+  jobName: священник ОБР
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOERTJanitor
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: ERTJanitor
+  jobName: уборщик ОБР
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDSOCBURN
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: CBURN
+  jobName: агент карантинной службы Центком

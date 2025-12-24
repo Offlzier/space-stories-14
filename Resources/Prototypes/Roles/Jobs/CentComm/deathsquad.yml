@@ -5,7 +5,7 @@
   playTimeTracker: JobDeathSquad
   setPreference: false
   startingGear: DeathSquadGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconDSODeathSquade" #Stories
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -15,7 +15,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, DeathRattleImplantDepartmentSO ] #Stories
 
 - type: startingGear
   id: DeathSquadGear

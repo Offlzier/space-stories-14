@@ -1,0 +1,27 @@
+- type: department
+  id: SpecOperations
+  name: Департамент специальных операций
+  description: Ликвидируйте врагов и сохраняйте активы.
+  color: "#0a5fad"
+  roles:
+  - CBURNLeader
+  - CBURN
+  - ERTLeader
+  - ERTChaplain
+  - ERTJanitor
+  - ERTMedical
+  - ERTSecurity
+  - ERTEngineer
+  - DeathSquad
+  editorHidden: true
+  weight: 121
+
+- type: department
+  id: CentralCommand
+  name: department-CentralCommand
+  description: department-CentralCommand-description
+  color: "#0f8551"
+  roles:
+  - CentralCommandOfficial
+  editorHidden: true
+  weight: 120

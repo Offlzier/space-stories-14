@@ -60,6 +60,27 @@
         },
         {
             "name": "CorpiumReady"
+        },
+        {
+            "name": "Centcom"
+        },
+        {
+            "name": "CentcomEngineer"
+        },
+        {
+            "name": "CentcomHos"
+        },
+        {
+            "name": "CentcomMedic"
+        },
+        {
+            "name": "CentcomSecurity"
+        },
+        {
+            "name": "CentcomService"
+        },
+        {
+            "name": "CentcomHigher"
         }
     ]
 }

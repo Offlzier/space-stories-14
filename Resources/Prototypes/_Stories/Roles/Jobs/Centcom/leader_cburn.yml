@@ -1,24 +1,24 @@
 - type: job
-  id: CBURN
-  name: job-name-cburn
+  id: CBURNLeader
+  name: лидер РХБЗЗ
   description: job-description-cburn
-  playTimeTracker: JobCBURN
+  playTimeTracker: JobCBURNLeader
   setPreference: false
-  startingGear: CBURNGear
-  icon: "JobIconDSOCBURN"
-  supervisors: job-supervisors-centcom
+  startingGear: CBURNLeaderGear
+  icon: "JobIconDSOLeader"
+  supervisors: Офицеру Спецопераций
   canBeAntag: false
   accessGroups:
   - AllAccess
-  - PrisonAllAccess # Stories
+  - PrisonAllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ MindShieldImplant, DeathRattleImplantDepartmentSO ]
 
 - type: startingGear
-  id: CBURNGear
+  id: CBURNLeaderGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
@@ -28,22 +28,16 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ClothingShoesBootsCombatFilled
-    id: CBURNPDA
+#    id: CBURNLeaderPDA
     pocket1: RadioHandheld
     pocket2: WeaponLaserGun
     belt: ClothingBeltBandolier
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
+    - WeaponShotgunEnforcer
     - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
-    - PillAmbuzol
-
-- type: chameleonOutfit
-  id: CBURNChameleonOutfit
-  job: CBURN
-  hasMindShield: true
-  equipment:
-    head: ClothingHeadHelmetCBURN
-    neck: ClothingNeckScarfStripedBrown
+    - PillAmbuzolPlus
+    - CrowbarRed
+    - MedkitCombatFilled

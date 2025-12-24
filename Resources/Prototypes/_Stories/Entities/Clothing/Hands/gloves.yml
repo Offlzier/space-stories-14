@@ -34,7 +34,7 @@
 
 - type: entity
   parent: [ClothingHandsBase, BaseCentcommContraband]
-  id: ClothingHandsGlovesChiefStaffCencom
+  id: ClothingHandsGlovesChiefStaffCentcom
   name: перчатки начальника штаба Центком
   description: Шикарные бирюзовые перчатки с золотой отделкой.
   components:

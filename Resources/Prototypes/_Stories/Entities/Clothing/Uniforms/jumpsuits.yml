@@ -104,3 +104,14 @@
     sprite: _Stories/Clothing/Uniforms/Jumpsuit/Scientist_Sweater.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Uniforms/Jumpsuit/Scientist_Sweater.rsi
+
+- type: entity
+  parent: [ ClothingUniformBase, BaseCentcommContraband ]
+  id: ClothingUniformJumpsuitChiefStaffCentcom
+  name: униформа начальника штаба Центком
+  description: Повседневная, но элегантная униформа бюрозового цвета, используемая начальника штаба центрального командования. От неё веет алоэ.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/chief_staff_cencom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/chief_staff_cencom.rsi
