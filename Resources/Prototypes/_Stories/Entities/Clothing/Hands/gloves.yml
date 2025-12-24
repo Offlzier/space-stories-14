@@ -31,3 +31,19 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+
+- type: entity
+  parent: [ClothingHandsBase, BaseCentcommContraband]
+  id: ClothingHandsGlovesChiefStaffCencom
+  name: перчатки начальника штаба Центком
+  description: Шикарные бирюзовые перчатки с золотой отделкой.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Hands/Gloves/chief_staff_cencom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Hands/Gloves/chief_staff_cencom.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: высшие бирюзовые
+  - type: FingerprintMask

@@ -24,3 +24,47 @@
     sprite: _Stories/Clothing/Head/Hats/hoshat.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Head/Hats/hoshat.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: ClothingHeadHatChiefStaffCentcom
+  name: фуражка начальника штаба Центком
+  description: Экстравагантная, причудливая фуражка начальника штаба Центрального командования.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/chief_staff_cencom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/chief_staff_cencom.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002
+
+- type: entity
+  parent: ClothingHeadHatChiefStaffCentcom
+  id: ClothingHeadHatSpecialOperationsOfficer
+  name: фуражка офицера специальных операций
+  description: Фуражка для настоящих командиров.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/special_operations_officer.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/special_operations_officer.rsi
+
+- type: entity
+  parent: ClothingHeadHatChiefStaffCentcom
+  id: ClothingHeadHatBeretHeadOfSecurityCentcom
+  name: берет главы безопасности Центком
+  description: Фуражка для настоящих командиров.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/head_security_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/head_security_centcom.rsi

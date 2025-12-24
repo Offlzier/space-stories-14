@@ -61,3 +61,25 @@
     - id: FlippoEngravedLighter
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabCentcomMedic
+  name: лабораторный халат врача Центком
+  description: Халат, защищающий от небольших разливов химикатов.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/OuterClothing/Coats/medic_centcom.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/OuterClothing/Coats/medic_centcom.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.95
+        Caustic: 0.65
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCentcomMedic]
+  id: ClothingOuterCoatLabCentcomMedicOpened
+  name: лабораторный халат врача Центком

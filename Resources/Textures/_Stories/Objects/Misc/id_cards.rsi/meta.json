@@ -74,6 +74,27 @@
         },
         {
             "name": "idpartymaker"
+        },
+        {
+            "name": "default_centcom"
+        },
+        {
+            "name": "idcentcomservise"
+        },
+        {
+            "name": "idcentrcomengineer"
+        },
+        {
+            "name": "idcentrcomhos"
+        },
+        {
+            "name": "idcentrcommedic"
+        },
+        {
+            "name": "idcentrcomsecurityofficer"
+        },
+        {
+            "name": "idhigher"
         }
     ]
 }
