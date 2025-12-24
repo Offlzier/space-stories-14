@@ -1,0 +1,7 @@
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: DeathRattleImplanterDepartmentSO
+  name: имплантер "предсмертный хрип ДСО"
+  components:
+  - type: Implanter
+    implant: DeathRattleImplantDepartmentSO

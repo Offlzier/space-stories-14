@@ -27,7 +27,7 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband ]
   id: ClothingHeadsetAltCentCom
   name: CentComm over-ear headset
   components:
@@ -35,6 +35,7 @@
     containers:
       key_slots:
       - EncryptionKeyCentCom
+      - EncryptionKeyDepartmentSO #Stories balance
       - EncryptionKeyStationMaster
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi

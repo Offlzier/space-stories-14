@@ -18,3 +18,19 @@
       sprite: _Stories/Clothing/Ears/Headsets/guardian_nt.rsi
     - type: Clothing
       sprite: _Stories/Clothing/Ears/Headsets/guardian_nt.rsi
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband ]
+  id: ClothingHeadsetAltDepartmentSO
+  name: полноразмерная гарнитура Депортамента спецопераций
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyDepartmentSO
+      - EncryptionKeyCentCom
+      - EncryptionKeyStationMaster
+  - type: Sprite
+    sprite: _Stories/Clothing/Ears/Headsets/department_special_operations.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Ears/Headsets/department_special_operations.rsi

@@ -772,7 +772,7 @@
     access: [[ "CentralCommand" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
-    color: "#1d8bad"
+    color: "#0f8551"
     canShuttle: false
     global: true
   - type: Computer

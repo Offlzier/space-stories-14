@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseCentcommContraband ]
+  id: DepartmentSOComputerCircuitboard
+  name: central command communications computer board
+  description: A computer printed circuit board for a central command communications console.
+  components:
+  - type: Sprite
+    state: cpu_centcomm
+  - type: ComputerBoard
+    prototype: DepartmentSOComputer

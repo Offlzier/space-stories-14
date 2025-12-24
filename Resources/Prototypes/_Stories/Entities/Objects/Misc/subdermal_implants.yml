@@ -1,0 +1,9 @@
+- type: entity
+  parent: DeathRattleImplant
+  id: DeathRattleImplantDepartmentSO
+  name: имплант "предсмертный хрип" ДСО
+  description: Этот имплантат сообщит по радиоканалу ДСО, если пользователь окажется в критическом состоянии или умрет.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: DepartmentSO

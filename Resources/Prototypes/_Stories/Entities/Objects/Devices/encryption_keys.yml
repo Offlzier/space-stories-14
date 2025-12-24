@@ -31,3 +31,18 @@
       layers:
         - state: crypt_prison
         - state: prison_label
+
+- type: entity
+  parent: [ EncryptionKey, BaseCentcommContraband ]
+  id: EncryptionKeyDepartmentSO
+  name: ключ шифрования департамента спецопераций
+  description: Ключ шифрования, используемый боевым департаментом.
+  components:
+  - type: EncryptionKey
+    channels:
+    - DepartmentSO
+    defaultChannel: DepartmentSO
+  - type: Sprite
+    layers:
+    - state: crypt_blue
+    - state: nano_label

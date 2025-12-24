@@ -12,3 +12,35 @@
         path: /Audio/Announcements/centcomm.ogg
         params:
           volume: -4
+
+- type: entity
+  parent: ComputerComms
+  id: DepartmentSOComputerComms
+  name: консоль связи Департамента Спецопераций
+  description: Консоль, используемая для рассылки объявлений по всему миру с помощью клавиатуры. Старший кузен обычной консоли связи.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm_logs
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: AccessReader
+    access: [[ "CentralCommand" ]]
+  - type: CommunicationsConsole
+    title: Департамента Спецопераций
+    color: "#0a5fad"
+    canShuttle: false
+    global: true
+  - type: Computer
+    board: DepartmentSOComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#0a5fad"
