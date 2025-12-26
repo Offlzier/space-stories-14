@@ -1,10 +1,10 @@
 - type: job
-  id: ChiefStaffCentralCommand
+  id: ChiefStaffCentcom
   name: начальник штаба Центком
   description: job-description-cscc
-  playTimeTracker: JobChiefStaffCentralCommand
+  playTimeTracker: JobChiefStaffCentcom
   setPreference: false
-  startingGear: ChiefStaffCentralCommandGear
+  startingGear: ChiefStaffCentcomGear
   icon: "JobIconCentcomHigher"
   supervisors: руководству сектора
   canBeAntag: false
@@ -18,18 +18,18 @@
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm, DeathRattleImplantDepartmentSO ]
 
 - type: startingGear
-  id: ChiefStaffCentralCommandGear
+  id: ChiefStaffCentcomGear
   equipment:
     head: ClothingHeadHatChiefStaffCentcom #голова
     jumpsuit: ClothingUniformJumpsuitChiefStaffCentcom #униформа
     back: ClothingBackpackSatchelHolding #сумка
     eyes: ClothingEyesGlassesCentcom #очки
-    ears: ClothingHeadsetAltCentCom #уши
+    ears: ClothingHeadsetAltCentcom #уши
     gloves: ClothingHandsGlovesChiefStaffCentcom #перчатки
     shoes: ClothingShoesBootsLaceup #ботинки
 #    id: ChiefStaffCentralCommandPDA #карта
     outerClothing: ClothingOuterArmorCentcommCarapace #верхняя
     neck: ClothingNeckCloakChiefStaffCentcom #плащ
-    pocket1: WeaponTaser 
-    pocket2: WeaponAntiqueLaser 
+    pocket1: WeaponTaser
+    pocket2: WeaponAntiqueLaser
     belt: PRISONClothingBeltSheathFilled #пояс

@@ -1,0 +1,66 @@
+- type: job
+  id: RepresentativeCentcom
+  name: представитель Центком
+  description: job-description-representative-centcom
+  playTimeTracker: JobRepresentativeCentcom
+  setPreference: false
+  startingGear: RepresentativeCentcomGear
+  icon: "JobIconCentcom"
+  supervisors: начальнику штаба Центком
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  - PrisonAllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: RepresentativeCentcomGear
+  equipment:
+    head: ClothingHeadHatCentcomcap
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficial
+    back: ClothingBackpackSatchelLeather
+    eyes: ClothingEyesGlassesCentcom
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsLaceup
+#    id: NTRepresentativeCentcomPDA
+    outerClothing: ClothingOuterArmorCentcommCarapace
+    neck: ClothingNeckCloakCentcom
+    pocket1: WeaponDisabler
+    pocket2: Handcuffs
+    belt: BoxFolderCentComClipboard
+
+- type: startingGear #ОБ_ЦК
+  id: SecurityOfficerCentcomGear
+  equipment:
+    head: ClothingHeadHatBeretSecurity #голова
+    jumpsuit: ClothingUniformJumpsuitCentcomSecurityOfficer #униформа
+    back: ClothingBackpackSatchelEight #сумка
+    eyes: ClothingEyesGlassesSecurity #очки
+    ears: ClothingHeadsetCentCom #уши
+    gloves: ClothingHandsGlovesCombat #перчатки
+    shoes: ClothingShoesBootsJackFilled #ботинки
+#    id: SecurityOfficerCentcomPDA #карта
+    outerClothing: ClothingOuterArmorBasic #верхняя
+    pocket1: WeaponDisabler
+    belt: ClothingBeltSecurityFilled #пояс
+
+- type: startingGear #ГБ_ЦК
+  id: HeadOfSecurityCentcomGear
+  equipment:
+    head: ClothingHeadHatHeadOfSecurityCentcom #голова
+    jumpsuit: ClothingUniformJumpsuitCentcomHeadOfSecurity #униформа
+    back: ClothingBackpackSatchelEight #сумка
+    eyes: ClothingEyesGlassesSecurity #очки
+    ears: ClothingHeadsetAltCentCom #уши
+    gloves: ClothingHandsGlovesCombat #перчатки
+    shoes: ClothingShoesBootsJackFilled #ботинки
+#    id: HeadOfSecurityCentcomPDA #карта
+    outerClothing: ClothingOuterArmorCentcommCarapace #верхняя
+    neck: ClothingNeckCloakHeadOfSecurityCentcom #плащ
+    pocket1: WeaponDisabler
+    belt: ClothingBeltSecurityFilled #пояс

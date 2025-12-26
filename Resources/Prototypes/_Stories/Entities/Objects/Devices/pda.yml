@@ -145,3 +145,52 @@
   components:
   - type: Pda
     id: STPartyMakerIDCard
+
+# Centcom-Jobs
+
+- type: entity
+  parent: CentcomPDA
+  id: ChiefStaffCentcomPDA
+  name: КПК Центком
+  description: Светло-зелёный символ ходячей бюрократии.
+  suffix: Начальник
+  components:
+  - type: Pda
+    id: ChiefStaffCentcomIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: RepresentativeCentcomPDA
+  name: КПК Центком
+  description: Светло-зелёный символ ходячей бюрократии.
+  suffix: Представитель
+  components:
+  - type: Pda
+    id: RepresentativeCentcomIDCard
+
+- type: entity
+  parent: CentcomPDA
+  id: OperatorCentcomPDA
+  name: КПК Центком
+  description: Светло-зелёный символ ходячей бюрократии.
+  suffix: Оператор
+  components:
+  - type: Pda
+    id: OperatorCentcomIDCard
+
+- type: entity
+  parent: BasePDA
+  id: MedicCentcomPDA
+  name: КПК врача Центком
+  description: Необычайно блестящий и стерильный.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda
+  - type: Sprite
+    sprite: _Stories/Objects/Devices/pda.rsi
+  - type: Icon
+    sprite: _Stories/Objects/Devices/pda.rsi
+    state: pda-centcommedical

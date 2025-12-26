@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0 & Собственная лицензия. Копирование, модификация и использование вне проекта Space Stories полностью запрещено без предварительного согласия текущего владельца проекта",
+  "copyright": "Made by DeroCKs для SpaceStories(Server SS14).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pda-centcomhos"
+    },
+    {
+      "name": "pda-centcomsecurity"
+    },
+    {
+      "name": "pda-centcomengineer"
+    },
+    {
+      "name": "light_overlay"
+    },
+    {
+      "name": "pda"
+    },
+    {
+      "name": "id_overlay"
+    },
+    {
+      "name": "pda-centcommedical"
+    },
+    {
+      "name": "pda-centcomservis"
+    }
+  ]
+}

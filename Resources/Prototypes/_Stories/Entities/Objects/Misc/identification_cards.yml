@@ -140,3 +140,132 @@
     - state: idpartymaker
   - type: PresetIdCard
     job: STPartyMaker
+
+#Centcom-Jobs
+
+- type: entity #НШЦК
+  parent: CentcomIDCard
+  id: ChiefStaffCentcomIDCard
+  name: ID карта НШЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idhigher
+  - type: PresetIdCard
+    job: ChiefStaffCentcom
+
+- type: entity #Лидер РХБЗЗ
+  parent: IDCardStandard
+  id: CBURNLeaderIDcard
+  name: ID карта лидера РХБЗЗ
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - sprite: /Textures/Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625
+      state: ERTLeader
+  - type: PresetIdCard
+    job: CBURNLeader
+
+- type: entity #ПЦК
+  parent: CentcomIDCard
+  id: RepresentativeCentcomIDCard
+  name: ID карта представителя Центком
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcom
+  - type: PresetIdCard
+    job: RepresentativeCentcom
+
+- type: entity #ОЦК
+  parent: CentcomIDCard
+  id: OperatorCentcomIDCard
+  name: ID карта оператора Центком
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcom
+  - type: PresetIdCard
+    job: OperatorCentcom
+
+- type: entity #ГБ_ЦК
+  parent: CentcomIDCard
+  id: HeadOfSecurityCentcomIDCard
+  name: ID карта главы безопасности ЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcomhos
+  - type: PresetIdCard
+    job: HeadOfSecurityCentcom
+
+- type: entity #ОБ_ЦК
+  parent: CentcomIDCard
+  id: SecurityOfficerCentcomIDCard
+  name: ID карта офицер безопасности ЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcomsecurityofficer
+  - type: PresetIdCard
+    job: SecurityOfficerCentcom
+
+- type: entity #М_ЦК
+  parent: CentcomIDCard
+  id: MedicCentcomIDCard
+  name: ID карта МЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcommedic
+  - type: PresetIdCard
+    job: MedicCentcom
+
+- type: entity #И_ЦК
+  id: EngineerCentcomIDCard
+  parent: CentcomIDCard
+  name: ID карта ИЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcomengineer
+  - type: PresetIdCard
+    job: EngineerCentcom
+
+- type: entity #Р_ЦК
+  id: WorkerCentcomIDCard
+  parent: CentcomIDCard
+  name: ID карта работник ЦК
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcomservise
+  - type: PresetIdCard
+    job: WorkerCentcom
