@@ -28,8 +28,6 @@
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
-  - STBorgModuleAdvancedSecurity
-  - STBorgModuleSecurity
 
 # Shared between secfab and emagged autolathe
 - type: latheRecipePack
