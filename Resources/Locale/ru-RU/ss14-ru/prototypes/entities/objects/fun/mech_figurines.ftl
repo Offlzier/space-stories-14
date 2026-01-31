@@ -1,5 +1,5 @@
-ent-BaseFigurineMech = { ent-BaseFigurine }
-    .desc = { ent-BaseFigurine.desc }
+ent-BaseFigurineMech = фигурка
+    .desc = Небольшая миниатюрка.
 ent-ToyRipley = игрушечный рипли
     .desc = Фигурка Мини-Мех! На обороте написано 'Меха номер 1/12'.
 ent-ToyFireRipley = пожарный рипли

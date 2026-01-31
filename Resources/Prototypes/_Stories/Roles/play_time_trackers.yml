@@ -22,9 +22,6 @@
 - type: playTimeTracker
   id: STJobBrigmedic
 
-- type: playTimeTracker
-  id: STJobJudge
-
 # Event-Restricted-Jobs
 
 - type: playTimeTracker

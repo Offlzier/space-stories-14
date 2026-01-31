@@ -17,6 +17,7 @@
       interactSuccessSound: /Audio/Effects/thudswoosh.ogg
       messagePerceivedByOthers: hugging-success-generic-others
     - type: MindContainer
+      showExamineInfo: true
     - type: Input
       context: "human"
     - type: MobMover

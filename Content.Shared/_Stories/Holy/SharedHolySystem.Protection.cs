@@ -1,12 +1,19 @@
+using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Prying.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Stories.Holy;
 
@@ -43,10 +50,9 @@ public abstract partial class SharedHolySystem
             // Защита от случаев, когда святой предмет взяли пока он был на кд.
             if (!_useDelay.IsDelayed((uid, useDelay), HolyDelay))
             {
-                if (_container.TryGetContainingContainer((uid, null, null), out var container) &&
-                    IsUnholy(container.Owner))
+                if (_container.TryGetContainingContainer((uid, null, null), out var container) && IsUnholy(container.Owner))
                 {
-                    if (_container.TryRemoveFromContainer(uid))
+                    if (_container.TryRemoveFromContainer(uid, false))
                         TryApplyProtection(container.Owner, (uid, holy));
                 }
             }
@@ -111,10 +117,8 @@ public abstract partial class SharedHolySystem
         if (TryComp<UseDelayComponent>(entity, out var useDelay))
         {
             if (_useDelay.TryGetDelayInfo((entity, useDelay), out _, HolyDelay)) // Если Delay настроен
-            {
                 if (!_useDelay.TryResetDelay((entity, useDelay), true, HolyDelay))
                     return;
-            }
         }
 
         if (!TryComp<UnholyComponent>(origin, out var unholy))
@@ -126,11 +130,7 @@ public abstract partial class SharedHolySystem
 
         var protectionDamageDamageModifierSet = _prototype.Index(entity.Comp.ProtectionDamageDamageModifierSet);
 
-        var damageModifierSet = new DamageModifierSet
-        {
-            Coefficients = new Dictionary<string, float>(protectionDamageDamageModifierSet.Coefficients),
-            FlatReduction = new Dictionary<string, float>(protectionDamageDamageModifierSet.FlatReduction),
-        };
+        var damageModifierSet = new DamageModifierSet() { Coefficients = new Dictionary<string, float>(protectionDamageDamageModifierSet.Coefficients), FlatReduction = new Dictionary<string, float>(protectionDamageDamageModifierSet.FlatReduction) };
 
         Dictionary<string, float> newCoefficients = new();
         foreach (var c in damageModifierSet.Coefficients)

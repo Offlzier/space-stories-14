@@ -2,16 +2,15 @@ using Content.Shared._Stories.ForceUser;
 using Content.Shared._Stories.ForceUser.Actions.Events;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Maps;
 
 namespace Content.Server._Stories.ForceUser;
-
 public sealed partial class ForceUserSystem
 {
     public void InitializePolymorph()
     {
         SubscribeLocalEvent<ForceUserComponent, InquisitorPolymorphEvent>(OnPolymorph);
     }
-
     private void OnPolymorph(EntityUid uid, ForceUserComponent comp, InquisitorPolymorphEvent args)
     {
         if (args.Handled)

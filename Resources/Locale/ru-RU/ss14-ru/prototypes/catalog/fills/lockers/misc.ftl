@@ -1,9 +1,6 @@
 ent-LockerSyndicatePersonalFilled = { ent-LockerSyndicatePersonal }
-    .suffix = Ядерные Оперативники, Заполненный
-    .desc = Персональное хранилище для снаряжения оперативников.
-ent-LockerSyndicateWallFilled = { ent-LockerWallSyndicate }
-    .desc = Персональное хранилище для снаряжения оперативников.
-    .suffix = Ядерные Оперативники, Заполненный
+    .suffix = Заполненный
+    .desc = { ent-LockerSyndicatePersonal.desc }
 ent-ClosetEmergencyFilledRandom = { ent-ClosetEmergency }
     .suffix = Заполненный, Случайный
     .desc = { ent-ClosetEmergency.desc }

@@ -27,6 +27,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
           inverted: true
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -44,6 +45,7 @@
         component: SeeingRainbows
         type: Add
         time: 10
+        refresh: false
       - !type:Emote
         conditions:
         - !type:ReagentCondition
@@ -111,6 +113,7 @@
         - !type:ReagentCondition
           reagent: STHealium
           min: 0.3
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           groups:
@@ -175,6 +178,7 @@
         - !type:ReagentCondition
           reagent: STNitryl
           min: 2
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -254,6 +258,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
+        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:

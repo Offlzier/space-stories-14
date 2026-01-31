@@ -48,10 +48,8 @@ public sealed class PlayTimeReduceOverallCommand : IConsoleCommand
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
-        {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(),
                 Loc.GetString("cmd-playtime_reduceoverall-arg-user"));
-        }
 
         if (args.Length == 2)
             return CompletionResult.FromHint(Loc.GetString("cmd-playtime_reduceoverall-arg-minutes"));
@@ -124,3 +122,4 @@ public sealed class PlayTimeReduceRoleCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
+

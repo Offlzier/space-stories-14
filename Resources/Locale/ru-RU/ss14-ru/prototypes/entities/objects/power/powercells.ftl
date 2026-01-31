@@ -10,7 +10,6 @@ ent-PowerCellSmallPrinted = { ent-PowerCellSmall }
     .desc = { ent-PowerCellSmall.desc }
 ent-PowerCellSmallNuclear = ядерная батарея малой ёмкости
     .desc = Самозаряжаемый элемент питания, разработанный для быстрой зарядки за счёт уменьшения ёмкости.
-    .suffix = { ent-PowerCellSmall.suffix }
 ent-PowerCellMedium = батарея средней ёмкости
     .desc = Перезаряжаемый элемент питания. Популярный и надёжный вариант.
     .suffix = Полный

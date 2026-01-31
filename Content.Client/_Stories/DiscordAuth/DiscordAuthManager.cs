@@ -1,6 +1,8 @@
-﻿using Content.Shared._Stories.DiscordAuth;
+﻿using System.Threading;
+using Content.Shared._Stories.DiscordAuth;
 using Robust.Client.State;
 using Robust.Shared.Network;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._Stories.DiscordAuth;
 

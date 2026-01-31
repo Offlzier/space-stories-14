@@ -1,27 +1,34 @@
-using System.Numerics;
+using Content.Shared.Actions;
+using Content.Shared.Popups;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Throwing;
-using Robust.Shared.Physics.Components;
+using Content.Shared._Stories.Force.Lightsaber;
 using Robust.Shared.Physics.Events;
+using Content.Shared.Weapons.Misc;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Content.Shared._Stories.ForceUser.Actions.Events;
+using Content.Shared._Stories.Force;
+using Content.Shared.Throwing;
+using Content.Shared.Inventory;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
+using System.Numerics;
 
 namespace Content.Shared._Stories.PullTo;
-
-public sealed class PullToSystem : EntitySystem
+public sealed partial class PullToSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<PulledToComponent, StartCollideEvent>(OnEntityEnter);
     }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -51,12 +58,7 @@ public sealed class PullToSystem : EntitySystem
             }
         }
     }
-
-    public void TryPullTo(EntityUid item,
-        EntityUid pulledTo,
-        PulledToOnEnter pulledToOnEnter = PulledToOnEnter.PickUp,
-        string slot = "Pocket",
-        float? duration = null)
+    public void TryPullTo(EntityUid item, EntityUid pulledTo, PulledToOnEnter pulledToOnEnter = PulledToOnEnter.PickUp, string slot = "Pocket", float? duration = null)
     {
         var component = _factory.GetComponent<PulledToComponent>();
         component.PulledTo = pulledTo;
@@ -65,7 +67,6 @@ public sealed class PullToSystem : EntitySystem
         component.Slot = slot;
         AddComp(item, component, true);
     }
-
     private void OnEntityEnter(EntityUid uid, PulledToComponent component, StartCollideEvent args)
     {
         if (args.OtherEntity != component.PulledTo)
@@ -86,10 +87,7 @@ public sealed class PullToSystem : EntitySystem
 
         RemCompDeferred<PulledToComponent>(uid);
     }
-
-    private void RecursivelyUpdatePhysics(EntityUid uid,
-        TransformComponent? xform = null,
-        PhysicsComponent? physics = null)
+    private void RecursivelyUpdatePhysics(EntityUid uid, TransformComponent? xform = null, PhysicsComponent? physics = null)
     {
         if (!Resolve(uid, ref xform, ref physics))
             return;
@@ -101,8 +99,7 @@ public sealed class PullToSystem : EntitySystem
 
         while (children.MoveNext(out var child))
         {
-            if (TryComp<TransformComponent>(child, out var childXform) &&
-                TryComp<PhysicsComponent>(child, out var childPhysics))
+            if (TryComp<TransformComponent>(child, out var childXform) && TryComp<PhysicsComponent>(child, out var childPhysics))
                 RecursivelyUpdatePhysics(child, childXform, childPhysics);
         }
     }

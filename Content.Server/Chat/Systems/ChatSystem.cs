@@ -768,7 +768,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     public string TransformSpeech(EntityUid sender, string message)
     {
         var ev = new TransformSpeechEvent(sender, message);
-        RaiseLocalEvent(sender, ev, true);
+        RaiseLocalEvent(ev);
 
         return ev.Message;
     }

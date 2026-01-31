@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 12/08/2025 00:21:38
-  entityCount: 31169
+  time: 11/04/2025 19:50:52
+  entityCount: 31151
 maps:
 - 1
 grids:
@@ -8810,7 +8810,6 @@ entities:
     - type: BecomesStation
       id: Oasis
     - type: ImplicitRoof
-    - type: ExplosionAirtightGrid
   - uid: 21002
     components:
     - type: MetaData
@@ -10070,7 +10069,6 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ImplicitRoof
-    - type: ExplosionAirtightGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1634
@@ -15513,7 +15511,7 @@ entities:
       pos: -22.5,26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -245515.03
+      secondsUntilStateChange: -245202.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16369,7 +16367,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344343.7
+      secondsUntilStateChange: -344031.53
       state: Opening
   - uid: 6934
     components:
@@ -16381,7 +16379,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344346.3
+      secondsUntilStateChange: -344034.16
       state: Opening
   - uid: 6935
     components:
@@ -16393,7 +16391,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344345.16
+      secondsUntilStateChange: -344033
       state: Opening
   - uid: 6936
     components:
@@ -16404,7 +16402,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344344.38
+      secondsUntilStateChange: -344032.22
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -18088,9 +18086,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -20.5,-30.5
       parent: 2
-    - type: AccessReader
-      accessListsOriginal:
-      - - Engineering
     - type: Fixtures
       fixtures: {}
   - uid: 1689
@@ -18105,16 +18100,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -33.5,-15.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 1949
-    components:
-    - type: MetaData
-      name: Med Hall APC
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,-45.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -42019,6 +42004,11 @@ entities:
     - type: Transform
       pos: -25.5,-44.5
       parent: 2
+  - uid: 1949
+    components:
+    - type: Transform
+      pos: -18.5,-39.5
+      parent: 2
   - uid: 1956
     components:
     - type: Transform
@@ -58179,11 +58169,6 @@ entities:
     - type: Transform
       pos: -31.5,9.5
       parent: 2
-  - uid: 28631
-    components:
-    - type: Transform
-      pos: -18.5,-45.5
-      parent: 2
   - uid: 28752
     components:
     - type: Transform
@@ -72135,46 +72120,6 @@ entities:
     - type: Transform
       pos: -2.5,43.5
       parent: 2
-  - uid: 23739
-    components:
-    - type: Transform
-      pos: -19.5,-32.5
-      parent: 2
-  - uid: 23740
-    components:
-    - type: Transform
-      pos: -20.5,-32.5
-      parent: 2
-  - uid: 23741
-    components:
-    - type: Transform
-      pos: -20.5,-33.5
-      parent: 2
-  - uid: 23742
-    components:
-    - type: Transform
-      pos: -20.5,-34.5
-      parent: 2
-  - uid: 23807
-    components:
-    - type: Transform
-      pos: -20.5,-35.5
-      parent: 2
-  - uid: 23829
-    components:
-    - type: Transform
-      pos: -20.5,-36.5
-      parent: 2
-  - uid: 24120
-    components:
-    - type: Transform
-      pos: -20.5,-37.5
-      parent: 2
-  - uid: 24121
-    components:
-    - type: Transform
-      pos: -20.5,-38.5
-      parent: 2
   - uid: 24170
     components:
     - type: Transform
@@ -72434,51 +72379,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,31.5
-      parent: 2
-  - uid: 28619
-    components:
-    - type: Transform
-      pos: -20.5,-39.5
-      parent: 2
-  - uid: 28621
-    components:
-    - type: Transform
-      pos: -20.5,-40.5
-      parent: 2
-  - uid: 28622
-    components:
-    - type: Transform
-      pos: -20.5,-41.5
-      parent: 2
-  - uid: 28623
-    components:
-    - type: Transform
-      pos: -20.5,-42.5
-      parent: 2
-  - uid: 28624
-    components:
-    - type: Transform
-      pos: -20.5,-43.5
-      parent: 2
-  - uid: 28625
-    components:
-    - type: Transform
-      pos: -20.5,-44.5
-      parent: 2
-  - uid: 28628
-    components:
-    - type: Transform
-      pos: -20.5,-45.5
-      parent: 2
-  - uid: 28629
-    components:
-    - type: Transform
-      pos: -19.5,-45.5
-      parent: 2
-  - uid: 28630
-    components:
-    - type: Transform
-      pos: -18.5,-45.5
       parent: 2
   - uid: 28635
     components:
@@ -84560,8 +84460,8 @@ entities:
       pos: -24.5,-20.5
       parent: 2
     - type: EntityStorage
-      removedMasks: 28
       open: True
+      removedMasks: 28
     - type: Fixtures
       fixtures:
         fix1:
@@ -100361,7 +100261,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -335667.7
+      secondsUntilStateChange: -335355.53
     - type: DeviceNetwork
       deviceLists:
       - 18275
@@ -147316,7 +147216,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -372499.47
+      secondsUntilStateChange: -372187.3
       state: Opening
   - uid: 5211
     components:
@@ -204476,7 +204376,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -717704
+      secondsUntilStateChange: -717391.9
       state: Opening
   - uid: 28863
     components:

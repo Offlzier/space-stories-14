@@ -63,6 +63,8 @@
         restitution: 0.3
         friction: 0.2
   - type: DamageOtherOnHit
+    soundHit:
+      path: /Audio/Weapons/eblade1.ogg
     damage:
       types:
         Blunt: 0

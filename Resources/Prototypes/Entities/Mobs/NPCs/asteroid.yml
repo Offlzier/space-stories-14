@@ -27,7 +27,6 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: MobCollision # Stories-Collision
 
 - type: entity
   id: MobGoliath
@@ -50,10 +49,8 @@
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 350
+    bloodMaxVolume: 350
+    chemicalMaxVolume: 0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -407,10 +404,8 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 200
+    bloodMaxVolume: 200
+    chemicalMaxVolume: 0
   - type: NpcFactionMember
     factions:
     - SimpleHostile

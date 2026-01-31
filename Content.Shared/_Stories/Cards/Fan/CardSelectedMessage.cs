@@ -1,17 +1,17 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Stories.Cards.Fan;
-
-[Serializable] [NetSerializable]
-public sealed class CardSelectedMessage : BoundUserInterfaceMessage
+namespace Content.Shared._Stories.Cards.Fan
 {
-    public readonly NetEntity CardEntity;
-
-    public readonly NetEntity User;
-
-    public CardSelectedMessage(NetEntity cardEntity, NetEntity user)
+    [Serializable, NetSerializable]
+    public sealed class CardSelectedMessage : BoundUserInterfaceMessage
     {
-        CardEntity = cardEntity;
-        User = user;
+        public readonly NetEntity CardEntity;
+
+        public readonly NetEntity User;
+        public CardSelectedMessage(NetEntity cardEntity, NetEntity user)
+        {
+            CardEntity = cardEntity;
+            User = user;
+        }
     }
 }

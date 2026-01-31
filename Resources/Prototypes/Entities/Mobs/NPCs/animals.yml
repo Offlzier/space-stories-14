@@ -50,10 +50,7 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
   - type: ReplacementAccent
     accent: mouse
   - type: MeleeWeapon
@@ -115,7 +112,7 @@
       0: Alive
       10: Dead
   - type: Stamina
-    baseCritThreshold: 10
+    critThreshold: 10
     animationThreshold: 1
   - type: DamageStateVisuals
     states:
@@ -143,10 +140,11 @@
     - Bee
     - Trash
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 0.1
+        Quantity: 1
+    bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
   - type: NPCRetaliation
@@ -192,10 +190,7 @@
     factions:
     - SimpleHostile
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 0.1
+    bloodMaxVolume: 0.1
   - type: ZombieImmune
 
 
@@ -269,10 +264,7 @@
     interactSuccessSound:
       path: /Audio/Animals/chicken_cluck_happy.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 100
+    bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -284,6 +276,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   parent: MobChicken
@@ -399,10 +395,11 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 20
+        Quantity: 1
+    bloodMaxVolume: 20
   - type: Edible
   - type: FlavorProfile
     flavors:
@@ -454,6 +451,10 @@
     damage:
       types:
         Piercing: 0
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   name: glockroach
@@ -565,10 +566,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 20
+        Quantity: 1
   - type: Respirator
     damage:
       types:
@@ -720,10 +721,7 @@
     interactSuccessSound:
       path: /Audio/Animals/duck_quack_happy.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 100
+    bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -735,6 +733,10 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   name: white duck #Quack
@@ -851,10 +853,11 @@
     tags:
     - Trash
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: InsectBlood
-        Quantity: 0.1
+        Quantity: 1
+    bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
   - type: Destructible
@@ -1010,10 +1013,11 @@
   - type: ReplacementAccent
     accent: crab
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodMaxVolume: 50
+    bloodReagents:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 50
+        Quantity: 1
   - type: Tag
     tags:
     - VimPilot
@@ -1170,10 +1174,7 @@
     interactSuccessSound:
       path: /Audio/Animals/goose_honk.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 100
+    bloodMaxVolume: 100
   - type: NpcFactionMember
     factions:
     - Passive
@@ -1215,10 +1216,7 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 300
+    bloodMaxVolume: 300
     # if you fuck with the gorilla he will harambe you
   - type: MeleeWeapon
     soundHit:
@@ -1610,11 +1608,10 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
-  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: 285
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1890,10 +1887,7 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -1916,6 +1910,10 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   parent: MobMouse
@@ -2027,13 +2025,12 @@
     energy: 2
     netsync: false
   - type: RadiationSource
-    intensity: 0.5
-    slope: 0.3
+    intensity: 0.3
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: UnstableMutagen
-        Quantity: 50
+        Quantity: 1
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2099,16 +2096,17 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 150
+    bloodMaxVolume: 150
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
   - type: Tag
     tags:
     - VimPilot
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   name: slug
@@ -2155,10 +2153,11 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   name: frog
@@ -2214,10 +2213,7 @@
     interactSuccessSound:
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
   - type: Tag
     tags:
     - VimPilot
@@ -2230,6 +2226,10 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2308,10 +2308,7 @@
     interactSuccessSound:
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
 
 - type: entity
   parent: MobParrotBase
@@ -2369,11 +2366,10 @@
     factions:
     - Passive
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
-  - type: TemperatureDamage
     heatDamageThreshold: 335
     coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 46
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -2500,13 +2496,14 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 50
+    bloodMaxVolume: 50
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2566,10 +2563,11 @@
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodMaxVolume: 150
+    bloodReagents:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 150
+        Quantity: 1
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
@@ -2714,10 +2712,11 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodReferenceSolution:
+      bloodMaxVolume: 150
+      bloodReagents:
         reagents:
         - ReagentId: Laughter
-          Quantity: 150
+          Quantity: 1
 - type: entity
   name: wizard spider
   parent: MobGiantSpider
@@ -2913,10 +2912,7 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 100
+    bloodMaxVolume: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -3049,22 +3045,21 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: DemonsBlood
-        Quantity: 150
+        Quantity: 1
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
-  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
+    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
+    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
@@ -3260,7 +3255,6 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
-  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
@@ -3577,10 +3571,7 @@
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 60
+    bloodMaxVolume: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice
@@ -3598,6 +3589,10 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  # Stories-Start
+  - type: MobCollision
+    fixtureId: empty
+  # Stories-End
 
 - type: entity
   name: pig
@@ -3698,10 +3693,11 @@
     speciesId: cat
     templateId: pet
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: Sap
-        Quantity: 60
+        Quantity: 1
+    bloodMaxVolume: 60
   - type: DamageStateVisuals
     states:
       Alive:
@@ -3805,10 +3801,7 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 300
+    bloodMaxVolume: 300
     # Horns though
   - type: MeleeWeapon
     damage:

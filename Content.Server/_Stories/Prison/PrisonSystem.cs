@@ -20,30 +20,29 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Stories.Prison;
 
-public sealed class PrisonSystem : EntitySystem
+public sealed partial class PrisonSystem : EntitySystem
 {
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    private readonly ProtoId<JobPrototype> _prisonerJobId = "PRISONPrisoner";
     private const string PacifiedKey = "Pacified";
 
     /// <summary>
     /// Процент сбежавших зеков для их полной победы.
     /// </summary>
     private const float EscapedPrisonersPercent = 0.5f;
-
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    private readonly ProtoId<JobPrototype> _prisonerJobId = "PRISONPrisoner";
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -74,8 +73,8 @@ public sealed class PrisonSystem : EntitySystem
 
             var prisonMapdId = Transform(prisonUid).MapID;
 
-            var roundstartPrisoners = 0;
-            var alivePrisoners = 0;
+            int roundstartPrisoners = 0;
+            int alivePrisoners = 0;
             HashSet<EntityUid> escapedPrisoners = new();
 
 
@@ -140,7 +139,7 @@ public sealed class PrisonSystem : EntitySystem
         var prototype = _prototypeManager.Index(component.GameMap);
 
         _map.CreateMap(out var mapId, false);
-        _gameTicker.LoadGameMap(prototype, out mapId);
+        _gameTicker.LoadGameMap(prototype, out mapId, null);
 
         var prison = _station.GetStationInMap(mapId);
 

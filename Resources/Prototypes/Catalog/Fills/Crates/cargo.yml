@@ -121,10 +121,13 @@
     - id: WeaponShotgunHandmade
     - id: WeaponFlareGun
     - id: Bola
+    - id: ToySword
     - id: Shovel
+    - id: WeaponWaterPistol
+    - id: WeaponWaterBlaster
     - id: WeaponTurretXeno
-    - !type:NestedSelector
-      tableId: AllToyWeaponsTable
+    - id: WeaponRifleFoam
+      weight: 3
 
 - type: entityTable
   id: LotteryClothingEntityTable

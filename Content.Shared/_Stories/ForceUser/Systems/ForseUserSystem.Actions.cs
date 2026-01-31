@@ -1,10 +1,17 @@
-using Content.Shared._Stories.Force;
-using Content.Shared._Stories.ForceUser.Actions.Events;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared._Stories.Force.Lightsaber;
+using Robust.Shared.Physics.Events;
+using Content.Shared.Weapons.Misc;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Content.Shared._Stories.ForceUser.Actions.Events;
+using Content.Shared._Stories.Force;
 
 namespace Content.Shared._Stories.ForceUser;
-
 public abstract partial class SharedForceUserSystem
 {
     private void InitializeActions()
@@ -21,8 +28,7 @@ public abstract partial class SharedForceUserSystem
 
         if (args is BaseActionEvent @event)
             argsBaseAction = @event;
-        else
-            return;
+        else return;
 
         if (args.BaseEvent is InstantActionEvent instant && args is InstantForceUserActionEvent argsInstant)
         {
@@ -30,18 +36,14 @@ public abstract partial class SharedForceUserSystem
             instant.Performer = argsInstant.Performer;
             eventToRaise = instant;
         }
-
-        if (args.BaseEvent is EntityTargetActionEvent entityTarget &&
-            args is EntityTargetForceUserActionEvent argsEntityTarget)
+        if (args.BaseEvent is EntityTargetActionEvent entityTarget && args is EntityTargetForceUserActionEvent argsEntityTarget)
         {
             entityTarget.Handled = false;
             entityTarget.Performer = argsEntityTarget.Performer;
             entityTarget.Target = argsEntityTarget.Target;
             eventToRaise = entityTarget;
         }
-
-        if (args.BaseEvent is WorldTargetActionEvent worldTarget &&
-            args is WorldTargetForceUserActionEvent argsWorldTarget)
+        if (args.BaseEvent is WorldTargetActionEvent worldTarget && args is WorldTargetForceUserActionEvent argsWorldTarget)
         {
             worldTarget.Handled = false;
             worldTarget.Performer = argsWorldTarget.Performer;
@@ -63,7 +65,6 @@ public abstract partial class SharedForceUserSystem
             _popup.PopupEntity("Недостаточно сил!", uid, uid, PopupType.SmallCaution);
             return;
         }
-
         RaiseLocalEvent(eventToRaise.Performer, (object)eventToRaise, true);
 
         argsBaseAction.Handled = true;

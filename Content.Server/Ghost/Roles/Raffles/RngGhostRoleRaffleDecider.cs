@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using Content.Server._Stories.Partners;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
@@ -15,36 +14,14 @@ public sealed partial class RngGhostRoleRaffleDecider : IGhostRoleRaffleDecider
     public void PickWinner(IEnumerable<ICommonSession> candidates, Func<ICommonSession, bool> tryTakeover)
     {
         var random = IoCManager.Resolve<IRobustRandom>();
-        var partners = IoCManager.Resolve<PartnersManager>(); // Stories-Sponsors
 
         var choices = candidates.ToList();
+        random.Shuffle(choices); // shuffle the list so we can pick a lucky winner!
 
-        // Stories-Sponsors-Start
-        while (choices.Count > 0)
+        foreach (var candidate in choices)
         {
-            var totalWeight = choices.Sum(s => partners.TryGetInfo(s.UserId, out var info) ? info.GhostRolePriority : 1f);
-            var r = random.NextFloat() * totalWeight;
-            ICommonSession? winner = null;
-
-            for (var i = 0; i < choices.Count; i++)
-            {
-                var p = choices[i];
-                var weight = partners.TryGetInfo(p.UserId, out var info) ? info.GhostRolePriority : 1f;
-                r -= weight;
-                if (r <= 0)
-                {
-                    winner = p;
-                    break;
-                }
-            }
-
-            winner ??= choices[^1];
-            
-            if (tryTakeover(winner))
+            if (tryTakeover(candidate))
                 return;
-            
-            choices.Remove(winner);
         }
-        // Stories-Sponsors-End
     }
 }

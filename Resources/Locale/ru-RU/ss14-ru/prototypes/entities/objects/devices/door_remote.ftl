@@ -1,7 +1,5 @@
 ent-DoorRemoteDefault = пульт от шлюзов
     .desc = Гаджет, позволяющий дистанционно открывать и закрывать шлюзы.
-ent-DoorRemoteCanEletrifyDoors = { ent-DoorRemoteDefault }
-    .desc = { ent-DoorRemoteDefault.desc }
 ent-DoorRemoteCommand = пульт от шлюзов командования
     .desc = { ent-DoorRemoteDefault.desc }
 ent-DoorRemoteCustom = настраиваемый пульт от шлюзов
@@ -24,4 +22,4 @@ ent-DoorRemoteAll = супер-пульт от шлюзов
     .suffix = Адмемы
     .desc = { ent-DoorRemoteDefault.desc }
 ent-DoorRemoteXenoborg = пульт от шлюзов ксеноборгов
-    .desc = { ent-DoorRemoteCanEletrifyDoors.desc }
+    .desc = { ent-DoorRemoteDefault.desc }

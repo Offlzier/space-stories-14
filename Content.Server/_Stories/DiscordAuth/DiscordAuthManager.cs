@@ -3,8 +3,8 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared._Stories.DiscordAuth;
 using Content.Shared._Stories.SCCVars;
+using Content.Shared._Stories.DiscordAuth;
 using JetBrains.Annotations;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -17,22 +17,22 @@ namespace Content.Server._Stories.DiscordAuth;
 // TODO: Add minimal Discord account age check for panic bunker by extracting timestamp from snowflake received from API secured with key
 
 /// <summary>
-/// Manage Discord linking with SS14 account through external API
+///     Manage Discord linking with SS14 account through external API
 /// </summary>
 public sealed class DiscordAuthManager
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    private readonly HttpClient _httpClient = new();
     [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IPlayerManager _playerMgr = default!;
-    private string _apiKey = string.Empty;
-    private string _apiUrl = string.Empty;
-    private bool _isEnabled;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private ISawmill _sawmill = default!;
+    private readonly HttpClient _httpClient = new();
+    private bool _isEnabled = false;
+    private string _apiUrl = string.Empty;
+    private string _apiKey = string.Empty;
 
     /// <summary>
-    /// Raised when player passed verification or if feature disabled
+    ///     Raised when player passed verification or if feature disabled
     /// </summary>
     public event EventHandler<ICommonSession>? PlayerVerified;
 
@@ -54,7 +54,9 @@ public sealed class DiscordAuthManager
     {
         var isVerified = await IsVerified(message.MsgChannel.UserId);
         if (isVerified && _playerMgr.TryGetSessionById(message.MsgChannel.UserId, out var session))
+        {
             PlayerVerified?.Invoke(this, session);
+        }
     }
 
     private async void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -78,7 +80,7 @@ public sealed class DiscordAuthManager
             }
 
             var authUrl = await GenerateAuthLink(e.Session.UserId);
-            var msg = new MsgDiscordAuthRequired { AuthUrl = authUrl };
+            var msg = new MsgDiscordAuthRequired() { AuthUrl = authUrl };
             e.Session.Channel.SendMessage(msg);
         }
     }
@@ -92,11 +94,10 @@ public sealed class DiscordAuthManager
         if (!response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            throw new Exception(
-                $"Verification API returned bad status code: {response.StatusCode}\nResponse: {content}");
+            throw new Exception($"Verification API returned bad status code: {response.StatusCode}\nResponse: {content}");
         }
 
-        var data = await response.Content.ReadFromJsonAsync<DiscordGenerateLinkResponse>(cancel);
+        var data = await response.Content.ReadFromJsonAsync<DiscordGenerateLinkResponse>(cancellationToken: cancel);
         return data!.Url;
     }
 
@@ -109,17 +110,15 @@ public sealed class DiscordAuthManager
         if (!response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
-            throw new Exception(
-                $"Verification API returned bad status code: {response.StatusCode}\nResponse: {content}");
+            throw new Exception($"Verification API returned bad status code: {response.StatusCode}\nResponse: {content}");
         }
 
-        var data = await response.Content.ReadFromJsonAsync<DiscordAuthInfoResponse>(cancel);
+        var data = await response.Content.ReadFromJsonAsync<DiscordAuthInfoResponse>(cancellationToken: cancel);
         return data!.IsLinked;
     }
 
     [UsedImplicitly]
     private sealed record DiscordGenerateLinkResponse(string Url);
-
     [UsedImplicitly]
     private sealed record DiscordAuthInfoResponse(bool IsLinked);
 }

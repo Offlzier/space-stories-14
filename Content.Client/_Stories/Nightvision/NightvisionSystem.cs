@@ -1,16 +1,16 @@
-using Content.Shared._Stories.Nightvision;
-using Content.Shared.GameTicking;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Content.Shared._Stories.Nightvision;
+using Content.Shared.GameTicking;
 using Robust.Shared.Player;
 
 namespace Content.Client._Stories.Nightvision;
 
 public sealed class NightvisionSystem : EntitySystem
 {
-    [Dependency] private readonly ILightManager _lightManager = default!;
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] ILightManager _lightManager = default!;
     private NightvisionOverlay _overlay = default!;
 
     public override void Initialize()
@@ -25,9 +25,8 @@ public sealed class NightvisionSystem : EntitySystem
 
         SubscribeNetworkEvent<RoundRestartCleanupEvent>(RoundRestartCleanup);
 
-        _overlay = new NightvisionOverlay();
+        _overlay = new();
     }
-
     private void OnPlayerAttached(EntityUid uid, NightvisionComponent component, LocalPlayerAttachedEvent args)
     {
         _overlayMan.AddOverlay(_overlay);

@@ -7,12 +7,15 @@ namespace Content.Server._Stories.PolymorphClimbers;
 [RegisterComponent]
 public sealed partial class PolymorphClimbersComponent : Component
 {
-    [DataField]
-    public EntityWhitelist? Blacklist;
 
     [DataField(required: true)]
     public ProtoId<PolymorphPrototype> Polymorph;
 
     [DataField]
-    public EntityWhitelist? Whitelist;
+    public EntityWhitelist? Whitelist = null;
+
+    [DataField]
+    public EntityWhitelist? Blacklist = null;
+
+
 }

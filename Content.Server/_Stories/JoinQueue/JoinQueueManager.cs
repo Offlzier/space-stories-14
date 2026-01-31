@@ -1,21 +1,21 @@
 ﻿using System.Linq;
-using Content.Server._Stories.DiscordAuth;
 using Content.Server.Connection;
-using Content.Shared._Stories.JoinQueue;
-using Content.Shared._Stories.SCCVars;
+using Content.Server._Stories.DiscordAuth;
 using Content.Shared.CCVar;
+using Content.Shared._Stories.SCCVars;
+using Content.Shared._Stories.JoinQueue;
 using Prometheus;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Server._Stories.JoinQueue;
 
 /// <summary>
-/// Manages new player connections when the server is full and queues them up, granting access when a slot becomes free
+///     Manages new player connections when the server is full and queues them up, granting access when a slot becomes free
 /// </summary>
 public sealed class JoinQueueManager
 {
@@ -30,31 +30,27 @@ public sealed class JoinQueueManager
     private static readonly Histogram QueueTimings = Metrics.CreateHistogram(
         "join_queue_timings",
         "Timings of players in queue",
-        new HistogramConfiguration
+        new HistogramConfiguration()
         {
             LabelNames = new[] { "type" },
             Buckets = Histogram.ExponentialBuckets(1, 2, 14),
         });
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
-    [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IConnectionManager _connectionManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IServerNetManager _netManager = default!;
+    [Dependency] private readonly DiscordAuthManager _discordAuthManager = default!;
 
     /// <summary>
-    /// Queue of active player sessions
+    ///     Queue of active player sessions
     /// </summary>
     private readonly List<ICommonSession> _queue = new(); // Real Queue class can't delete disconnected users
 
-    private bool _isEnabled;
+    private bool _isEnabled = false;
 
     public int PlayerInQueueCount => _queue.Count;
-
-    public int ActualPlayersCount =>
-        _playerManager.PlayerCount -
-        PlayerInQueueCount; // Now it's only real value with actual players count that in game
+    public int ActualPlayersCount => _playerManager.PlayerCount - PlayerInQueueCount; // Now it's only real value with actual players count that in game
 
     public void Initialize()
     {
@@ -87,9 +83,7 @@ public sealed class JoinQueueManager
         }
 
         var isPrivileged = await _connectionManager.HavePrivilegedJoin(session.UserId);
-        var currentOnline =
-            _playerManager.PlayerCount -
-            1; // Do not count current session in general online, because we are still deciding her fate
+        var currentOnline = _playerManager.PlayerCount - 1; // Do not count current session in general online, because we are still deciding her fate
         var haveFreeSlot = currentOnline < _cfg.GetCVar(CCVars.SoftMaxPlayers);
         if (isPrivileged || haveFreeSlot)
         {
@@ -111,9 +105,7 @@ public sealed class JoinQueueManager
         {
             var wasInQueue = _queue.Remove(e.Session);
 
-            if (!wasInQueue &&
-                e.OldStatus !=
-                SessionStatus.InGame) // Process queue only if player disconnected from InGame or from queue
+            if (!wasInQueue && e.OldStatus != SessionStatus.InGame) // Process queue only if player disconnected from InGame or from queue
                 return;
 
             ProcessQueue(true, e.Session.ConnectedTime);
@@ -124,7 +116,7 @@ public sealed class JoinQueueManager
     }
 
     /// <summary>
-    /// If possible, takes the first player in the queue and sends him into the game
+    ///     If possible, takes the first player in the queue and sends him into the game
     /// </summary>
     /// <param name="isDisconnect">Is method called on disconnect event</param>
     /// <param name="connectedTime">Session connected time for histogram metrics</param>
@@ -151,23 +143,22 @@ public sealed class JoinQueueManager
     }
 
     /// <summary>
-    /// Sends messages to all players in the queue with the current state of the queue
+    ///     Sends messages to all players in the queue with the current state of the queue
     /// </summary>
     private void SendUpdateMessages()
     {
         for (var i = 0; i < _queue.Count; i++)
         {
-            _queue[i]
-                .Channel.SendMessage(new MsgQueueUpdate
-                {
-                    Total = _queue.Count,
-                    Position = i + 1,
-                });
+            _queue[i].Channel.SendMessage(new MsgQueueUpdate
+            {
+                Total = _queue.Count,
+                Position = i + 1,
+            });
         }
     }
 
     /// <summary>
-    /// Letting player's session into game, change player state
+    ///     Letting player's session into game, change player state
     /// </summary>
     /// <param name="s">Player session that will be sent to game</param>
     private void SendToGame(ICommonSession s)

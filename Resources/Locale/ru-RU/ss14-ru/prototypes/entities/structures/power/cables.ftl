@@ -1,4 +1,4 @@
-ent-CablePhysBase = { "" }
+﻿ent-CablePhysBase = { "" }
     .desc = { "" }
 ent-CableBase = { "" }
     .desc = { "" }

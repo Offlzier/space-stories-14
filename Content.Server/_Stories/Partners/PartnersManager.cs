@@ -5,14 +5,14 @@ using Robust.Shared.Network;
 
 namespace Content.Server._Stories.Partners;
 
-public sealed class PartnersManager
+public sealed partial class PartnersManager
 {
+    [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IPartnersApiClient _apiClient = default!;
 
-    private readonly Dictionary<NetUserId, SponsorInfo> _cachedSponsors = new();
-    [Dependency] private readonly IServerNetManager _netMgr = default!;
-
     private ISawmill _sawmill = default!;
+
+    private readonly Dictionary<NetUserId, SponsorInfo> _cachedSponsors = new();
 
     public void Initialize()
     {
@@ -47,7 +47,7 @@ public sealed class PartnersManager
     private void OnConnected(object? sender, NetChannelArgs e)
     {
         var info = _cachedSponsors.TryGetValue(e.Channel.UserId, out var sponsor) ? sponsor : null;
-        var msg = new MsgSponsorInfo { Info = info };
+        var msg = new MsgSponsorInfo() { Info = info };
         _netMgr.ServerSendMessage(msg, e.Channel);
     }
 
@@ -63,5 +63,23 @@ public sealed class PartnersManager
             _sawmill.Warning($"Не удалось загрузить спонсорскую информацию для пользователя {session} от API.");
 
         return sponsorInfo;
+    }
+
+    public async Task<bool> DeductToken(NetUserId userId)
+    {
+        var result = await _apiClient.DeductTokenAsync(userId);
+        if (result)
+        {
+            _sawmill.Debug($"Токен успешно списан для пользователя {userId}.");
+            if (_cachedSponsors.TryGetValue(userId, out var sponsor))
+                sponsor.Tokens--;
+            else
+                _sawmill.Warning($"Не удалось найти SponsorInfo в кэше для пользователя {userId} при списании токена, кэш не обновлен.");
+        }
+        else
+        {
+            _sawmill.Warning($"Не удалось списать токен для пользователя {userId} через API.");
+        }
+        return result;
     }
 }

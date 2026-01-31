@@ -1,8 +1,3 @@
-ent-WeaponHitscanDebug = bang hitscan 1dmg
-    .desc = pew pew!
-    .suffix = DEBUG
-ent-WeaponHitscanDebugGib = bang hitscan gibber
-    .desc = { ent-WeaponHitscanDebug.desc }
 ent-WeaponPistolDebug = bang, ded
     .desc = ded
     .suffix = DEBUG

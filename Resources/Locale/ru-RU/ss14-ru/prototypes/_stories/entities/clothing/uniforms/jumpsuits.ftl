@@ -14,7 +14,3 @@ ent-ClothingUniformJumpsuitDetectiveSpecialGrey = поношенный кост�
     .desc = Тот, кто носит это, олицетворяет занятость.
 ent-STClothingUniformJumpsuitScientistSweater = костюм ученого со свитером
     .desc = Супермодный свитер и очки плюс семь,Молодой повелитель интегральных схем, Аспирант нашей кафедры всем заявляет смело: "Сексуальное тело - это твёрдое тело!"
-ent-STClothingUniformJumpsuitProsecutorBlack = поношенный костюм
-    .desc = Тот, кто носит это, олицетворяет занятость.
-ent-STClothingUniformJumpsuitProsecutorBlue = поношенный костюм
-    .desc = Тот, кто носит это, олицетворяет занятость.

@@ -50,8 +50,7 @@
           FoodMeatChickenFriedVox:
             min: 3
             max: 5
-      - !type:BurnBodyBehavior
-        popupMessage: bodyburn-vox-text-others
+      - !type:BurnBodyBehavior { }
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
@@ -90,10 +89,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReferenceSolution:
+    bloodReagents:
       reagents:
       - ReagentId: AmmoniaBlood
-        Quantity: 300
+        Quantity: 1
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw

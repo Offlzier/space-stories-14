@@ -28,6 +28,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            Zookeeper: [ 1, 1 ]
             Reporter: [ 2, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -61,6 +62,7 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Boxer: [ 1, 2 ]
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
@@ -68,4 +70,3 @@
             GuardianNt: [ 1, 1 ]
             IAA: [ 1, 1 ]
             STBrigmedic: [ 1, 1 ]
-            STJudge: [ 1, 1 ]

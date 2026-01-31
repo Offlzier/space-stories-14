@@ -4,10 +4,11 @@ using Content.Shared.Whitelist;
 
 namespace Content.Server._Stories.PolymorphClimbers;
 
-public sealed class PolymorphClimbersSystem : EntitySystem
+public sealed partial class PolymorphClimbersSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
+
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
 
     public override void Initialize()
     {

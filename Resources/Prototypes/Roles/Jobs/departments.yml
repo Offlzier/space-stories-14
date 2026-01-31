@@ -17,6 +17,7 @@
   roles:
   - Bartender
   - Botanist
+  - Boxer
   - Chaplain
   - Chef
   - Clown
@@ -29,6 +30,7 @@
   - Passenger
   - Reporter
   - Visitor
+  - Zookeeper
   - ServiceWorker
   - STPartyMaker # Stories-Event-Restricted-Jobs
 
@@ -142,6 +144,8 @@
   color: "#9FED58"
   weight: 10
   roles:
+  - Boxer
   - Reporter
+  - Zookeeper
   - Psychologist
   primary: false

@@ -31,7 +31,6 @@
     tags:
     - DoorBumpOpener
     - StunImmune
-  - type: Blindable
   - type: Input # Stories-CrawlingFix
     context: "common"
 
@@ -67,7 +66,6 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
-  - type: MobCollision # Stories-Collision
 
 - type: entity
   parent:
@@ -99,14 +97,12 @@
     - Electrocution
     - TemporaryBlindness
     - Pacified
+    - StaminaModifier
     - Flashed
     - RadiationProtection
     - Adrenaline
   - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 150
+    bloodMaxVolume: 150
   - type: MobPrice
     price: 150
   - type: FloatingVisuals

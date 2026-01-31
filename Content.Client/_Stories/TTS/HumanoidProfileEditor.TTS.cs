@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Client._Stories.TTS;
+using Content.Client.Lobby;
 using Content.Shared._Stories.TTS;
 using Content.Shared.Preferences;
 
@@ -50,7 +51,9 @@ public sealed partial class HumanoidProfileEditor
         var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Voice);
         if (!VoiceButton.TrySelectId(voiceChoiceId) &&
             VoiceButton.TrySelectId(firstVoiceChoiceId))
+        {
             SetVoice(_voiceList[firstVoiceChoiceId].ID);
+        }
     }
 
     private void PlayPreviewTTS()

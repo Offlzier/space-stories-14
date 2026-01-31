@@ -52,7 +52,6 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
-  - type: MobCollision # Stories-Collision
 
 # Used for bots
 - type: entity
@@ -85,7 +84,7 @@
     baseWalkSpeed : 3
     baseSprintSpeed : 4
   - type: Stamina
-    baseCritThreshold: 120
+    critThreshold: 120
   - type: Destructible
     thresholds:
     - trigger:
