@@ -3,11 +3,11 @@
 
   Каждый раунд SS14 представляет собой [bold]отдельную смену[/bold], которая выполняется на одной из множества различных станций.
 
-  Раунды обычно длятся от [color=cyan]45 до 90 минут[/color], но игроки могут покинуть игру и присоединиться к ней в любой момент во время раунда.
+  Раунды обычно длятся от [color=cyan]90 до 120 минут[/color], но игроки могут покинуть игру и присоединиться к ней в любой момент во время раунда.
 
-## Shuttle Terminal
-If you join in the middle of a shift, you will likely spawn on the [color=lime]shuttle terminal[/color].
-Here you can grab drinks, converse with other players, and wait for the shuttle to take you to the station.
+## Терминал
+Если вы присоединитесь к игре в середине смены, то, скорее всего, появитесь на [color=lime]терминале[/color].
+Здесь вы можете купить напитки, пообщаться с другими игроками и дождаться шаттла, который доставит вас на станцию.
 
   На стенах есть мониторы, на которых указано время прибытия шаттла.
   Следите за тем, чтобы оставаться внутри шаттла-терминала и не стоять в зоне посадки шаттла. [color=#EB2D3A][bold]Вас могут раздавить прилетающие шаттлы.[/bold][/color]
@@ -36,8 +36,8 @@ Here you can grab drinks, converse with other players, and wait for the shuttle 
     <GuideEntityEmbed Entity="CryogenicSleepUnit"/>
   </Box>
 
-If you need to leave a round early, you can do so through a [color=lime]cryogenic sleep unit[/color].
-Simply going inside and leaving the game will store your belongings and ensure that they are not stolen or misused.
+Если вам нужно досрочно покинуть раунд, вы можете сделать это с помощью [color=lime]капсулы криосна[/color].
+Просто зайдя в игру и выйдя из неё, вы сохраните свои вещи и убедитесь, что они не были украдены или использованы не по назначению.
 
   ## Дополнительная информация
   Изучаете элементы управления? [textlink="Нажмите сюда, Элементы управления" link="Controls"]

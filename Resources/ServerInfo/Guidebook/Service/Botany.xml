@@ -8,20 +8,17 @@
   # Инструменты
   Существует множество инструментов, которые можно использовать для поддержания здоровья и роста ваших культур. Гидропонный лоток - это место, где вы будете проводить большую часть своего времени в качестве ботаника.
 
-# Tools
-There are many tools that can be used to keep your crops healthy and growing. The Hydroponics Tray is where you will spend most of your time as a botanist.
-
-## Hydroponics Tray
+## Гидропонный лоток
 <Box>
 <GuideEntityEmbed Entity="hydroponicsTray"/>
 </Box>
-It's a hydroponics tray, it grows plants with water. First fill the tray with water, then add seeds.
-Hydroponics tray lights indicate different things depending on color and position:
-- [color=red]Red Light, Left[/color]: Dead plant that needs re-planting. Use a spade to remove the plant.
-- [color=orange]Flashing Orange Light, Center[/color]: The environment is sub-optimal. Check what is affecting the plant by Shift Clicking on it. It is likely weeds but it could be undesirable pressure or lack of oxygen. If weeds, use a mini hoe or spray 1 time with weed spray. Be warned, however, that overuse of weed killers can lead to unhealthy plants, possibly killing them.
-- [color=#0336ff]Blue Light, Right[/color]: Needs water. Use bucket on the water tank and fill the tray.
-- [color=green]Green Light, Left[/color]: Ready for harvest. Left click to harvest.
-- [color=yellow]Yellow Light, Right[/color]: Needs nutrients. Use any fruit and put it into the soil or get EZ nutrients from chemistry.
+  Это лоток для гидропоники, в нем выращивают растения с помощью воды. Сначала наполните лоток водой, затем добавьте семена.
+  Подсветка лотков для гидропоники отображает разные вещи в зависимости от цвета и положения:
+  - [color=green]Зелёная, первая[/color]: Готово к сбору урожая. Щелкните левой кнопкой мыши для сбора урожая.
+  - [color=red]Красная, вторая[/color]: Засохшее растение, нуждающееся в пересадке. Удалите растение лопатой. 
+  - [color=orange]Оранжевая, третья[/color]: Условия окружающей среды неоптимальны. Проверьте, что влияет на растение, [color=yellow][bold][keybind="ExamineEntity"][/bold][/color]. Скорее всего, это сорняки, но это также может быть нежелательное давление или недостаток кислорода. Если это сорняки, используйте тяпку или опрыскайте растение один раз гербицидом. Однако имейте в виду, что чрезмерное использование гербицидов может привести к ухудшению состояния растений, возможно, даже к их гибели.
+  - [color=yellow]Жёлтая, четвёртая[/color]: Нуждается в питательных веществах. Используйте любые фрукты и удобрите почву или получите необходимые питательные вещества с помощью химических реагентов.
+  - [color=#0336ff]Синяя, пятая[/color]: Требуется вода. Наберите пустое ведро с помощью водяного резервуара и наполните лоток.
 
   Жизненный цикл гидропонного лотка выглядит следующим образом:
   - [color=lightgreen]Пусто[/color]: без воды, семян и питательных веществ.

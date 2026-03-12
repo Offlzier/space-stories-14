@@ -9,14 +9,23 @@
   <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
   <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
   </Box>
+
   <Box>
   <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
   <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
   <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
   </Box>
+
   <Box>
-    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vulpkanin"/>
+	<GuideEntityEmbed Entity="MobFelinid" Caption="Фелинид"/>
+	<GuideEntityEmbed Entity="MobAvali" Caption="Авали"/>
+	<GuideEntityEmbed Entity="MobRodentia" Caption="Родентия"/>
+	<GuideEntityEmbed Entity="MobKidan" Caption="Кидан"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
   </Box>
 
 </Document>

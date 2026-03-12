@@ -1,16 +1,16 @@
 <Document>
-  # Vulpkanin
+  # Вульпканин
 
   <Box>
     <GuideEntityEmbed Entity="MobVulpkanin" Caption=""/>
   </Box>
 
-  Vulpkanin, due to their dense fur, [color=#1e90ff]prefer colder temperatures[/color] and [color=#ffa500]heat up faster.[/color]
-  Their agile (but clumsy) legs allow them to leap short distances, be careful not to bump into anything!
+  Вульпканины, благодаря густой шерсти, [color=#1e90ff]предпочитают более низкие температуры[/color] и [color=#ffa500]быстрее нагреваются.[/color]
+  Их ловкие (но неуклюжие) ноги позволяют им совершать прыжки на короткие расстояния, будьте осторожны, чтобы ни во что не врезаться!
 
-  Their diet allows them to safely eat raw meat but they get poisoned by theobromine.
+  Их рацион позволяет им безопасно употреблять в пищу сырое мясо, но они отравляются теобромином.
 
-  Their weirdly shaped muzzle leads to difficulties drinking, making them sometimes spill small amounts of whatever they drank onto the ground.
+  Из-за необычной формы морды им трудно пить, и иногда они проливают небольшое количество выпитого на землю.
 
-  They take [color=#1e90ff]15% less Cold damage[/color] but [color=#ffa500]15% more Heat damage.[/color].
+  Они получают на [color=#1e90ff]15% меньше урона от холода[/color], но [color=#ffa500]15% больше урона от жары[/color].
 </Document>

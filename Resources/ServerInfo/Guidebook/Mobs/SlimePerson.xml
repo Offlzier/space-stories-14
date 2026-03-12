@@ -1,24 +1,24 @@
 <Document>
-  # Slime People
+  # Слаймолюд
 
   <Box>
     <GuideEntityEmbed Entity="MobSlimePerson" Caption=""/>
   </Box>
 
-  They breathe nitrogen instead of oxygen, which is abundant in the station air, but harder to find compressed into gas tanks. They take significant damage if they are sprayed or splashed with water, but can
-  (and like other species, need to) drink it safely to stay hydrated.
-  They exhale nitrous oxide and are unaffected by it.
-  Their body can process 6 reagents at the same time instead of just 2.
+  Вместо кислорода, который в изобилии содержится в воздухе станции, они дышат азотом, но его сложнее найти в сжатом виде в газовых баллонах.
+  Они получают значительные повреждения, если их обрызгивают водой, но могут (и, как и другие виды, нуждаются в этом) безопасно пить её, чтобы поддерживать водный баланс.
+  Они выдыхают оксид азота и не испытывают на неё никакого воздействия.
+  Их организм способен перерабатывать 6 реагентов одновременно, а не только 2.
 
-  Slimepeople have an [bold]internal 2x3 storage inventory[/bold] inside of their slime membrane. Anyone can see what's inside and take it out of you without asking,
-  so be careful.
+  Внутри слизистой оболочки слизнеобразных существ находится [bold]internal внутренний инвентарь размером 2x3[/bold] внутри их слизистой оболочки. Любой может увидеть, что находится внутри, и извлечь это из вас без спроса.
+  Поэтому будьте осторожны.
 
-  Slimepeople have roughly [color=#1e90ff]double[/color] regeneration compared to other humanoids and can regenerate from far greater wounds up to [color=#1e90ff]triple[/color] compared to others.
+  Слаймолюди обладают примерно [color=#1e90ff]в два раза большей[/color] регенерацией по сравнению с другими гуманоидами и способны восстанавливаться после гораздо более серьёзных ран, [color=#1e90ff]в три раза[/color] превышающих показатели других.
 
-  Their slime "blood" can not be regenerated from Iron. Slime Blood is technically a source of
-  moderately filling food for other species, although drinking the blood of your coworkers is usually frowned upon.
-  They suffocate 80% slower, but take pressure damage 9% faster. This makes them by far the species most capable to survive in hard vacuum. For a while.
+  Их слизистая "кровь" не может быть регенерирована из железа. Слизевая кровь технически является источником
+  Это умеренно сытная пища для других видов, хотя пить кровь своих сородичей обычно не одобряется.
+  Они задыхаются на 80% медленнее, но получают повреждения от перепадов давления на 9% быстрее. Это делает их, безусловно, наиболее способным видом выживать в условиях жесткого вакуума. На некоторое время.
 
-  They take [color=#1e90ff]40% less Blunt damage[/color], but [color=#ffa500]50% more Cold damage, 20% more Slash damage and 20% more Piercing damage[/color].
+  Они получают на [color=#1e90ff]40% меньше урона от дробящего урона[/color], но на [color=#ffa500]50% больше урона от холода, 20%больше урона от рубящего урона и на 20% больше урона от колющего урона.[/color].
 
 </Document>
