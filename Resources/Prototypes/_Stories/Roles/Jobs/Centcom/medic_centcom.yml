@@ -14,7 +14,7 @@
   - Maintenance
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplant, RadioImplantCentcomm ]
 
 - type: startingGear
   id: STMedicCentcomGear

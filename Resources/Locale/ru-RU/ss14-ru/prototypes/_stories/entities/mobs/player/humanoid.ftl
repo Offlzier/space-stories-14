@@ -25,3 +25,7 @@ ent-STRandomHumanoidSpawnerEngineerCentcom = Инженер Центком
 ent-STRandomHumanoidSpawnerWorkerCentcom = Работник Центком
     .suffix = Рцк
     .desc = { "" }
+
+ent-STRandomHumanoidSpawnerSpecialOfficer = Офицер Спецопераций
+    .suffix = ОСО
+    .desc = { "" }

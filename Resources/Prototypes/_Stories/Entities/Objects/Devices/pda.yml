@@ -1,30 +1,5 @@
 - type: entity
   parent: BaseSecurityPDA
-  id: GuardianNtPDA
-  name: КПК стража клинка
-  description: Красный значит мощный. На нём имеются царапины от светового меча.
-  components:
-  - type: Tag
-    tags:
-      - ForceRecallEquipment
-      - WhitelistChameleon
-      - WhitelistChameleonPDA
-  - type: Pda
-    id: GuardianNtIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-ert
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#447987"
-    accentVColor: "#447987"
-  - type: Icon
-    state: pda-ert
-
-- type: entity
-  parent: BaseSecurityPDA
   id: IAAPDA
   name: КПК агента внутрених дел
   description: Корпорация и прибыль - лучшие друзья.
@@ -175,6 +150,7 @@
   id: STChiefCentcomPDA
   name: PDA of the head of the centcom
   description: Light green sign of walking bureaucracy.
+  suffix: CCCC
   components:
   - type: Pda
     id: STChiefCentcomIDCard
@@ -216,6 +192,7 @@
   id: STOperatorCentcomPDA
   name: PDA of the Centcom operator
   description: Light green sign of walking bureaucracy.
+  suffix: OCC
   components:
   - type: Pda
     id: STOperatorCentcomIDCard
@@ -236,6 +213,7 @@
   id: STRepresentativeCentcomPDA
   name: PDA representative of the Central Committee
   description: Light green sign of walking bureaucracy.
+  suffix: RCC
   components:
   - type: Pda
     id: STRepresentativeCentcomIDCard
@@ -245,6 +223,7 @@
   id: STHeadOfSecurityCentcomPDA
   name: PDA of the head of security of the Central Committee
   description: Green means powerful.
+  suffix: HSCC
   components:
   - type: Pda
     id: STHeadOfSecurityCentcomIDCard
@@ -254,6 +233,7 @@
   id: STMagistratePDA
   name: Magistrate's PDA
   description: Light green sign of walking bureaucracy.
+  suffix: Magistrate
   components:
   - type: Pda
     id: STMagistrateIDCard
@@ -263,6 +243,7 @@
   id: STSecurityOfficerCentcomPDA
   name: PDA of the Central Security Officer
   description: Whosoever bears this PDA is the law.
+  suffix: SOCC
   components:
   - type: Appearance
     appearanceDataInit:
@@ -286,6 +267,7 @@
   id: STMedicCentcomPDA
   name: PDA medical centcom
   description: Shiny and sterile.
+  suffix: MCC
   components:
   - type: Pda
     id: STMedicCentcomIDCard
@@ -309,6 +291,7 @@
   id: STEngineerCentcomPDA
   name: PDA engineer centcom
   description: Seems to have been taken apart and put back together several times.
+  suffix: ECC
   components:
   - type: Pda
     id: STEngineerCentcomIDCard
@@ -332,6 +315,7 @@
   id: STWorkerCentcomPDA
   name: Central Committee employee's PDA
   description: Gray does not exist.
+  suffix: WCC
   components:
   - type: Pda
     id: STWorkerCentcomIDCard
@@ -349,3 +333,46 @@
   - type: Icon
     sprite: _Stories/Objects/Devices/pda.rsi
     state: pda-centcom-worker
+- type: entity
+
+  parent: BaseSecurityPDA
+  id: GuardianNtPDA
+  name: КПК стража клинка
+  description: Красный значит мощный. На нём имеются царапины от светового меча.
+  components:
+  - type: Tag
+    tags:
+      - ForceRecallEquipment
+      - WhitelistChameleon
+      - WhitelistChameleonPDA
+  - type: Pda
+    id: GuardianNtIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-ert
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-ert
+
+# DSO-Jobs
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: STSpecialOfficaerPDA
+  name: Special Officaer PDA
+  suffix: SOO
+  description: He keeps a terrible and extremely dangerous secret.
+  components:
+  - type: Pda
+    id: STSpecialOfficaerIDCard
+    penSlot:
+      startingItem: PenCentcom
+      priority: -1
+      whitelist:
+        tags:
+        - Write
