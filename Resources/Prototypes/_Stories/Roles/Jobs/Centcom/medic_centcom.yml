@@ -1,0 +1,36 @@
+- type: job
+  id: STMedicCentcom
+  name: stories-job-name-medic-centcom
+  description: stories-job-description-medic-centcom
+  playTimeTracker: JobSTMedicCentcom
+  setPreference: false
+  startingGear: STMedicCentcomGear
+  icon: "JobIconSTMedicCentcom"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Chemistry
+  - Medical
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: STMedicCentcomGear
+  equipment:
+    head: ClothingHeadHatBeretSeniorPhysician
+    jumpsuit: STClothingUniformJumpsuitMedicCentcom
+    back: ClothingBackpackSatchelMedical
+    eyes: ClothingEyesHudMedical
+    ears: ClothingHeadsetMedical
+    gloves: ClothingHandsGlovesNitrile
+    shoes: ClothingShoesColorWhite
+    id: STMedicCentcomPDA
+    outerClothing: ClothingOuterCoatLabViro
+    pocket1: AdvancedJetInjector
+    neck: ClothingNeckMedicalmedal
+    belt: ClothingBeltMedicalFilled
+  storage:
+    back:
+    - BoxSurvivalMedical

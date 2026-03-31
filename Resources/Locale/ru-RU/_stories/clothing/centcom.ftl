@@ -1,30 +1,30 @@
-ent-STClothingHeadHatChiefCentcom = фуражка начальника Центком
-    .desc = Экстравагантная, причудливая фуражка начальника Центком.
-ent-STClothingNeckCloakChiefCentcom = плащ начальника Центком
-    .desc = Помпезный и элитнейший бирюзовый плащ, сшитый специально для начальника Центком.
-ent-STClothingUniformJumpsuitChiefCentcom = униформа начальника Центком
-    .desc = Повседневная, но элегантная униформа бирюзового цвета, используемая начальника штаба центрального командования. От неё веет алоэ.
-ent-STClothingHandsGlovesChiefCentcom = перчатки начальника Центком
+ent-STClothingHeadHatChiefCentcom = фуражка начальника штаба Центком
+    .desc = Экстравагантная, причудливая фуражка начальника штаба Центком.
+ent-STClothingNeckCloakChiefCentcom = плащ начальника штаба Центком
+    .desc = Помпезный и элитнейший бирюзовый плащ, сшитый специально для начальника штаба Центком.
+ent-STClothingUniformJumpsuitChiefCentcom = комбинезон начальника штаба Центком
+    .desc = Повседневная, но элегантная комбинезон бирюзового цвета, используемая начальника штаба центрального командования. От неё веет алоэ.
+ent-STClothingHandsGlovesChiefCentcom = перчатки начальника штаба Центком
     .desc = Шикарные бирюзовые перчатки с золотой отделкой.
-
 ent-STClothingNeckCloakOperatorCentcom = плащ оператора Центком
     .desc = Помпезный и элитнейший зелёный плащ, сшитый специально для оператора Центрального командования.
-
 ent-STClothingHeadHatBeretHeadOfSecurityCentcom = берет главы безопасности центком
     .desc = Фуражка для настоящих командиров.
 ent-STClothingNeckCloakHeadOfSecurityCentcom = плащ главы безопасности Центком
     .desc = Помпезный и элитный зелёный плащ, сшитый специально для главы безопасности Центком.
 ent-STClothingUniformJumpsuitHeadOfSecurityCentcom = комбинезон главы безопасности Центком
     .desc = Это комбинезон, который носят офицеры Центком высшего звена.
-
 ent-STClothingUniformJumpsuitSecurityOfficerCentcom = комбинезон офицера безопасности Центком
     .desc = Это комбинезон, который носят высококвалифицированные офицера безопасности.
-
-ent-STClothingUniformJumpsuitMedicCentcom = комбинезон медика Центком
+ent-STClothingUniformJumpsuitMedicCentcom = комбинезон врача Центком
     .desc = Это комбинезон, который носят высококвалифицированные врачи.
-
 ent-STClothingUniformJumpsuitEngineerCentcom = комбинезон инженера Центком
     .desc = Это комбинезон, который носят высококвалифицированные инженеры.
-
 ent-STClothingEyesGlassesCentcom = очки Центком
     .desc = Модернизированные солнцезащитные очки с функцией защиты от вспышек, оснащены медицинским и СБ визором.
+ent-STClothingUniformJumpsuitSpecialOfficer = комбинезон Офицера Специальных Операций
+    .desc = Форма, вселяющая страх в глазах врагов НаноТрайзен.
+ent-STClothingHeadHatBeretSpecialOfficer = фуражка Офицера Специальных Операций
+    .desc = Она внушает вам страх и голод.
+ent-STClothingNeckCloakSpecialOfficer = плащ Офицера Специальных Операций
+    .desc = Этот черный цвет заставляет твое сердце биться быстрее.

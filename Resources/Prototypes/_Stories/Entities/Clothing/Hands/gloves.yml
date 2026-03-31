@@ -31,3 +31,23 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+
+- type: entity
+  parent: [ ClothingHandsBase, BaseCentcommContraband ]
+  id: STClothingHandsGlovesChiefCentcom
+  name: gloves of the head of the central committee
+  description: Luxurious turquoise gloves with gold trim.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Hands/Gloves/cos_gloves.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Hands/Gloves/cos_gloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-regal-turquoise
+  - type: FingerprintMask
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95

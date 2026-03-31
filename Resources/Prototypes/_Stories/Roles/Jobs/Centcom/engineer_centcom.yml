@@ -1,0 +1,35 @@
+- type: job
+  id: STEngineerCentcom
+  name: stories-job-name-engineer-centcom
+  description: stories-job-description-engineer-centcom
+  playTimeTracker: JobSTEngineerCentcom
+  setPreference: false
+  startingGear: STEngineerCentcomGear
+  icon: "JobIconSTEngineerCentcom"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Atmospherics
+  - Engineering
+  - External
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: STEngineerCentcomGear
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+    jumpsuit: STClothingUniformJumpsuitEngineerCentcom
+    back: ClothingBackpackSatchelEngineering
+    eyes: ClothingEyesGlassesMeson
+    ears: ClothingHeadsetEngineering
+    gloves: ClothingHandsGlovesColorYellow
+    shoes: ClothingShoesColorWhite
+    id: STEngineerCentcomPDA
+    neck: ClothingNeckEngineermedal
+    belt: ClothingBeltUtilityEngineering
+  storage:
+    back:
+    - BoxSurvivalEngineering

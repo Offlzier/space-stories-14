@@ -141,3 +141,47 @@
   components:
   - type: Sprite
     sprite: _Stories/Clothing/Neck/Cloaks/shadowmantle.rsi
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: STClothingNeckCloakChiefCentcom
+  name: centcom chief's cloak
+  description: A pompous and elite turquoise cloak, tailored especially for the head of the central committee.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/cos.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: STClothingNeckCloakOperatorCentcom
+  name: Centcom operator's cape
+  description: A pompous and elite green cloak, tailored specifically for the Central Command operator.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/operator_centcomm.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: STClothingNeckCloakHeadOfSecurityCentcom
+  name: cloak of the head of security of the Central Committee
+  description: A pompous and elite green cloak, tailored especially for the head of security at the Central Committee.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/hos_centcomm.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
+
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: STClothingNeckCloakSpecialOfficer
+  name: Special Operations Officer's coat
+  description: This black color makes your heart beat faster.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/special_officer.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak

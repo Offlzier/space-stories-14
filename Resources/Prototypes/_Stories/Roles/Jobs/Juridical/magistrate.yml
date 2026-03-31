@@ -1,0 +1,36 @@
+- type: job
+  id: STMagistrate
+  name: stories-job-name-magistrate
+  description: stories-job-description-magistrate
+  playTimeTracker: JobSTMagistrate
+  setPreference: false
+  startingGear: STMagistrateGear
+  icon: "JobIconSTMagistrate"
+  supervisors: stories-job-supervisors-management-juridical-department
+  canBeAntag: false
+  access:
+  - CentralCommand
+  - Command
+  - Brig
+  - Lawyer
+  - Cryogenics
+  - External
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: STMagistrateGear
+  equipment:
+    head: ClothingHeadHatTophat
+    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+    back: ClothingBackpackSatchelLeather
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetIAA
+    gloves: ClothingHandsGlovesColorBlack
+    shoes: ClothingShoesBootsLaceup
+    id: STMagistratePDA
+    outerClothing: ClothingOuterRobesJudge #верхняя
+#    pocket1: STRubberStampSTMagistrate
+    belt: BoxFolderCentComClipboard

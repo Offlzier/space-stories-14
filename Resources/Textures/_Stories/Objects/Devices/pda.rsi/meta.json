@@ -50,19 +50,22 @@
       "name": "pda-prosecutor"
     },
     {
-      "name": "pda-centcomhos"
+      "name": "pda-chief-centcom"
     },
     {
-      "name": "pda-centcomsecurity"
+      "name": "pda-centcom"
     },
     {
-      "name": "pda-centcomengineer"
+      "name": "pda-centcom-security"
     },
     {
-      "name": "pda-centcommedical"
+      "name": "pda-centcom-engineer"
     },
     {
-      "name": "pda-centcomservis"
+      "name": "pda-centcom-medical"
+    },
+    {
+      "name": "pda-centcom-worker"
     }
   ]
 }

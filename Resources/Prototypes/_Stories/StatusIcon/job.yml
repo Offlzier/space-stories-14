@@ -1,3 +1,5 @@
+# Prison-Jobs
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconPRISONPrisoner
@@ -40,6 +42,8 @@
     sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
     state: SpacePrisonMedic
 
+# Juridical-Jobs
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconIAA
@@ -53,6 +57,14 @@
   icon:
     sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
     state: Judge
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTMagistrate
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: Magistrate
+  jobName: stories-job-name-magistrate
 
 # Event-Restricted-Jobs
 
@@ -79,3 +91,52 @@
     sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
     state: SecurityClown
   allowSelection: false
+
+# Centcom-Jobs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTChiefCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: ChiefCentcom
+  jobName: stories-job-name-chief-centcom
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: Centcom
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTSecurityOfficerCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomSecurity
+  jobName: stories-job-name-officer-security-centcom
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTMedicCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomMedic
+  jobName: stories-job-name-medic-centcom
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTEngineerCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomEngineer
+  jobName: stories-job-name-engineer-centcom
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTWorkerCentcom
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: CentcomService
+  jobName: stories-job-name-worker-centcom

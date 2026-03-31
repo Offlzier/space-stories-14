@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: STDeathRattleImplanterDSO
+  name: DSO death rattle implanter
+  components:
+  - type: Implanter
+    implant: STDeathRattleImplantDSO
+
+- type: entity
+  parent: BaseImplantOnlyImplanter
+  id: STRadioImplanterDSO
+  name: DSO radio implanter
+  components:
+  - type: Implanter
+    implant: STRadioImplantDSO

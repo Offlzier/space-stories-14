@@ -1,3 +1,5 @@
+# Prison-Jobs
+
 - type: entity
   parent: PRISONIDCardHeadOfPrison
   id: IAAIDCard
@@ -9,36 +11,6 @@
         - state: idiaa
     - type: PresetIdCard
       job: IAA
-
-- type: entity
-  parent: IDCardStandard
-  id: STJudgeIDCard
-  name: judge's ID card
-  description: A card required to access various areas of the station.
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idjudge
-      sprite: _Stories/Objects/Misc/id_cards.rsi
-  - type: PresetIdCard
-    job: STJudge
-
-- type: entity
-  parent: IDCardStandard
-  id: GuardianNtIDCard
-  name: ID карта стража клинка
-  description: Карта, необходимая для доступа в различные области станции.
-  components:
-    - type: Sprite
-      layers:
-        - state: centcom
-        - state: idguardiannt
-          sprite: _Stories/Objects/Misc/id_cards.rsi
-    - type: Item
-      heldPrefix: blue
-    - type: PresetIdCard
-      job: GuardianNt
 
 - type: entity
   parent: IDCardStandard
@@ -154,3 +126,157 @@
     - state: idpartymaker
   - type: PresetIdCard
     job: STPartyMaker
+
+# Juridical-Jobs
+
+- type: entity
+  parent: IDCardStandard
+  id: STMagistrateIDCard
+  name: Magistrate ID card
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idmagistrate
+  - type: PresetIdCard
+    job: STMagistrate
+
+- type: entity
+  parent: IDCardStandard
+  id: STJudgeIDCard
+  name: judge's ID card
+  description: A card required to access various areas of the station.
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idjudge
+      sprite: _Stories/Objects/Misc/id_cards.rsi
+  - type: PresetIdCard
+    job: STJudge
+
+# Centcom-Jobs
+
+- type: entity
+  parent: IDCardStandard
+  id: STChiefCentcomIDCard
+  name: ID card of the head of Centcom
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idchiefcentcom
+  - type: PresetIdCard
+    job: STChiefCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STOperatorCentcomIDCard
+  name: ID card operator Centcom
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcom
+  - type: PresetIdCard
+    job: STOperatorCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STRepresentativeCentcomIDCard
+  name: ID card of the representative of Centcom
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcom
+  - type: PresetIdCard
+    job: STRepresentativeCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STHeadOfSecurityCentcomIDCard
+  name: ID card of the head of security of Centcom
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcom
+  - type: PresetIdCard
+    job: STHeadOfSecurityCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STSecurityOfficerCentcomIDCard
+  name: ID card of the security officer of Centcom
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcomsecurity
+  - type: PresetIdCard
+    job: STSecurityOfficerCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STMedicCentcomIDCard
+  name: Centcom physician ID card
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcommedic
+  - type: PresetIdCard
+    job: STMedicCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STEngineerCentcomIDCard
+  name: Centcom Engineer ID Card
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentrcomengineer
+  - type: PresetIdCard
+    job: STEngineerCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: STWorkerCentcomIDCard
+  name: ID card of Centcom employee
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/id_cards.rsi
+    layers:
+      - state: default_centcom
+      - state: idcentcomservise
+  - type: PresetIdCard
+    job: STWorkerCentcom
+
+- type: entity
+  parent: IDCardStandard
+  id: GuardianNtIDCard
+  name: ID карта стража клинка
+  description: Карта, необходимая для доступа в различные области станции.
+  components:
+    - type: Sprite
+      layers:
+        - state: centcom
+        - state: idguardiannt
+          sprite: _Stories/Objects/Misc/id_cards.rsi
+    - type: Item
+      heldPrefix: blue
+    - type: PresetIdCard
+      job: GuardianNt
+
+# DSO-Jobs
+

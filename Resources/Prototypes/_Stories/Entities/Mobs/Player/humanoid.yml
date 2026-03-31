@@ -1,0 +1,322 @@
+# Centcom-Jobs
+
+- type: entity
+  id: STRandomHumanoidSpawnerChiefCentcom
+  name: Chief of Staff of the Central Command
+  suffix: CSCC
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: chief_centcom
+    - type: RandomHumanoidSpawner
+      settings: STChiefCentcom
+
+- type: randomHumanoidSettings
+  id: STChiefCentcom
+  parent: EventHumanoidCentcomm
+  components:
+    - type: GhostRole
+      name: stories-job-name-chief-centcom
+      description: stories-job-description-chief-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STChiefCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity #тут
+          time: 10h
+    - type: Loadout
+      prototypes: [ STChiefCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+# оператор
+
+- type: entity
+  id: STRandomHumanoidSpawnerOperatorCentcom
+  name: Centcom operator
+  suffix: Occ
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: STOperatorCentcom
+
+- type: randomHumanoidSettings
+  id: STOperatorCentcom
+  parent: EventHumanoidCentcomm
+  components:
+    - type: GhostRole
+      name: stories-job-name-operator-centcom
+      description: stories-job-description-operator-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STOperatorCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity #тут
+          time: 10h
+    - type: Loadout
+      prototypes: [ STOperatorCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+# представитель
+
+- type: entity
+  id: STRandomHumanoidSpawnerRepresentativeCentcom
+  name: Centcom representative
+  suffix: Rcc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: STRepresentativeCentcom
+
+- type: randomHumanoidSettings
+  id: STRepresentativeCentcom
+  parent: EventHumanoidCentcomm
+  components:
+    - type: GhostRole
+      name: stories-job-name-representative-centcom
+      description: stories-job-description-representative-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STRepresentativeCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity #тут
+          time: 10h
+    - type: Loadout
+      prototypes: [ STRepresentativeCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+# ХОС
+
+- type: entity
+  id: STRandomHumanoidSpawnerHeadOfSecurityCentcom
+  name: head of security of the Central Committee
+  suffix: HScc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: centcom
+    - type: RandomHumanoidSpawner
+      settings: STHeadOfSecurityCentcom
+
+- type: randomHumanoidSettings
+  id: STHeadOfSecurityCentcom
+  parent: EventHumanoidCentcomm
+  components:
+    - type: GhostRole
+      name: stories-job-name-head-of-security-centcom 
+      description: stories-job-description-head-of-security-centcom 
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STHeadOfSecurityCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity #тут
+          time: 10h
+    - type: Loadout
+      prototypes: [ STHeadOfSecurityCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+#СБ
+
+- type: entity
+  id: STRandomHumanoidSpawnerSecurityOfficerCentcom
+  name: Central Committee security officer
+  suffix: SOcc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: security_centcom
+    - type: RandomHumanoidSpawner
+      settings: STSecurityOfficerCentcom
+
+- type: randomHumanoidSettings
+  id: STSecurityOfficerCentcom
+  parent: EventHumanoidMindShielded
+  components:
+    - type: GhostRole
+      name: stories-job-name-officer-security-centcom
+      description: stories-job-description-officer-security-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STSecurityOfficerCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity
+          time: 10h
+    - type: Loadout
+      prototypes: [ STSecurityOfficerCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+# медик
+
+- type: entity
+  id: STRandomHumanoidSpawnerMedicCentcom
+  name: medic centcom
+  suffix: Mcc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: doctor_centcom
+    - type: RandomHumanoidSpawner
+      settings: STMedicCentcom
+
+- type: randomHumanoidSettings
+  id: STMedicCentcom
+  parent: EventHumanoidMindShielded
+  components:
+    - type: GhostRole
+      name: stories-job-name-medic-centcom
+      description: stories-job-description-medic-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STMedicCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobChiefMedicalOfficer
+          time: 10h
+    - type: Loadout
+      prototypes: [ STMedicCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+#инженер
+
+- type: entity
+  id: STRandomHumanoidSpawnerEngineerCentcom
+  name: engineer centcom
+  suffix: Ecc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: engineer_centcom
+    - type: RandomHumanoidSpawner
+      settings: STEngineerCentcom
+
+- type: randomHumanoidSettings
+  id: STEngineerCentcom
+  parent: EventHumanoidMindShielded
+  components:
+    - type: GhostRole
+      name: stories-job-name-engineer-centcom
+      description: stories-job-description-engineer-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STEngineerCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobChiefEngineer
+          time: 10h
+    - type: Loadout
+      prototypes: [ STEngineerCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+#работник
+
+- type: entity
+  id: STRandomHumanoidSpawnerWorkerCentcom
+  name: worker centcom
+  suffix: Wcc
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: worker_centcom
+    - type: RandomHumanoidSpawner
+      settings: STWorkerCentcom
+
+- type: randomHumanoidSettings
+  id: STWorkerCentcom
+  parent: EventHumanoidMindShielded
+  components:
+    - type: GhostRole
+      name: stories-job-name-worker-centcom
+      description: stories-job-description-worker-centcom
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STWorkerCentcom
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfPersonnel
+          time: 10h
+    - type: Loadout
+      prototypes: [ STWorkerCentcomGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard
+
+# Juridical-Jobs
+
+- type: entity
+  id: STRandomHumanoidSpawnerMagistrate
+  name: Magistrate
+  components:
+    - type: Sprite
+      sprite: _Stories/Markers/jobs.rsi
+      state: lawyer
+    - type: RandomHumanoidSpawner
+      settings: STMagistrate
+
+- type: randomHumanoidSettings
+  id: STMagistrate
+  parent: EventHumanoidCentcomm
+  components:
+    - type: GhostRole
+      name: stories-job-name-magistrate
+      description: stories-job-description-magistrate
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: STMagistrate
+      requirements:
+        - !type:RoleTimeRequirement
+          role: JobHeadOfSecurity #тут
+          time: 10h
+    - type: Loadout
+      prototypes: [ STMagistrateGear ]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirst
+      - NamesLast
+      nameFormat: name-format-standard

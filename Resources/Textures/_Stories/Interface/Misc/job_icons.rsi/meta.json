@@ -67,20 +67,23 @@
         {
             "name": "Judge"
         },
-         {
-            "name": "CentcomEngineer"
+        {
+            "name": "ChiefCentcom"
         },
         {
-            "name": "CentcomHead"
+            "name": "Centcom"
         },
         {
-            "name": "CentcomHos"
+            "name": "Magistrate"
+        },
+        {
+            "name": "CentcomSecurity"
         },
         {
             "name": "CentcomMedic"
         },
         {
-            "name": "CentcomSecurity"
+            "name": "CentcomEngineer"
         },
         {
             "name": "CentcomService"

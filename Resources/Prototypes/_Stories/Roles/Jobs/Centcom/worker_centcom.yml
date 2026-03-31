@@ -1,0 +1,38 @@
+- type: job
+  id: STWorkerCentcom
+  name: stories-job-name-worker-centcom
+  description: stories-job-description-worker-centcom
+  playTimeTracker: JobSTWorkerCentcom
+  setPreference: false
+  startingGear: STWorkerCentcomGear
+  icon: "JobIconSTWorkerCentcom"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Chapel
+  - Service
+  - Bar
+  - Kitchen
+  - Hydroponics
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: STWorkerCentcomGear
+  equipment:
+    head: ClothingHeadBandGreen
+    jumpsuit: ClothingUniformJumpsuitCentcomOfficer
+    back: ClothingBackpackSatchelHydroponics
+    eyes: ClothingEyesHudBeer
+    ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesHop
+    shoes: ClothingShoesColorBlack
+    id: STWorkerCentcomPDA
+    outerClothing: ClothingOuterArmorBasicSlim
+    neck: ClothingNeckCargomedal
+    belt: ClothingBeltChefFilled
+  storage:
+    back:
+    - BoxSurvival

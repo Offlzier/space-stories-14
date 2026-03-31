@@ -24,3 +24,60 @@
     sprite: _Stories/Clothing/Head/Hats/hoshat.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Head/Hats/hoshat.rsi
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: STClothingHeadHatChiefCentcom
+  name: cap of the head of the central committee
+  description: An extravagant, bizarre cap worn by the Chief of Staff of the Central Command.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/coshat.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/coshat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: STClothingHeadHatBeretHeadOfSecurityCentcom
+  name: takes the head of security of the Central Committee
+  description: A cap for real commanders.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/hos_centcomm_hat.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/hos_centcomm_hat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseCentcommContraband ]
+  id: STClothingHeadHatBeretSpecialOfficer
+  name: Special Operations Officer cap
+  description: She instills fear and hunger in you.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/special_officer.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/special_officer.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+    - HamsterWearable

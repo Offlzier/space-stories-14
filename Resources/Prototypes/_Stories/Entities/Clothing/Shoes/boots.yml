@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: [ ClothingShoesBaseButcherable, ClothingShoesBootsSecFilled ]
   id: ClothingShoesInquisitor
   name: ботинки инквизитора
   description: Обычные черные ботинки.
@@ -14,7 +14,7 @@
     sprite: Clothing/Shoes/Specific/swat.rsi
 
 - type: entity
-  parent: ClothingShoesBootsJack
+  parent: [ ClothingShoesBootsJack, ClothingShoesBootsSecFilled ]
   id: ClothingShoesBootsJackGuardian
   name: подкованные сапоги джедая
   description: Созданы, чтобы ваши ножки не промокли на далеких планетах.
@@ -29,7 +29,7 @@
       sprite: _Stories/Clothing/Shoes/Boots/guardian.rsi
 
 - type: entity
-  parent: ClothingShoesBootsJack
+  parent: [ ClothingShoesBootsJack, ClothingShoesBootsSecFilled ]
   id: ClothingShoesBootsJackGuardianNt
   name: подкованные сапоги стража клинка
   description: Планировалось, что они будут удобнее обычных.
@@ -45,7 +45,7 @@
       sprite: _Stories/Clothing/Shoes/Boots/guardian_nt.rsi
 
 - type: entity
-  parent: ClothingShoesBootsJack
+  parent: [ ClothingShoesBootsJack, ClothingShoesBootsSecFilled ]
   id: ClothingShoesBootsJackGuardianNomad
   name: сапоги путника
   description: Планировалось, что они будут удобнее обычных.
@@ -60,7 +60,7 @@
       sprite: _Stories/Clothing/Shoes/Boots/guardian_nomad.rsi
 
 - type: entity
-  parent: ClothingShoesBootsJack
+  parent: [ ClothingShoesBootsJack, ClothingShoesBootsSecFilled ]
   id: ClothingShoesBootsExe
   name: сапоги хранителя
   description: Продвинутая обувь, гарантирующая удобство носителя и полное сцепление с любой поверхностью.

@@ -1,0 +1,39 @@
+- type: job
+  id: STSecurityOfficerCentcom
+  name: stories-job-name-officer-security-centcom
+  description: stories-job-description-officer-security-centcom
+  playTimeTracker: JobSTSecurityOfficerCentcom
+  setPreference: false
+  startingGear: STSecurityOfficerCentcomGear
+  icon: "JobIconSTSecurityOfficerCentcom"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: STSecurityOfficerCentcomGear
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+    jumpsuit: STClothingUniformJumpsuitSecurityOfficerCentcom
+    back: ClothingBackpackSatchelEight
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJackFilled
+    id: STSecurityOfficerCentcomPDA
+    outerClothing: ClothingOuterArmorBasic
+    pocket1: Flash
+    pocket2: WeaponDisabler
+    neck: ClothingNeckSecuritymedal
+    belt: ClothingBeltSecurityFilled
+  storage:
+    back:
+    - BoxSurvivalSecurity

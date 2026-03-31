@@ -1,2 +1,2 @@
-ent-CentcomComputerComms = коммуникационный компьютер центком
+ent-STDSOComputerComms = консоль связи Департамента спецопераций
     .desc = { ent-ComputerComms.desc }

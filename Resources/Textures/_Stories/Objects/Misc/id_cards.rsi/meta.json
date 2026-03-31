@@ -64,22 +64,25 @@
             "name": "default_centcom"
         },
         {
-            "name": "idcentrcomengineer"
+            "name": "idchiefcentcom"
         },
         {
-            "name": "idcentrcomhos"
+            "name": "idcentcom"
         },
         {
-            "name": "idcentrcommedic"
+            "name": "idmagistrate"
         },
         {
             "name": "idcentrcomsecurity"
         },
         {
-            "name": "idcentcomservise"
+            "name": "idcentrcommedic"
         },
         {
-            "name": "idcentcommhead"
+            "name": "idcentrcomengineer"
+        },
+        {
+            "name": "idcentcomservise"
         }
     ]
 }

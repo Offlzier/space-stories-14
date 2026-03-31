@@ -8,7 +8,7 @@
 - type: radioChannel
   id: Empire
   name: chat-radio-empire
-  keycode: 'г' # Stories-Localization
+  keycode: 'г'
   frequency: 1984
   color: "#1b67a5"
   longRange: true
@@ -43,3 +43,11 @@
   keycode: 'ю'
   frequency: 98329
   color: "#008080"
+
+- type: radioChannel
+  id: STDSO
+  name: stories-chat-radio-DCO
+  keycode: 'в'
+  frequency: 1311
+  color: "#0a5fad"
+  longRange: true

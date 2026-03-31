@@ -1,3 +1,5 @@
+# Prison-Jobs
+
 - type: playTimeTracker
   id: JobPrisoner
 
@@ -13,18 +15,6 @@
 - type: playTimeTracker
   id: JobSpacePrisonMedic
 
-- type: playTimeTracker
-  id: JobIAA
-
-- type: playTimeTracker
-  id: JobGuardianNt
-
-- type: playTimeTracker
-  id: STJobBrigmedic
-
-- type: playTimeTracker
-  id: STJobJudge
-
 # Event-Restricted-Jobs
 
 - type: playTimeTracker
@@ -35,3 +25,53 @@
 
 - type: playTimeTracker
   id: JobSTPartyMaker
+
+# Centcom-Jobs
+
+- type: playTimeTracker
+  id: JobSTChiefCentcom
+
+- type: playTimeTracker
+  id: JobSTOperatorCentcom
+
+- type: playTimeTracker
+  id: JobSTRepresentativeCentcom
+
+- type: playTimeTracker
+  id: JobSTHeadOfSecurityCentcom
+
+- type: playTimeTracker
+  id: JobGuardianNt
+
+- type: playTimeTracker
+  id: JobSTSecurityOfficerCentcom
+
+- type: playTimeTracker
+  id: JobSTMedicCentcom
+
+- type: playTimeTracker
+  id: JobSTEngineerCentcom
+
+- type: playTimeTracker
+  id: JobSTWorkerCentcom
+
+# Juridical-Jobs
+
+- type: playTimeTracker
+  id: JobSTMagistrate
+
+- type: playTimeTracker
+  id: JobIAA
+
+- type: playTimeTracker
+  id: STJobJudge
+
+# DSO-Jobs
+
+- type: playTimeTracker
+  id: STJobSpecialOfficer
+
+# Other-Jobs
+
+- type: playTimeTracker
+  id: STJobBrigmedic
