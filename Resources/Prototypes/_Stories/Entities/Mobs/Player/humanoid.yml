@@ -375,7 +375,7 @@
     - type: AutoImplant
       implants:
       - MindShieldImplant
-      - DeathRattleImplantCentcomm
+      - STDeathRattleImplantDSO
       - STRadioImplantDSO
       - RadioImplantCentcomm
     - type: GhostRole

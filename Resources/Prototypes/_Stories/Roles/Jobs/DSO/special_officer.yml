@@ -15,7 +15,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm, RadioImplantCentcomm, STRadioImplantDSO ]
+    implants: [ MindShieldImplant, STDeathRattleImplantDSO, RadioImplantCentcomm, STRadioImplantDSO ]
 
 - type: startingGear
   id: STSpecialOfficerGear
@@ -23,12 +23,13 @@
     head: STClothingHeadHatBeretSpecialOfficer
     jumpsuit: STClothingUniformJumpsuitSpecialOfficer
     back: ClothingBackpackSatchelHolding
+    mask: ClothingMaskGasDeathSquad
     eyes: STClothingEyesGlassesCentcom
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsJackGuardianNt
     id: STSpecialOfficaerPDA
-    outerClothing: ClothingOuterArmorCentcommCarapace
+    outerClothing: ClothingOuterHardsuitDeathsquad
     neck: STClothingNeckCloakSpecialOfficer
     pocket1: Flash
     pocket2: WeaponDisabler

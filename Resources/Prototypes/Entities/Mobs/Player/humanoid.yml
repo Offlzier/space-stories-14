@@ -27,6 +27,16 @@
     - MindShieldImplant
     - DeathRattleImplantCentcomm
 
+- type: randomHumanoidSettings #Stories-DSO-Settings
+  id: STEventHumanoidDSO
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants:
+    - MindShieldImplant
+    - STDeathRattleImplantDSO
+
 ## Death Squad
 
 - type: entity
@@ -47,7 +57,7 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidCentcomm
+  parent: STEventHumanoidDSO
   components:
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
@@ -83,7 +93,7 @@
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidCentcomm
+  parent: STEventHumanoidDSO
   components:
     - type: GhostRole
       name: ghost-role-information-ert-leader-name
@@ -552,7 +562,7 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanoidCentcomm
+  parent: STEventHumanoidDSO
   components:
     - type: Loadout
       prototypes: [CBURNGear]
@@ -570,32 +580,32 @@
       - NamesMilitaryLast
       nameFormat: name-format-ert
 
-## Central Command
+## Central Command (Stories-off)
 
-- type: entity
-  name: CentComm official
-  id: RandomHumanoidSpawnerCentcomOfficial
-  components:
-    - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: centcom
-    - type: RandomHumanoidSpawner
-      settings: CentcomOfficial
+#- type: entity
+#  name: CentComm official
+#  id: RandomHumanoidSpawnerCentcomOfficial
+#  components:
+#    - type: Sprite
+#      sprite: Markers/jobs.rsi
+#      state: centcom
+#    - type: RandomHumanoidSpawner
+#      settings: CentcomOfficial
 
-- type: randomHumanoidSettings
-  id: CentcomOfficial
-  parent: EventHumanoidCentcomm
-  components:
-    - type: GhostRole
-      name: ghost-role-information-centcom-official-name
-      description: ghost-role-information-centcom-official-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: default
-      job: CentralCommandOfficial
-    - type: Loadout
-      prototypes: [ CentcommGear ]
-      roleLoadout: [ RoleSurvivalStandard ]
+#- type: randomHumanoidSettings
+#  id: CentcomOfficial
+#  parent: EventHumanoidCentcomm
+#  components:
+#    - type: GhostRole
+#      name: ghost-role-information-centcom-official-name
+#      description: ghost-role-information-centcom-official-description
+#      rules: ghost-role-information-nonantagonist-rules
+#      raffle:
+#        settings: default
+#      job: CentralCommandOfficial
+#    - type: Loadout
+#      prototypes: [ CentcommGear ]
+#      roleLoadout: [ RoleSurvivalStandard ]
 
 ## Syndicate
 
