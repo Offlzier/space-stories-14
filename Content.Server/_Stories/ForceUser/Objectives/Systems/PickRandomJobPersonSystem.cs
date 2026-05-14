@@ -1,13 +1,11 @@
-using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Components;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Objectives.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Roles.Jobs;
-using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -15,15 +13,14 @@ namespace Content.Server.Objectives.Systems;
 public sealed class PickRandomJobPersonSystem : EntitySystem
 {
     private const float UdateDelay = 10f;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly TargetSystem _targetSys = default!;
+
     private float _updateTime;
 
     public override void Initialize()
@@ -66,7 +63,7 @@ public sealed class PickRandomJobPersonSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
+        var allHumans = _targetSys.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
             return;
 
@@ -81,7 +78,7 @@ public sealed class PickRandomJobPersonSystem : EntitySystem
             allHeads = allHumans; // fallback to non-head target
 
         var targetMindUid = _random.Pick(allHeads);
-        var targetUid = EnsureComp<MindComponent>(targetMindUid).CurrentEntity;
+        var targetUid = EnsureComp<MindComponent>(targetMindUid).OwnedEntity;
 
         _target.SetTarget(uid, targetMindUid, target);
 

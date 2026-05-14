@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/04/2026 20:47:10
-  entityCount: 11249
+  forkId: stories
+  forkVersion: 48da4434f3ac6b074078d62d44a6db0b3eba792b
+  time: 03/04/2026 17:49:16
+  entityCount: 11274
 maps:
 - 3180
 grids:
@@ -7424,6 +7424,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,-37.5
+      parent: 1
+    - type: Fixtures
+      fixtures: {}
+  - uid: 11274
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-40.5
       parent: 1
     - type: Fixtures
       fixtures: {}
@@ -16603,6 +16611,11 @@ entities:
     - type: Transform
       pos: -10.5,-37.5
       parent: 1
+  - uid: 11273
+    components:
+    - type: Transform
+      pos: 1.5,-40.5
+      parent: 1
 - proto: CableApcStack10
   entities:
   - uid: 4756
@@ -24241,6 +24254,11 @@ entities:
     - type: Transform
       pos: -50.5,15.5
       parent: 1
+  - uid: 7685
+    components:
+    - type: Transform
+      pos: 6.5,-38.5
+      parent: 1
   - uid: 8030
     components:
     - type: Transform
@@ -25025,6 +25043,121 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-37.5
+      parent: 1
+  - uid: 11250
+    components:
+    - type: Transform
+      pos: 6.5,-37.5
+      parent: 1
+  - uid: 11251
+    components:
+    - type: Transform
+      pos: 6.5,-36.5
+      parent: 1
+  - uid: 11252
+    components:
+    - type: Transform
+      pos: 6.5,-35.5
+      parent: 1
+  - uid: 11253
+    components:
+    - type: Transform
+      pos: 6.5,-34.5
+      parent: 1
+  - uid: 11254
+    components:
+    - type: Transform
+      pos: 6.5,-33.5
+      parent: 1
+  - uid: 11255
+    components:
+    - type: Transform
+      pos: 5.5,-33.5
+      parent: 1
+  - uid: 11256
+    components:
+    - type: Transform
+      pos: 4.5,-33.5
+      parent: 1
+  - uid: 11257
+    components:
+    - type: Transform
+      pos: 3.5,-33.5
+      parent: 1
+  - uid: 11258
+    components:
+    - type: Transform
+      pos: 2.5,-33.5
+      parent: 1
+  - uid: 11259
+    components:
+    - type: Transform
+      pos: 1.5,-33.5
+      parent: 1
+  - uid: 11260
+    components:
+    - type: Transform
+      pos: 0.5,-33.5
+      parent: 1
+  - uid: 11261
+    components:
+    - type: Transform
+      pos: -0.5,-33.5
+      parent: 1
+  - uid: 11262
+    components:
+    - type: Transform
+      pos: -1.5,-33.5
+      parent: 1
+  - uid: 11263
+    components:
+    - type: Transform
+      pos: -1.5,-34.5
+      parent: 1
+  - uid: 11264
+    components:
+    - type: Transform
+      pos: -1.5,-35.5
+      parent: 1
+  - uid: 11265
+    components:
+    - type: Transform
+      pos: -1.5,-36.5
+      parent: 1
+  - uid: 11266
+    components:
+    - type: Transform
+      pos: -1.5,-37.5
+      parent: 1
+  - uid: 11267
+    components:
+    - type: Transform
+      pos: -1.5,-38.5
+      parent: 1
+  - uid: 11268
+    components:
+    - type: Transform
+      pos: -1.5,-39.5
+      parent: 1
+  - uid: 11269
+    components:
+    - type: Transform
+      pos: -0.5,-39.5
+      parent: 1
+  - uid: 11270
+    components:
+    - type: Transform
+      pos: 1.5,-39.5
+      parent: 1
+  - uid: 11271
+    components:
+    - type: Transform
+      pos: 0.5,-39.5
+      parent: 1
+  - uid: 11272
+    components:
+    - type: Transform
+      pos: 1.5,-40.5
       parent: 1
 - proto: CableTerminal
   entities:
@@ -49893,18 +50026,20 @@ entities:
       parent: 1
 - proto: LockerWallPrisoner4
   entities:
-  - uid: 7635
+  - uid: 4888
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -8.5,-42.5
       parent: 1
     - type: Fixtures
       fixtures: {}
 - proto: LockerWallPrisoner5
   entities:
-  - uid: 7685
+  - uid: 5325
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -8.5,-43.5
       parent: 1
     - type: Fixtures
@@ -51278,15 +51413,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-49.5
-      parent: 1
-- proto: PlushieSlime
-  entities:
-  - uid: 4888
-    components:
-    - type: MetaData
-      name: Pogovor
-    - type: Transform
-      pos: -37.5833,-3.5080693
       parent: 1
 - proto: PlushieSpawner50
   entities:
@@ -61845,23 +61971,29 @@ entities:
     - type: Transform
       pos: -12.996331,-36.44261
       parent: 1
-- proto: Turnstile
+- proto: TurnstileGenpopEnter
   entities:
-  - uid: 5325
+  - uid: 6126
     components:
     - type: Transform
       pos: -13.5,-44.5
       parent: 1
     - type: AccessReader
-      accessListsOriginal: []
-  - uid: 6126
+      accessListsOriginal:
+      - - GenpopEnter
+      - - Security
+- proto: TurnstileGenpopLeave
+  entities:
+  - uid: 7635
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -11.5,-44.5
       parent: 1
     - type: AccessReader
-      accessListsOriginal: []
+      accessListsOriginal:
+      - - GenpopLeave
+      - - Security
 - proto: TwoWayLever
   entities:
   - uid: 2903

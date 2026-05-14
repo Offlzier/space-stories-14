@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/04/2026 20:58:37
-  entityCount: 36218
+  forkId: stories
+  forkVersion: 50264fb77fa42730a6e99986613ced92729377eb
+  time: 02/07/2026 17:47:30
+  entityCount: 36216
 maps:
 - 1
 grids:
@@ -19941,7 +19941,7 @@ entities:
       pos: -15.5,-4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29437.54
+      secondsUntilStateChange: -29498.725
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -23304,6 +23304,13 @@ entities:
       name: Bartender APC
     - type: Transform
       pos: -14.5,27.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14970
+    components:
+    - type: Transform
+      pos: 100.5,29.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -48869,7 +48876,7 @@ entities:
   - uid: 5997
     components:
     - type: Transform
-      pos: 95.5,29.5
+      pos: 100.5,29.5
       parent: 2
   - uid: 5998
     components:
@@ -48920,11 +48927,6 @@ entities:
     components:
     - type: Transform
       pos: 96.5,32.5
-      parent: 2
-  - uid: 6008
-    components:
-    - type: Transform
-      pos: 95.5,32.5
       parent: 2
   - uid: 6009
     components:
@@ -69490,6 +69492,11 @@ entities:
     components:
     - type: Transform
       pos: 67.5,27.5
+      parent: 2
+  - uid: 6008
+    components:
+    - type: Transform
+      pos: 100.5,29.5
       parent: 2
   - uid: 6161
     components:
@@ -95914,25 +95921,6 @@ entities:
     components:
     - type: Transform
       pos: 73.32944,13.108924
-      parent: 2
-- proto: ClothingUnderSocksBee
-  entities:
-  - uid: 14970
-    components:
-    - type: Transform
-      pos: 5.4999647,79.450584
-      parent: 2
-  - uid: 14971
-    components:
-    - type: Transform
-      pos: 11.5237665,-2.4679627
-      parent: 2
-- proto: ClothingUnderSocksCoder
-  entities:
-  - uid: 14972
-    components:
-    - type: Transform
-      pos: 122.42043,-26.759068
       parent: 2
 - proto: ClothingUniformColorRainbow
   entities:

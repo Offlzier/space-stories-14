@@ -121537,24 +121537,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingUnderSocksCoder
-  entities:
-  - uid: 15169
-    components:
-    - type: Transform
-      rot: 1.0182609457842773E-06 rad
-      pos: -57.679985,7.456685
-      parent: 2
-  - uid: 15170
-    components:
-    - type: Transform
-      pos: -58.5,-49.5
-      parent: 2
-  - uid: 15171
-    components:
-    - type: Transform
-      pos: -29.321905,-69.36804
-      parent: 2
 - proto: ClothingUniformJumpskirtDetectiveGrey
   entities:
   - uid: 15172

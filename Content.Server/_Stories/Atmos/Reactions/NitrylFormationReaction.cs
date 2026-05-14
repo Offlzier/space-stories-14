@@ -16,22 +16,22 @@ public sealed partial class NitrylFormationReaction : IGasReactionEffect
         AtmosphereSystem atmosphereSystem,
         float heatScale)
     {
-        var initHealium = mixture.GetMoles(Gas.STHealium);
+        var initTrit = mixture.GetMoles(Gas.Tritium);
         var initBZ = mixture.GetMoles(Gas.STBZ);
         var initNitrogen = mixture.GetMoles(Gas.Nitrogen);
 
         var rate = mixture.Temperature /
                    Atmospherics.NitrylProductionMaxEfficiencyTemperature; // higher temperature gives higher speed
 
-        var healiumRemoved = rate * 2f;
+        var tritRemoved = rate * 2f;
         var bzRemoved = rate * 5f;
         var nitrogenRemoved = rate * 10f;
         var nitrylFormed = rate * 10f;
 
-        if (healiumRemoved > initHealium || bzRemoved > initBZ || nitrogenRemoved > initNitrogen)
+        if (tritRemoved > initTrit || bzRemoved > initBZ || nitrogenRemoved > initNitrogen)
             return ReactionResult.NoReaction;
 
-        mixture.AdjustMoles(Gas.STHealium, -healiumRemoved);
+        mixture.AdjustMoles(Gas.Tritium, -tritRemoved);
         mixture.AdjustMoles(Gas.STBZ, -bzRemoved);
         mixture.AdjustMoles(Gas.Nitrogen, -nitrogenRemoved);
         mixture.AdjustMoles(Gas.STNitryl, nitrylFormed);
@@ -39,8 +39,10 @@ public sealed partial class NitrylFormationReaction : IGasReactionEffect
         var energyConsumed = nitrylFormed * Atmospherics.NitrylProductionEnergy;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)
+        {
             mixture.Temperature =
                 Math.Max((mixture.Temperature * heatCap + energyConsumed) / heatCap, Atmospherics.TCMB);
+        }
 
         return ReactionResult.Reacting;
     }

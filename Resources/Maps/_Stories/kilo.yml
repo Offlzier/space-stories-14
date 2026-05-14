@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/04/2026 21:05:32
-  entityCount: 32572
+  forkId: stories
+  forkVersion: 48da4434f3ac6b074078d62d44a6db0b3eba792b
+  time: 03/04/2026 17:52:59
+  entityCount: 32579
 maps:
 - 1
 grids:
@@ -104,7 +104,6 @@ entities:
     - type: MetaData
       name: Kilo Station
     - type: Transform
-      pos: -0.109375,0.046875
       parent: 1
     - type: MapGrid
       chunks:
@@ -16153,7 +16152,7 @@ entities:
       pos: 23.5,-33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -114409.72
+      secondsUntilStateChange: -114592.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17171,7 +17170,7 @@ entities:
       pos: -8.5,-12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -129993.47
+      secondsUntilStateChange: -130176.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20218,6 +20217,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -22.5,4.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 32576
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,30.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -67350,11 +67357,6 @@ entities:
     - type: Transform
       pos: 1.5,32.5
       parent: 2
-  - uid: 10227
-    components:
-    - type: Transform
-      pos: 1.5,31.5
-      parent: 2
   - uid: 10228
     components:
     - type: Transform
@@ -75690,6 +75692,11 @@ entities:
     - type: Transform
       pos: -24.5,0.5
       parent: 2
+  - uid: 32577
+    components:
+    - type: Transform
+      pos: -2.5,30.5
+      parent: 2
 - proto: CableApcExtensionUncuttable
   entities:
   - uid: 11863
@@ -83879,6 +83886,11 @@ entities:
     - type: Transform
       pos: 3.5,22.5
       parent: 2
+  - uid: 10227
+    components:
+    - type: Transform
+      pos: 0.5,30.5
+      parent: 2
   - uid: 10681
     components:
     - type: Transform
@@ -91993,6 +92005,21 @@ entities:
     components:
     - type: Transform
       pos: -28.5,0.5
+      parent: 2
+  - uid: 32573
+    components:
+    - type: Transform
+      pos: -0.5,30.5
+      parent: 2
+  - uid: 32574
+    components:
+    - type: Transform
+      pos: -1.5,30.5
+      parent: 2
+  - uid: 32575
+    components:
+    - type: Transform
+      pos: -2.5,30.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -104421,7 +104448,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 17202
           - 17203
           - 17205
           - 17204
@@ -114763,7 +114789,7 @@ entities:
       pos: 24.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -127139.36
+      secondsUntilStateChange: -127322.39
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -115074,7 +115100,7 @@ entities:
     - type: Firelock
       emergencyCloseCooldown: 3765.4295699
     - type: Door
-      secondsUntilStateChange: -110006.15
+      secondsUntilStateChange: -110189.18
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -150992,15 +151018,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: LeftArmVox
-  entities:
-  - uid: 17202
-    components:
-    - type: Transform
-      parent: 17201
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: Lighter
   entities:
   - uid: 23975
@@ -152469,19 +152486,18 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -2.5,58.5
       parent: 2
+  - uid: 26012
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 31.5,28.5
+      parent: 2
 - proto: MachineFrameDestroyed
   entities:
   - uid: 24127
     components:
     - type: Transform
       pos: -24.5,106.5
-      parent: 2
-- proto: MachineMaterialSilo
-  entities:
-  - uid: 26012
-    components:
-    - type: Transform
-      pos: 31.5,28.5
       parent: 2
 - proto: MagazinePistolEmpty
   entities:
@@ -155120,6 +155136,16 @@ entities:
     components:
     - type: Transform
       pos: 34.5,20.5
+      parent: 2
+  - uid: 32578
+    components:
+    - type: Transform
+      pos: -14.5,-51.5
+      parent: 2
+  - uid: 32579
+    components:
+    - type: Transform
+      pos: -14.5,-50.5
       parent: 2
 - proto: PlasmaDoor
   entities:
@@ -165535,13 +165561,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5107082,44.598087
       parent: 2
-- proto: RightFootHuman
-  entities:
-  - uid: 26378
-    components:
-    - type: Transform
-      pos: -76.168396,4.68467
-      parent: 2
 - proto: RiotBulletShield
   entities:
   - uid: 26379
@@ -173058,9 +173077,10 @@ entities:
       pos: 44.5,-42.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
       id: Генератор гравитации / Станционный Якорь
-    - type: Construction
-      node: Якорь / Генератор гравитации.
   - uid: 27547
     components:
     - type: Transform

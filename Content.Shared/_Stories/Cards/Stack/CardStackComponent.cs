@@ -15,8 +15,8 @@ public sealed partial class CardStackComponent : Component
     [ViewVariables]
     public Container CardContainer;
 
-    [ViewVariables] [AutoNetworkedField]
-    public List<EntityUid> CardOrder = new();
+    [ViewVariables(VVAccess.ReadWrite)] [DataField("flipCount")] [AutoNetworkedField]
+    public int FlipCount;
 
     [ViewVariables] [DataField("content")]
     public List<EntProtoId> InitialContent = [];
@@ -28,9 +28,15 @@ public sealed partial class CardStackComponent : Component
     public SoundSpecifier RemoveCardSound = new SoundCollectionSpecifier("STRemoveCard");
 }
 
-[Serializable] [NetSerializable]
-public enum CardStackVisuals : byte
+[NetSerializable] [Serializable]
+public enum CardStackVisual : byte
 {
-    CardsCount,
-    OrderEdited,
+    State,
+}
+
+[NetSerializable] [Serializable]
+public sealed class CardStackShuffledEvent(NetEntity entity, List<NetEntity>? cards) : EntityEventArgs
+{
+    public List<NetEntity>? Cards = cards;
+    public NetEntity Entity = entity;
 }

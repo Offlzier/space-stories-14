@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/04/2026 20:10:51
-  entityCount: 25612
+  forkId: stories
+  forkVersion: 48da4434f3ac6b074078d62d44a6db0b3eba792b
+  time: 03/04/2026 17:43:58
+  entityCount: 25613
 maps:
 - 943
 grids:
@@ -19196,6 +19196,11 @@ entities:
     - type: Transform
       pos: -7.5,-54.5
       parent: 60
+  - uid: 6780
+    components:
+    - type: Transform
+      pos: -53.5,12.5
+      parent: 60
   - uid: 6921
     components:
     - type: Transform
@@ -30031,6 +30036,11 @@ entities:
     - type: Transform
       pos: 3.5,-10.5
       parent: 60
+  - uid: 18607
+    components:
+    - type: Transform
+      pos: -52.5,12.5
+      parent: 60
   - uid: 18631
     components:
     - type: Transform
@@ -31520,6 +31530,11 @@ entities:
     components:
     - type: Transform
       pos: -55.5,-4.5
+      parent: 60
+  - uid: 21217
+    components:
+    - type: Transform
+      pos: -51.5,12.5
       parent: 60
   - uid: 21248
     components:
@@ -62463,18 +62478,6 @@ entities:
     components:
     - type: Transform
       pos: -36.49547,-36.772636
-      parent: 60
-- proto: ClothingUnderSocksCoder
-  entities:
-  - uid: 6780
-    components:
-    - type: Transform
-      pos: -40.49934,-36.642094
-      parent: 60
-  - uid: 18607
-    components:
-    - type: Transform
-      pos: -7.4850764,5.544639
       parent: 60
 - proto: ClothingUniformColorRainbow
   entities:
