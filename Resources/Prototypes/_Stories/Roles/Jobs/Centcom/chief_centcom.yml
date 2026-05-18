@@ -16,6 +16,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm, RadioImplantCentcomm, STRadioImplantDSO ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NanotrasenStaff
 
 - type: startingGear
   id: STChiefCentcomGear
@@ -31,7 +34,7 @@
     outerClothing: ClothingOuterArmorCentcommCarapace
     neck: STClothingNeckCloakChiefCentcom
     pocket1: BoxFolderCentComClipboardThreePapers
-    belt: PRISONClothingBeltSheathFilled
+    belt: ClothingBeltSheathFilled
   storage:
     back:
     - BoxSurvival

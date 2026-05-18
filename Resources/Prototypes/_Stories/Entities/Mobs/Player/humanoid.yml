@@ -45,6 +45,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerOperatorCentcom
@@ -84,6 +85,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerRepresentativeCentcom
@@ -123,6 +125,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerHeadOfSecurityCentcom
@@ -162,6 +165,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerSecurityOfficerCentcom
@@ -200,6 +204,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerMedicCentcom
@@ -214,11 +219,10 @@
 
 - type: randomHumanoidSettings
   id: STMedicCentcom
-  parent: EventHumanoidMindShielded
   components:
+    - type: AntagImmune
     - type: AutoImplant
       implants:
-      - MindShieldImplant
       - RadioImplantCentcomm
     - type: GhostRole
       name: stories-job-name-medic-centcom
@@ -238,6 +242,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerEngineerCentcom
@@ -252,11 +257,10 @@
 
 - type: randomHumanoidSettings
   id: STEngineerCentcom
-  parent: EventHumanoidMindShielded
   components:
+    - type: AntagImmune
     - type: AutoImplant
       implants:
-      - MindShieldImplant
       - RadioImplantCentcomm
     - type: GhostRole
       name: stories-job-name-engineer-centcom
@@ -276,6 +280,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 - type: entity
   id: STRandomHumanoidSpawnerWorkerCentcom
@@ -290,11 +295,10 @@
 
 - type: randomHumanoidSettings
   id: STWorkerCentcom
-  parent: EventHumanoidMindShielded
   components:
+    - type: AntagImmune
     - type: AutoImplant
       implants:
-      - MindShieldImplant
       - RadioImplantCentcomm
     - type: GhostRole
       name: stories-job-name-worker-centcom
@@ -314,6 +318,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 # Juridical-Jobs
 
@@ -354,6 +359,7 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff
 
 # SO-Jobs
 
@@ -399,3 +405,4 @@
       - NamesFirst
       - NamesLast
       nameFormat: name-format-standard
+    - type: NanotrasenStaff

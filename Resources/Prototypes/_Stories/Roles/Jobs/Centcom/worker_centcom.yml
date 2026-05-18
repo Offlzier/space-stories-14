@@ -18,6 +18,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, RadioImplantCentcomm ]
+  - !type:AddComponentSpecial
+    components:
+    - type: NanotrasenStaff
 
 - type: startingGear
   id: STWorkerCentcomGear
