@@ -1,0 +1,36 @@
+#HighSecDoors
+- type: entity
+  parent: AirlockCentralCommand
+  id: STAirlockCentcomCommandLocked
+  suffix: Centcom, Command locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ STDoorElectronicsCentcomCommand ]
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: STHighSecCentcomSecurityLocked
+  suffix: Centcom, Security locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ STDoorElectronicsCentcomSecurity ]
+
+- type: entity
+  parent: HighSecDoor
+  id: STHighSecCentcomArmoryLocked
+  suffix: Centcom, Armory locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ STDoorElectronicsCentcomArmory ]
+
+- type: entity
+  parent: HighSecDoor
+  id: STHighSecDepartmentSpecialOperationsLocked
+  suffix: DSO, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ STDoorElectronicsDepartmentSpecialOperations ]

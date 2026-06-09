@@ -1,0 +1,12 @@
+ent-STHighSecCentcomSecurityLocked = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+    .suffix = Центком СБ, Закрыт
+ent-STAirlockCentcomCommandLocked = { ent-Airlock }
+    .desc = { ent-Airlock.desc }
+    .suffix = Центком командование, Закрыт
+ent-STHighSecCentcomArmoryLocked = { ent-HighSecDoor }
+    .desc = { ent-HighSecDoor.desc }
+    .suffix = Центком оружейная, Закрыт
+ent-STHighSecDepartmentSpecialOperationsLocked = { ent-HighSecDoor }
+    .desc = { ent-HighSecDoor.desc }
+    .suffix = ДСО, Закрыт

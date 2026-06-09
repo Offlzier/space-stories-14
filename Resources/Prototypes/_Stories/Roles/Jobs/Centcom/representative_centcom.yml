@@ -17,8 +17,6 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm, RadioImplantCentcomm ]
   - !type:AddComponentSpecial
-    components:
-    - type: NanotrasenStaff
 
 - type: startingGear
   id: STRepresentativeCentcomGear

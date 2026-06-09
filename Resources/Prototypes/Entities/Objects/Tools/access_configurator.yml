@@ -136,6 +136,7 @@
     - PrisonMed # Stories
     - PrisonEng # Stories
     - Prisoner # Stories
+    - STDSO # Stories
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent

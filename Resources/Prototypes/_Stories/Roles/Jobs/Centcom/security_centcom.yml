@@ -11,15 +11,18 @@
   access:
   - Security
   - Brig
+  - Armory
   - Maintenance
   - External
+  - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
+  - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, RadioImplantCentcomm ]
   - !type:AddComponentSpecial
-    components:
-    - type: NanotrasenStaff
 
 - type: startingGear
   id: STSecurityOfficerCentcomGear

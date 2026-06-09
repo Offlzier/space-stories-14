@@ -1,0 +1,32 @@
+# Centcom
+- type: entity
+  parent: DoorElectronics
+  id: STDoorElectronicsCentcomCommand
+  suffix: CentralCommand, Command locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand", "Command"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: STDoorElectronicsCentcomArmory
+  suffix: CentralCommand, Armory locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand", "Armory"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: STDoorElectronicsCentcomSecurity
+  suffix: CentralCommand, Security locked
+  components:
+  - type: AccessReader
+    access: [["CentralCommand", "Security"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: STDoorElectronicsDepartmentSpecialOperations
+  suffix: DSO, Locked
+  components:
+  - type: AccessReader
+    access: [["STDSO"]]

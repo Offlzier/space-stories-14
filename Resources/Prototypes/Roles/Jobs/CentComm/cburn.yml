@@ -13,6 +13,7 @@
   - PrisonAllAccess # Stories
   access:
   - CentralCommand
+  - STDSO # Stories
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]

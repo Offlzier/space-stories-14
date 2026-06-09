@@ -9,18 +9,20 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   access:
+  - Theatre
+  - Cargo
+  - Janitor
   - Chapel
   - Service
   - Bar
   - Kitchen
   - Hydroponics
   - Maintenance
+  - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, RadioImplantCentcomm ]
   - !type:AddComponentSpecial
-    components:
-    - type: NanotrasenStaff
 
 - type: startingGear
   id: STWorkerCentcomGear

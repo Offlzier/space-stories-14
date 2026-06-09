@@ -37,7 +37,6 @@
     - MindShieldImplant
     - STDeathRattleImplantDSO #Stories-Implant
     - STRadioImplantDSO #Stories-Implant
-  - type: NanotrasenStaff #Stories-Component
 ## Death Squad
 
 - type: entity
@@ -77,7 +76,6 @@
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
       nameFormat: name-format-ert
-
 
 ## ERT Leader
 

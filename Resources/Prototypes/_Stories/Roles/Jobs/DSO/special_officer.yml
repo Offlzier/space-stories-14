@@ -13,12 +13,11 @@
   - PrisonAllAccess # Stories
   access:
   - CentralCommand
+  - STDSO
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, STDeathRattleImplantDSO, RadioImplantCentcomm, STRadioImplantDSO ]
   - !type:AddComponentSpecial
-    components:
-    - type: NanotrasenStaff
 
 - type: startingGear
   id: STSpecialOfficerGear

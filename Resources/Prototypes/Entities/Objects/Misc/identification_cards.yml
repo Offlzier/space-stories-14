@@ -1307,6 +1307,7 @@
     - SyndicateAgent
     - Wizard
     - Xenoborg
+    - STDSO # Stories
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
