@@ -153672,13 +153672,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: OrganShadowlingHeart
-  entities:
-  - uid: 24314
-    components:
-    - type: Transform
-      pos: -77.5,85.5
-      parent: 2
 - proto: OxygenCanister
   entities:
   - uid: 24315

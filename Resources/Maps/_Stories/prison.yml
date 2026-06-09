@@ -19594,7 +19594,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 23.5,-22.5
       parent: 2
-- proto: ComputerId
+- proto: PRISONComputerId
   entities:
   - uid: 5056
     components:
@@ -39205,7 +39205,7 @@ entities:
       parent: 8665
     - type: Physics
       canCollide: False
-- proto: PRISONComputerShuttlePrison
+- proto: PRISONComputerShuttle
   entities:
   - uid: 5196
     components:
