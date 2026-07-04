@@ -21,9 +21,9 @@ public sealed partial class ForceUserSystem
 
     private void OnEquipped(EntityUid uid, LightsaberComponent comp, GotEquippedEvent args)
     {
-        if (!TryComp<ForceUserComponent>(args.Equipee, out var force) || force.Lightsaber != null)
+        if (!TryComp<ForceUserComponent>(args.EquipTarget, out var force) || force.Lightsaber != null)
             return;
-        BindLightsaber(args.Equipee, uid, force);
+        BindLightsaber(args.EquipTarget, uid, force);
     }
 
     private void OnDamage(EntityUid uid, LightsaberComponent component, DamageChangedEvent args)
@@ -37,20 +37,21 @@ public sealed partial class ForceUserSystem
         if (!_random.Prob(prob > 1 ? 1 : prob))
             return;
 
-        if (TryComp<TetheredComponent>(uid, out var comp) &&
-            TryComp<TetherGunComponent>(comp.Tetherer, out var tetherGunComponent))
-            _tetherGunSystem.StopTether(comp.Tetherer, tetherGunComponent);
+        if (HasComp<TetheredComponent>(uid))
+            _tetherGunSystem.StopTether(uid);
 
         if (_random.Prob(component.DeactivateProb))
             _toggleSystem.TryDeactivate(uid);
 
         if (args.Origin != uid && args.Origin != null)
+        {
             _throwing.TryThrow(uid,
                 _transform.GetWorldPosition(uid, GetEntityQuery<TransformComponent>()) -
                 _transform.GetWorldPosition(Transform(args.Origin.Value), GetEntityQuery<TransformComponent>()),
                 10,
                 uid,
                 0);
+        }
     }
 
     private void OnTryPickUp(EntityUid uid, LightsaberComponent component, GettingPickedUpAttemptEvent args)

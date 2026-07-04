@@ -2,8 +2,8 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Content.Shared._Stories.Sponsors;
 using Content.Shared._Stories.SCCVars;
+using Content.Shared._Stories.Sponsors;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 
@@ -15,9 +15,9 @@ public interface ISponsorsApiClient
     void Initialize();
 }
 
-public sealed class SponsorsApiClient : ISponsorsApiClient
+public sealed partial class SponsorsApiClient : ISponsorsApiClient
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private readonly HttpClient _httpClient = new();
     private string _apiUrl = string.Empty;

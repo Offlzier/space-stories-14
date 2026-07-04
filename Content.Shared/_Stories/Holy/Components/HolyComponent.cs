@@ -7,13 +7,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Stories.Holy;
 
-[RegisterComponent] [NetworkedComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HolyComponent : Component
 {
     [DataField]
     public DamageSpecifier ProtectionDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
             { "Holy", 5 },
             { "Heat", 5 },

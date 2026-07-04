@@ -9,12 +9,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Stories.ReagentStatusIcon;
 
-public sealed class ReagentStatusIconSystem : EntitySystem
+public sealed partial class ReagentStatusIconSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SolutionContainerSystem _solution = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SolutionContainerSystem _solution = default!;
 
     public override void Initialize()
     {
@@ -39,8 +39,11 @@ public sealed class ReagentStatusIconSystem : EntitySystem
                 return;
         }
 
-        if (_solution.TryGetSolution(uid, component.Solution, out var solution) &&
-            solution.Value.Comp.Solution.ContainsReagent(component.Reagent))
-            args.StatusIcons.Add(_prototype.Index(component.StatusIcon));
+        if (_solution.TryGetSolution(uid, component.Solution, out var solution))
+        {
+            var sol = solution.Value.Comp.Solution;
+            if (sol.ContainsReagent(component.Reagent))
+                args.StatusIcons.Add(_prototype.Index(component.StatusIcon));
+        }
     }
 }

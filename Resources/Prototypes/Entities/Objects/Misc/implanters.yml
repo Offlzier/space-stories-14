@@ -48,6 +48,10 @@
     - RadioImplant
     - ChameleonControllerImplant
     - VoiceMaskImplant
+    # Stories-Implants
+    - STAfterburnerImplant
+    - STAdrenocorImplant
+    # Stories-Implants
     deimplantFailureDamage:
       types:
         Cellular: 50
@@ -259,7 +263,7 @@
 
 - type: entity
   id: VoiceMaskImplanter
-  name: voice mask implanter
+  name: identity mask implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter

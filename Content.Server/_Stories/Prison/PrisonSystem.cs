@@ -1,7 +1,5 @@
-using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.CombatMode.Pacification;
@@ -11,39 +9,31 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Station.Components;
 using Content.Shared.StatusEffect;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._Stories.Prison;
 
-public sealed class PrisonSystem : EntitySystem
+public sealed partial class PrisonSystem : EntitySystem
 {
-    private const string PacifiedKey = "Pacified";
-
     /// <summary>
     /// Процент сбежавших зеков для их полной победы.
     /// </summary>
     private const float EscapedPrisonersPercent = 0.5f;
 
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    private static readonly string PacifiedKey = "Pacified";
+
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IPlayerManager _player = default!;
     private readonly ProtoId<JobPrototype> _prisonerJobId = "PRISONPrisoner";
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -60,8 +50,7 @@ public sealed class PrisonSystem : EntitySystem
         // Rooooooooooooooooooooundstart пацифизм на время, чтобы не было РДМ побегов за 5 секунд.
         _statusEffects.TryAddStatusEffect<PacifiedComponent>(uid,
             PacifiedKey,
-            TimeSpan.FromSeconds(component.PacifiedTime),
-            false);
+            TimeSpan.FromSeconds(component.PacifiedTime), true);
     }
 
     private void OnRoundEndText(RoundEndTextAppendEvent args)

@@ -19,10 +19,10 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private OutfitSystem _outfit = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "Traitor";
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -224,20 +224,20 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(ninja);
 
-        if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
+        if (HasComp<HumanoidProfileComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);
 
         Verb shadowling = new()
         {
-            Text = Loc.GetString("admin-verb-text-make-shadowling"),
+            Text = Loc.GetString("stories-admin-verb-make-shadowling"),
             Category = VerbCategory.Antag,
             Icon = new SpriteSpecifier.Rsi(new ResPath("_Stories/Mobs/Demons/shadowling.rsi"), "shadowling"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "Shadowling");
+                _antag.ForceMakeAntag<ShadowlingRuleComponent>(targetPlayer, "STShadowling");
             },
             Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-shadowling"),
+            Message = Loc.GetString("stories-admin-verb-make-shadowling"),
         };
         args.Verbs.Add(shadowling);
     }

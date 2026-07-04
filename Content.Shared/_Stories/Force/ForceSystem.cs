@@ -1,14 +1,12 @@
-using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Stories.Force;
 
-public sealed class ForceSystem : EntitySystem // TODO: Навести порядок с Float и FixedPoint2
+public sealed partial class ForceSystem : EntitySystem // TODO: Навести порядок с Float и FixedPoint2
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {

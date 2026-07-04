@@ -18,23 +18,21 @@ using Content.Shared.UserInterface;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
 namespace Content.Server.VendingMachines
 {
-    public sealed class VendingMachineSystem : SharedVendingMachineSystem
+    public sealed partial class VendingMachineSystem : SharedVendingMachineSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly PricingSystem _pricing = default!;
-        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private PricingSystem _pricing = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
         // Stories-Economy-Start
-        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-        [Dependency] private readonly BankSystem _bank = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly Inventory.ServerInventorySystem _inventory = default!;
+        [Dependency] private BankSystem _bank = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private Inventory.ServerInventorySystem _inventory = default!;
         // Stories-Economy-End
 
         private const float WallVendEjectDistanceFromWall = 1f;
@@ -86,7 +84,14 @@ namespace Content.Server.VendingMachines
                 TryUpdateVisualState((uid, component));
             }
 
-            RestockInventoryFromPrototype(uid, component, component.InitialStockQuality); // Stories-Economy
+            if (PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype) // Stories-Economy
+                && packPrototype.ItemPrices.Count > 0)
+            {
+                ApplyPricesToInventory(component.Inventory, packPrototype.ItemPrices);
+                ApplyPricesToInventory(component.EmaggedInventory, packPrototype.ItemPrices);
+                ApplyPricesToInventory(component.ContrabandInventory, packPrototype.ItemPrices);
+                Dirty(uid, component);
+            }
         }
 
         private void OnPowerChanged(EntityUid uid, VendingMachineComponent component, ref PowerChangedEvent args)
@@ -155,10 +160,6 @@ namespace Content.Server.VendingMachines
         /// <summary>
         /// Ejects a random item from the available stock. Will do nothing if the vending machine is empty.
         /// </summary>
-        /// <param name="uid"></param>
-        /// <param name="throwItem">Whether to throw the item in a random direction after dispensing it.</param>
-        /// <param name="forceEject">Whether to skip the regular ejection checks and immediately dispense the item without animation.</param>
-        /// <param name="vendComponent"></param>
         public void EjectRandom(EntityUid uid, bool throwItem, bool forceEject = false, VendingMachineComponent? vendComponent = null)
         {
             if (!Resolve(uid, ref vendComponent))
@@ -342,7 +343,7 @@ namespace Content.Server.VendingMachines
             }
         }
 
-        public void RestockInventoryFromPrototype(EntityUid uid,
+        public new void RestockInventoryFromPrototype(EntityUid uid,
             VendingMachineComponent? component = null, float restockQuality = 1f)
         {
             if (!Resolve(uid, ref component))

@@ -66,10 +66,14 @@ ent-FakeMindShieldToggleAction = [color=green]Переключить фальш�
     .desc = Переключить трансляцию фальшивого Щита разума
 ent-ActionToggleParamedicSiren = Переключить сирену парамедика
     .desc = Включает или выключает сирену парамедика.
+ent-ActionToggleWaggingVulpkanin = { ent-ActionToggleWagging }
+    .desc = { ent-ActionToggleWagging.desc }
 ent-ActionGravityJump = Прыжок
     .desc = Активируя усовершенствованную систему перемещения, совершите короткий прыжок в направлении вашего взгляда.
+ent-ActionJumpBoost = Прыжок
+    .desc = { ent-ActionGravityJump.desc }
 ent-ActionVulpkaninGravityJump = Скачок
-    .desc = Используя свои проворные ноги, совершите скачок на короткую дистанцию. Будьте осторожны, не врежтесь ни во что!
+    .desc = Используя свои проворные ноги, совершите скачок на короткую дистанцию. Будьте осторожны, не врежьтесь ни во что!
 ent-ActionToggleRootable = Укоренение
     .desc = Начните или прекратите укореняться к полу.
 ent-ActionChameleonController = Управление одеждой

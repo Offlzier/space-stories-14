@@ -9,11 +9,11 @@ using Robust.Shared.Console;
 namespace Content.Server._Stories.Economy;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class GetBalanceCommand : LocalizedCommands
+public sealed partial class GetBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_getbalance";
 
@@ -62,18 +62,21 @@ public sealed class GetBalanceCommand : LocalizedCommands
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
+        {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
                 Loc.GetString("cmd-econ-arg-player"));
+        }
+
         return CompletionResult.Empty;
     }
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class SetBalanceCommand : LocalizedCommands
+public sealed partial class SetBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_setbalance";
 
@@ -136,8 +139,11 @@ public sealed class SetBalanceCommand : LocalizedCommands
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
+        {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
                 Loc.GetString("cmd-econ-arg-player"));
+        }
+
         if (args.Length == 2)
             return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-amount"));
         return CompletionResult.Empty;
@@ -145,11 +151,11 @@ public sealed class SetBalanceCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class AddBalanceCommand : LocalizedCommands
+public sealed partial class AddBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_addbalance";
 
@@ -209,8 +215,11 @@ public sealed class AddBalanceCommand : LocalizedCommands
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
+        {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
                 Loc.GetString("cmd-econ-arg-player"));
+        }
+
         if (args.Length == 2)
             return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-amount-delta"));
         return CompletionResult.Empty;
@@ -218,9 +227,9 @@ public sealed class AddBalanceCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class PaySalaryCommand : LocalizedCommands
+public sealed partial class PaySalaryCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
+    [Dependency] private IEntitySystemManager _sysMan = default!;
 
     public override string Command => "econ_paysalary";
 
@@ -247,9 +256,9 @@ public sealed class PaySalaryCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class FineAllCommand : LocalizedCommands
+public sealed partial class FineAllCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public override string Command => "econ_fineall";
 

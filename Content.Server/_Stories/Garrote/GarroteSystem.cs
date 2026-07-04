@@ -3,7 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Shared._Stories.Weapons.Special.Garrote;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
@@ -16,12 +16,12 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Stories.Garrote;
 
-public sealed class GarroteSystem : SharedGarroteSystem
+public sealed partial class GarroteSystem : SharedGarroteSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
