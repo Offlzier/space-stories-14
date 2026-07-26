@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseAction
+  id: FakeMindShieldToggleAction1
+  name: Переключить зрение
+  description: Позволяет увидеть то, что скрыто!
+  components:
+    - type: Action
+      itemIconStyle: BigAction
+      icon: { sprite: Interface/Actions/changeling2.rsi, state: nv_off }
+      iconOn: { sprite: Interface/Actions/changeling2.rsi, state: nv_on }
+    - type: InstantAction
+      event: !type:ToggleComponents
