@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from paradise at commit https://github.com/ss220-space/Paradise/blob/master220/icons/mob/slimes.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "grey"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "dark_blue"
+    },
+    {
+      "name": "green"
+    },
+    {
+      "name": "purple"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "pink"
+    },
+    {
+      "name": "dark_purple"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "gold"
+    },
+    {
+      "name": "metal"
+    },
+    {
+      "name": "silver"
+    },
+    {
+      "name": "light_pink"
+    },
+    {
+      "name": "black"
+    },
+    {
+      "name": "rainbow"
+    },
+    {
+      "name": "adamantine"
+    },
+    {
+      "name": "oil"
+    },
+    {
+      "name": "bluespace"
+    },
+    {
+      "name": "pyrity"
+    },
+    {
+      "name": "sepia"
+    },
+    {
+      "name": "cerulean"
+    }
+  ]
+}
