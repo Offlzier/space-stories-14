@@ -16,7 +16,6 @@
     defaultRotation: 90
     horizontalRotation: 90
   - type: Stamina
-    animationThreshold: 150
     baseCritThreshold: 300
   - type: Hands
     hands:
@@ -172,7 +171,6 @@
     channels:
     - STShadowlingMind
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: STShadowling
   - type: MeleeWeapon
     altDisarm: true
@@ -254,6 +252,7 @@
   - type: MobCollision
   - type: PressureImmunity
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
       collection: Punch
     angle: 30
@@ -282,7 +281,6 @@
   - type: Destructible
     thresholds: []
   - type: Damageable
-    damageContainer: Biological
     damageModifierSet: STShadowling
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -306,6 +304,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 10
+  - type: Tag
+    tags:
+    - DoorBumpOpener
   - type: Sprite
     noRot: true
     drawdepth: Mobs

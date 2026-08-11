@@ -6,6 +6,18 @@
     mode: SnapgridCenter
   components:
   - type: DragonRift
+    # Stories-DragonRift Start
+    spawnCooldown: 25
+    spawnTable: !type:GroupSelector
+      children:
+      - id: MobCarpDragon
+        weight: 2
+      - id: STMobSharkDragon
+        weight: 1
+      - id: STMobCarpHoloDragon
+        weight: 1
+    offset: 0
+    # Stories-DragonRift End
   - type: Transform
     anchored: true
   - type: Physics
@@ -33,8 +45,9 @@
     # only show after making the announcement at 50%
     enabled: false
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

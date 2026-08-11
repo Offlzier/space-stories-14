@@ -658,6 +658,13 @@
     Telecrystal: 6
   categories:
   - UplinkChemicals
+  # Stories-SyndieJetInjector Start
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  # Stories-SyndieJetInjector End
 
 - type: listing
   id: UplinkHypoDart
@@ -1687,9 +1694,9 @@
   productEntity: ClothingShoesBootsMagSyndie
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 2 # Stories-Price
   cost:
-    Telecrystal: 2
+    Telecrystal: 4 # Stories-Price
   categories:
   - UplinkWearables
 
@@ -2299,3 +2306,7 @@
     whitelist:
       components:
       - HijackTradeStationCondition
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

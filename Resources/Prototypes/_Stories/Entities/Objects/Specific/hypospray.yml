@@ -1,0 +1,35 @@
+- type: entity
+  name: medipen-vaccine against corpium
+  parent: ChemicalMedipen
+  id: STAntiCorpiumMedipen
+  description: Medipen with corpium vaccine.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: microstimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: microstimpen_empty
+  - type: Solution
+    solution:
+      maxVol: 15
+      reagents:
+      - ReagentId: STAntiCorpium
+        Quantity: 15
+  - type: Tag
+    tags: []
+
+- type: entity
+  parent: AdvancedJetInjector
+  id: STSyndieJetInjector
+  name: blood-red jet injector
+  description: Advanced injector in the Syndicate's color scheme.
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Specific/Medical/syndie_jetinjector.rsi
+  - type: Item
+    sprite: _Stories/Objects/Specific/Medical/syndie_jetinjector.rsi
+

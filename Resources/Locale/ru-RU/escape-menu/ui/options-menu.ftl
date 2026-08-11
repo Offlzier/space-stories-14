@@ -59,6 +59,7 @@ ui-options-show-ooc-patron-color = Цветной ник в OOC для патр�
 ui-options-show-looc-on-head = Показывать LOOC-чат над головами персонажей
 ui-options-fancy-speech = Показывать имена в облачках с текстом
 ui-options-fancy-name-background = Добавить фон облачкам с текстом
+ui-options-chat-follow-button = Показывать кнопку быстрого телепорта для призрака
 ui-options-vsync = Вертикальная синхронизация
 ui-options-fullscreen = Полный экран
 ui-options-lighting-label = Качество освещения:
@@ -162,7 +163,7 @@ ui-options-function-alt-activate-item-in-world = Альтернативно ис
 ui-options-function-drop = Положить предмет
 ui-options-function-examine-entity = Осмотреть
 ui-options-function-swap-hands = Поменять руки
-ui-options-function-swap-hands-reverse = Swap hands (other direction)
+ui-options-function-swap-hands-reverse = Поменять руки (в другую сторону)
 ui-options-function-move-stored-item = Переместить хранящийся объект
 ui-options-function-rotate-stored-item = Повернуть хранящийся объект
 ui-options-function-save-item-location = Сохранить расположение объекта
@@ -186,7 +187,7 @@ ui-options-function-flip-object = Перевернуть
 
 ui-options-function-focus-chat-input-window = Писать в чат
 ui-options-function-focus-local-chat-window = Писать в чат (IC)
-ui-options-function-focus-emote = Писать в чат (Emote)
+ui-options-function-focus-emote = Писать в чат (Эмоции)
 ui-options-function-focus-whisper-chat-window = Писать в чат (Шёпот)
 ui-options-function-focus-radio-window = Писать в чат (Радио)
 ui-options-function-focus-looc-window = Писать в чат (LOOC)
@@ -316,7 +317,7 @@ ui-options-function-text-cut = Вырезать
 ui-options-function-text-paste = Вставить
 ui-options-function-text-history-prev = Предыдущее с истории
 ui-options-function-text-history-next = Следующее с истории
-ui-options-function-text-release-focus = Release focus
+ui-options-function-text-release-focus = Отменить сообщение
 ui-options-function-text-scroll-to-bottom = Пролистать вниз
 ui-options-function-text-tab-complete = Tab completion
 ui-options-function-text-complete-next = Complete next
@@ -360,12 +361,35 @@ cmd-options-help = Использование: options [tab]
 
 ## Accessibility menu
 
-ui-options-accessability-header-visuals = Изображение
-ui-options-accessability-header-content = Содержимое
+ui-options-accessibility-header-reduced-motion = Уменьшение эффектов
+ui-options-accessibility-header-visuals = Визуальное
+ui-options-accessibility-header-content = Контент
 
 ui-options-enable-color-name = Цветные имена персонажей
 ui-options-colorblind-friendly = Режим для дальтоников
+
 ui-options-reduced-motion = Снижение интенсивности визуальных эффектов
+ui-options-reduced-motion-tooltip = Включите, чтобы показывать альтернативные спрайты с уменьшенной анимацией для некоторых эффектов.
+
+# accessibility option tooltips taken from CVar summary blocks.
+
+ui-options-disable-ai-static = Отключить статический эффект помех на ИИ.
+ui-options-disable-ai-static-tooltip = Заменяет эффект статических помех на камере ИИ на простой градиент.
+ui-options-disable-blurry-vision = Размытое зрение
+ui-options-disable-blurry-vision-tooltip = Заменяет движение в шейдере размытия на статический эффект.
+ui-options-disable-drunk-overlay = Эффект опьянения
+ui-options-disable-drunk-overlay-tooltip = Заменяет движение в шейдере опьянения на статическое смещение.
+ui-options-disable-flash-effect = Вспышка
+ui-options-disable-flash-effect-tooltip = Заменяет эффект вспышки на упрощённый аналог с уменьшенным движением.
+ui-options-disable-heat-distortion = Тепловая дисторсия
+ui-options-disable-heat-distortion-tooltip = Уменьшает движение в шейдере тепловой дисторсии.
+ui-options-disable-nv-noise = Оверлей ночного зрения
+ui-options-disable-nv-noise-tooltip = Отключает шумовой эффект в оверлее ночного зрения.
+ui-options-disable-rainbow-overlay = Радужный оверлей (галлюциногенный)
+ui-options-disable-rainbow-overlay-tooltip = Заменяет движение в шейдере радужного оверлея на статическое смещение.
+ui-options-disable-singulo-warp = Сингулярность
+ui-options-disable-singulo-warp-tooltip = Отключает эффект искажения экрана от сингулярности.
+
 ui-options-screen-shake-intensity = Интенсивность дрожания экрана
 
 ui-options-chat-window-opacity = Непрозрачность окна чата
@@ -379,10 +403,10 @@ ui-options-censor-nudity = Цензура обнажённых персонаж�
 
 ui-options-admin-player-panel = Список персонажей в админ меню
 
-ui-options-admin-player-tab-symbol-setting = Символы антагонистов в колонке персонажей
-ui-options-admin-player-tab-symbol-setting-off = Без символов антагонистов
-ui-options-admin-player-tab-symbol-setting-basic = Показывать стандартный символ антагониста
-ui-options-admin-player-tab-symbol-setting-specific = Показывать специфический символ антагониста
+ui-options-admin-player-tab-symbol-setting = Символ антага в колонке персонажей
+ui-options-admin-player-tab-symbol-setting-off = Без антаг символов
+ui-options-admin-player-tab-symbol-setting-basic = Показывать стандартные символы антагов
+ui-options-admin-player-tab-symbol-setting-specific = Показывать определённые символы антагов
 
 ui-options-admin-player-tab-role-setting = Настройки отображения ролей
 ui-options-admin-player-tab-role-setting-roletype = Показывать тип роли
@@ -390,26 +414,29 @@ ui-options-admin-player-tab-role-setting-subtype = Показывать подт
 ui-options-admin-player-tab-role-setting-roletypesubtype = Показывать тип роли и подтип
 ui-options-admin-player-tab-role-setting-subtyperoletype = Показывать подтип и тип роли
 
-ui-options-admin-player-tab-color-setting = Настройки цветов
-ui-options-admin-player-tab-color-setting-off = Я ненавижу цвета
-ui-options-admin-player-tab-color-setting-character = Раскрашивать имена антагонистов
-ui-options-admin-player-tab-color-setting-roletype = Раскрашивать все типы ролей
-ui-options-admin-player-tab-color-setting-both =  Раскрашивать и то, и другое
+ui-options-admin-player-tab-color-setting = Настройки цвета
+ui-options-admin-player-tab-color-setting-off = Я ненавижу цвета (отключить)
+ui-options-admin-player-tab-color-setting-character = Окрашивать имена персонажей антагов
+ui-options-admin-player-tab-color-setting-roletype = Окрашивать все типы ролей
+ui-options-admin-player-tab-color-setting-both = Окрашивать типы ролей и антагов
 
 ui-options-admin-overlay-title = Админ оверлей
 
-ui-options-admin-overlay-antag-format = Стиль меток антагонистов
-ui-options-admin-overlay-antag-format-binary = Показывать статус антагониста
-ui-options-admin-overlay-antag-format-roletype = Показывать тип роли
-ui-options-admin-overlay-antag-format-subtype = Показывать подтип
+ui-options-admin-overlay-antag-format = Стиль надписи антагов
+ui-options-admin-overlay-antag-format-binary = Отображать антагов
+ui-options-admin-overlay-antag-format-roletype = Отображать тип роли
+ui-options-admin-overlay-antag-format-subtype = Отображать подтип
 
-ui-options-admin-overlay-antag-symbol = Стиль символов антагонистов
-ui-options-admin-overlay-antag-symbol-off = Без символов антагонистов
-ui-options-admin-overlay-antag-symbol-basic = Показывать стандартный символ антагониста
-ui-options-admin-overlay-antag-symbol-specific = Показывать специфический символ антагониста
+ui-options-admin-overlay-antag-symbol = Стиль символа антагов
+ui-options-admin-overlay-antag-symbol-off = Без антаг символов
+ui-options-admin-overlay-antag-symbol-basic = Отображать стандартные символы антагов
+ui-options-admin-overlay-antag-symbol-specific = Отображать определённые символы антагов
 
-ui-options-admin-enable-overlay-playtime = Показать время игры
-ui-options-admin-enable-overlay-starting-job = Показать начальную роль
-ui-options-admin-overlay-merge-distance = Дистанция слияния стека
-ui-options-admin-overlay-ghost-fade-distance = Дистанция исчезновения оверлея от мыши
-ui-options-admin-overlay-ghost-hide-distance = Дистанция скрытия оверлея от мыши
+ui-options-admin-enable-overlay-playtime = Отображать игровое время
+ui-options-admin-enable-overlay-starting-job = Отображать стартовую должность
+ui-options-admin-overlay-merge-distance = Дистанция группировки оверлеев
+ui-options-admin-overlay-ghost-fade-distance = Расстояние от курсора до плавного исчезновения админ оверлея.
+ui-options-admin-overlay-ghost-hide-distance = Расстояние от курсора до скрытия админ оверлея.
+
+ui-options-admin-strip-overlay-title = Оверлей обыска
+ui-options-admin-strip-overlay-setting = Показывать админ-вид обыска по умолчанию

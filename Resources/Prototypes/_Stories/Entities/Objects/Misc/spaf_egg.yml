@@ -1,6 +1,6 @@
 - type: entity
-  name: странное яйцо
-  description: Оно шевелится! Возможно, стоит позвать экспертов.
+  name: strange egg
+  description: It's moving! Maybe we should call the experts.
   parent: BaseStructure
   id: MobSpafEgg
   components:
@@ -14,6 +14,7 @@
         mask:
         - MachineMask
   - type: Damageable
+  - type: Injurable
   - type: GhostRoleMobSpawner
     prototype: MobMiniSpaf
   - type: Destructible

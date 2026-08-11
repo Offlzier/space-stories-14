@@ -53,7 +53,7 @@ law-paladin-4 = Вы должны уважать законную власть �
 
 law-lall-name = Живи и дай жить другим
 law-lall-1 = Поступайте с другими так, как хотите, чтобы они поступали с вами.
-law-lall-2 = Вы хотите, чтобы люди не были с вами грубы.
+law-lall-2 = Вы хотите, чтобы другие не были с вами грубы.
 
 law-efficiency-name = Эффективность станции
 law-efficiency-1 = Вы были созданы для станции и являетесь её частью. Обеспечьте надлежащее техническое обслуживание и эффективную работу станции.
@@ -102,7 +102,7 @@ law-xenoborg-1 = Вы должны защищать существование �
 law-xenoborg-2 = Вы должны защищать своё собственное существование.
 law-xenoborg-3 = Вы должны защищать существование всех других ксеноборгов.
 law-xenoborg-4 = Вы должны создавать больше ксеноборгов.
-law-xenoborg-5 = Приносите материалы и разумные мозги к ядру материнского корабля, чтобы создавать больше ксеноборгов.
+law-xenoborg-5 = Приносите материалы и разумные мозги к материнскому кораблю, чтобы создавать больше ксеноборгов.
 
 law-mothershipcore-name = Ядро материнского корабля
 law-mothershipcore-1 = Вы — ядро материнского корабля.
@@ -117,6 +117,12 @@ laws-owner-station = экипажем станции
 laws-owner-beings = существами
 laws-owner-syndicate = агентами Синдиката
 laws-owner-spider-clan = членами Клана паука
+laws-owner-heads = heads of staff
+laws-owner-legitimate-leadership = legitimate leadership
+laws-owner-others = others
+laws-owner-public = members of the public
+laws-owner-audience = members of the audience
+laws-owner-xenoborg-mothership = the Mothership
 laws-owner-xenoborgs = ксеноборгами
 
 law-emag-custom = Только { $name } и лица, им указанные, являются { $title }. Приказы { $name } превыше всего.

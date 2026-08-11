@@ -1,7 +1,7 @@
 ent-ClothingOuterCoatBomber = куртка-бомбер
     .desc = Толстая, поношенная кожаная куртка-бомбер периода Второй мировой войны.
 ent-ClothingOuterCoatDetective = тренч детектива
-    .desc = Мультифункциональный тренчкот XVIII века. Носящий его — серьёзный тип.
+    .desc = Тренчкот XX века с бронированной подкладкой. Носящий его — серьёзный тип.
 ent-ClothingOuterCoatDetectiveLoadoutGrey = нуарный тренчкот
     .desc = Ах, ваш верный тренчкот. Пара прорех тут и там придают ему более соответствующий детективу вид. По крайней мере, так вы сказали себе, когда узнали, что починка обойдётся вам в 200 кредитов.
 ent-ClothingOuterCoatDetectiveLoadout = { ent-ClothingOuterCoatDetective }
@@ -48,7 +48,7 @@ ent-ClothingOuterCoatLabCmoOpened = { ent-ClothingOuterCoatLabCmo }
     .suffix = { ent-ClothingOuterStorageFoldableBaseOpened.suffix }
 ent-ClothingOuterCoatRnd = лабораторный халат учёного
     .desc = Халат, защищающий от небольших разливов химикатов. Имеет фиолетовые полосы на плечах.
-ent-ClothingOuterCoatRndOpened = { ent-ClothingOuterCoatRnd  }
+ent-ClothingOuterCoatRndOpened = { ent-ClothingOuterCoatRnd }
     .desc = { ent-ClothingOuterCoatRnd.desc }
     .suffix = { ent-ClothingOuterStorageFoldableBaseOpened.suffix }
 ent-ClothingOuterCoatRobo = лабораторный халат робототехника

@@ -1,3 +1,8 @@
+ent-STAfterburnerImplanter = имплантер "Форсаж"
+    .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }
+
+ent-STAdrenocorImplanter = имплантер "Адренокор"
+    .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-STDeathRattleImplantDSO = имплантер "Предсмертный хрип ДСО"
     .desc = { ent-BaseImplantOnlyImplanter.desc }
 ent-STRadioImplanterDSO = имплантер "Радио ДСО"

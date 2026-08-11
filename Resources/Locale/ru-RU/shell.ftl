@@ -12,6 +12,8 @@ shell-only-players-can-run-this-command = Только игроки могут �
 shell-must-be-attached-to-entity = Для выполнения этой команды вы должны быть прикреплены к сущности.
 shell-must-have-body = У вас должно быть тело, чтобы выполнить эту команду.
 
+shell-unknown-error = Произошла неизвестная ошибка.
+
 ## Arguments
 
 shell-need-exactly-one-argument = Нужен ровно один аргумент.
@@ -43,6 +45,7 @@ shell-invalid-grid-id = Недопустимый ID сетки.
 shell-invalid-map-id = Недопустимый ID карты.
 shell-invalid-entity-uid = { $uid } не является допустимым идентификатором uid.
 shell-invalid-bool = Неверный boolean.
+shell-invalid-bool-value = Invalid boolean: '{ $value }'
 shell-entity-uid-must-be-number = EntityUid должен быть числом.
 shell-could-not-find-entity = Не удалось найти сущность { $entity }.
 shell-could-not-find-entity-with-uid = Не удалось найти сущность с uid { $uid }.

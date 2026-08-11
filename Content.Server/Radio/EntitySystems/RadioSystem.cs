@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Server._Stories.TTS;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.Ghost;
 using Content.Server.Power.Components;
 using Content.Shared._Stories.SCCVars;
 using Content.Shared._Stories.TTS;
@@ -25,33 +27,31 @@ namespace Content.Server.Radio.EntitySystems;
 /// <summary>
 ///     This system handles intrinsic radios and the general process of converting radio messages into chat messages.
 /// </summary>
-public sealed class RadioSystem : EntitySystem
+public sealed partial class RadioSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly IReplayRecordingManager _replay = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private IReplayRecordingManager _replay = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private EntityQuery<TelecomExemptComponent> _exemptQuery = default!;
 
     // Stories-TTS Start
-    [Dependency] private readonly TTSSystem _tts = default!;
-    [Dependency] private readonly TtsAudioProcessingSystem _ttsProcessing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private TTSSystem _tts = default!;
+    [Dependency] private TtsAudioProcessingSystem _ttsProcessing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     // Stories-TTS End
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
-
-    private EntityQuery<TelecomExemptComponent> _exemptQuery;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
-
-        _exemptQuery = GetEntityQuery<TelecomExemptComponent>();
     }
 
     private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
@@ -65,7 +65,6 @@ public sealed class RadioSystem : EntitySystem
 
     private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, ref RadioReceiveEvent args)
     {
-        // Stories-TTS Start
         if (!TryComp(uid, out ActorComponent? actor))
             return;
 
@@ -73,8 +72,22 @@ public sealed class RadioSystem : EntitySystem
         if (playerSession.Status != SessionStatus.InGame)
             return;
 
-        _netMan.ServerSendMessage(args.ChatMsg, playerSession.Channel);
-        // Stories-TTS End
+        var msg = args.ChatMsg;
+        if (_ghost.CanGhostWarp(playerSession, out _))
+        {
+            msg = new MsgChatMessage
+            {
+                Message = new ChatMessage(args.ChatMsg.Message)
+                {
+                    WrappedMessage = _chatManager.PrependFollowButtonIfAppropriate(
+                        args.ChatMsg.Message.WrappedMessage,
+                        args.MessageSource,
+                        playerSession.Channel),
+                },
+            };
+        }
+
+        _netMan.ServerSendMessage(msg, playerSession.Channel);
     }
 
     // Stories-TTS Start
@@ -100,7 +113,7 @@ public sealed class RadioSystem : EntitySystem
     private string GetVoiceId(EntityUid sourceUid)
     {
         if (TryComp<TTSComponent>(sourceUid, out var tts) && !string.IsNullOrEmpty(tts.VoicePrototypeId) &&
-            _prototype.TryIndex<TTSVoicePrototype>(tts.VoicePrototypeId, out var protoVoice))
+            ProtoMan.TryIndex<TTSVoicePrototype>(tts.VoicePrototypeId, out var protoVoice))
         {
             return protoVoice.Speaker;
         }
@@ -113,7 +126,7 @@ public sealed class RadioSystem : EntitySystem
     /// </summary>
     public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, bool escapeMarkup = true)
     {
-        SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup);
+        SendRadioMessage(messageSource, message, ProtoMan.Index(channel), radioSource, escapeMarkup: escapeMarkup);
     }
 
     /// <summary>
@@ -134,7 +147,7 @@ public sealed class RadioSystem : EntitySystem
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (evt.SpeechVerb != null && _prototype.Resolve(evt.SpeechVerb, out var evntProto))
+        if (evt.SpeechVerb != null && ProtoMan.Resolve(evt.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
@@ -212,7 +225,7 @@ public sealed class RadioSystem : EntitySystem
             foreach (var uid in recipientUids)
             {
                 var parent = Transform(uid).ParentUid;
-                var target = actorQuery.HasComponent(uid) ? uid : (actorQuery.HasComponent(parent) ? parent : (EntityUid?) null);
+                var target = actorQuery.HasComponent(uid) ? uid : (actorQuery.HasComponent(parent) ? parent : (EntityUid?)null);
 
                 if (target.HasValue && actorQuery.TryGetComponent(target.Value, out var actor))
                 {

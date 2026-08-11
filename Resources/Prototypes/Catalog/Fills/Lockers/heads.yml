@@ -73,6 +73,7 @@
     - id: ClothingMaskGasCaptain
     - id: JetpackCaptainFilled
     - id: OxygenTankFilled
+    - id: STClothingShoesBootsMagCap # Stories-MagBoots
 
 # No laser locker, used when the antique laser is placed in the special display crate
 - type: entity
@@ -334,7 +335,6 @@
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
     - id: WeaponDisabler
-    - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: PlushieLizardJobHeadofsecurity
@@ -349,6 +349,7 @@
     - id: ClothingOuterHardsuitSecurityRed
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
+    - id: STClothingShoesBootsMagSec # Stories-MagBoots
 
 # No hardsuit locker
 - type: entity

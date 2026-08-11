@@ -26,6 +26,7 @@
     implants:
     - MindShieldImplant
     - DeathRattleImplantCentcomm
+    - STAdrenocorImplant # Stories-Implant
 
 - type: randomHumanoidSettings #Stories-DSO-Settings
   id: STEventHumanoidDSO

@@ -1,4 +1,5 @@
 construction-category-all = Всё
+construction-category-atmospherics = Атмос
 construction-category-furniture = Мебель
 construction-category-storage = Хранилища
 construction-category-tools = Инструменты

@@ -1,5 +1,5 @@
-ent-FoodBakedBase = { ent-FoodInjectableBase }
-    .desc = { ent-FoodInjectableBase.desc }
+ent-FoodBakedBase = { ent-SolutionVeryTiny }
+    .desc = { ent-SolutionVeryTiny.desc }
 ent-FoodBakedMuffin = маффин
     .desc = Вкусный и пышный кекс.
 ent-FoodBakedMuffinBerry = ягодный маффин
@@ -40,7 +40,7 @@ ent-FoodBakedWaffleSoy = соевые вафли
     .desc = Вы чувствуете себя здоровее и... женственнее?
 ent-FoodBakedWaffleSoylent = сойлент вафли
     .desc = Не из людей. Честно.
-ent-FoodBakedWaffleRoffle = roffle-вафли
+ent-FoodBakedWaffleRoffle = роффли
     .desc = Вафли от Roffle. Co.
 ent-FoodBakedPretzel = крендель с маком
     .desc = Как всё закручено!

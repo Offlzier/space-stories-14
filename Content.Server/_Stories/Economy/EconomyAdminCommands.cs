@@ -9,11 +9,11 @@ using Robust.Shared.Console;
 namespace Content.Server._Stories.Economy;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class GetBalanceCommand : LocalizedCommands
+public sealed partial class GetBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_getbalance";
 
@@ -37,26 +37,26 @@ public sealed class GetBalanceCommand : LocalizedCommands
 
         if (!mindSystem.TryGetMind(located.UserId, out var mindId, out _))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-mind"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-mind"));
             return;
         }
 
         if (!_entManager.TryGetComponent<MindBankAccountComponent>(mindId.Value, out var bankAcc))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-account"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-account"));
             return;
         }
 
         if (bankAcc.BankStation != null &&
             bankSystem.TryGetAccount(bankAcc.BankStation.Value, bankAcc.AccountNumber, out var account))
         {
-            shell.WriteLine(Loc.GetString("cmd-econ-getbalance-success",
+            shell.WriteLine(Loc.GetString("stories-cmd-econ-getbalance-success",
                 ("player", located.Username),
                 ("balance", account.Balance)));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-econ-error-station-account-missing"));
+        shell.WriteError(Loc.GetString("stories-cmd-econ-error-station-account-missing"));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -64,7 +64,7 @@ public sealed class GetBalanceCommand : LocalizedCommands
         if (args.Length == 1)
         {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
-                Loc.GetString("cmd-econ-arg-player"));
+                Loc.GetString("stories-cmd-econ-arg-player"));
         }
 
         return CompletionResult.Empty;
@@ -72,11 +72,11 @@ public sealed class GetBalanceCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class SetBalanceCommand : LocalizedCommands
+public sealed partial class SetBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_setbalance";
 
@@ -107,13 +107,13 @@ public sealed class SetBalanceCommand : LocalizedCommands
 
         if (!mindSystem.TryGetMind(located.UserId, out var mindId, out _))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-mind"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-mind"));
             return;
         }
 
         if (!_entManager.TryGetComponent<MindBankAccountComponent>(mindId.Value, out var bankAcc))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-account"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-account"));
             return;
         }
 
@@ -123,17 +123,17 @@ public sealed class SetBalanceCommand : LocalizedCommands
             var oldBalance = account.Balance;
             account.Balance = amount;
 
-            shell.WriteLine(Loc.GetString("cmd-econ-setbalance-success",
+            shell.WriteLine(Loc.GetString("stories-cmd-econ-setbalance-success",
                 ("player", located.Username),
                 ("amount", amount)));
 
             economySystem.TrySendNotification(mindId.Value,
-                Loc.GetString("bank-app-notification-admin-change-title"),
-                Loc.GetString("bank-app-notification-admin-change-body", ("old", oldBalance), ("new", amount)));
+                Loc.GetString("stories-bank-app-notification-admin-change-title"),
+                Loc.GetString("stories-bank-app-notification-admin-change-body", ("old", oldBalance), ("new", amount)));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-econ-error-station-account-missing"));
+        shell.WriteError(Loc.GetString("stories-cmd-econ-error-station-account-missing"));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -141,21 +141,21 @@ public sealed class SetBalanceCommand : LocalizedCommands
         if (args.Length == 1)
         {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
-                Loc.GetString("cmd-econ-arg-player"));
+                Loc.GetString("stories-cmd-econ-arg-player"));
         }
 
         if (args.Length == 2)
-            return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-amount"));
+            return CompletionResult.FromHint(Loc.GetString("stories-cmd-econ-arg-amount"));
         return CompletionResult.Empty;
     }
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class AddBalanceCommand : LocalizedCommands
+public sealed partial class AddBalanceCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override string Command => "econ_addbalance";
 
@@ -186,30 +186,30 @@ public sealed class AddBalanceCommand : LocalizedCommands
 
         if (!mindSystem.TryGetMind(located.UserId, out var mindId, out _))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-mind"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-mind"));
             return;
         }
 
         if (!_entManager.TryGetComponent<MindBankAccountComponent>(mindId.Value, out var bankAcc))
         {
-            shell.WriteError(Loc.GetString("cmd-econ-error-no-account"));
+            shell.WriteError(Loc.GetString("stories-cmd-econ-error-no-account"));
             return;
         }
 
         if (bankAcc.BankStation != null &&
             bankSystem.TryChangeBalance(bankAcc.BankStation.Value, bankAcc.AccountNumber, amount))
         {
-            shell.WriteLine(Loc.GetString("cmd-econ-addbalance-success",
+            shell.WriteLine(Loc.GetString("stories-cmd-econ-addbalance-success",
                 ("player", located.Username),
                 ("amount", amount)));
 
             economySystem.TrySendNotification(mindId.Value,
-                Loc.GetString("bank-app-notification-admin-change-title"),
-                Loc.GetString("bank-app-notification-admin-add-body", ("amount", amount)));
+                Loc.GetString("stories-bank-app-notification-admin-change-title"),
+                Loc.GetString("stories-bank-app-notification-admin-add-body", ("amount", amount)));
             return;
         }
 
-        shell.WriteError(Loc.GetString("cmd-econ-error-station-account-missing"));
+        shell.WriteError(Loc.GetString("stories-cmd-econ-error-station-account-missing"));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
@@ -217,19 +217,19 @@ public sealed class AddBalanceCommand : LocalizedCommands
         if (args.Length == 1)
         {
             return CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager),
-                Loc.GetString("cmd-econ-arg-player"));
+                Loc.GetString("stories-cmd-econ-arg-player"));
         }
 
         if (args.Length == 2)
-            return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-amount-delta"));
+            return CompletionResult.FromHint(Loc.GetString("stories-cmd-econ-arg-amount-delta"));
         return CompletionResult.Empty;
     }
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class PaySalaryCommand : LocalizedCommands
+public sealed partial class PaySalaryCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntitySystemManager _sysMan = default!;
+    [Dependency] private IEntitySystemManager _sysMan = default!;
 
     public override string Command => "econ_paysalary";
 
@@ -244,21 +244,21 @@ public sealed class PaySalaryCommand : LocalizedCommands
 
         var salarySystem = _sysMan.GetEntitySystem<SalarySystem>();
         salarySystem.PaySalaries(multiplier);
-        shell.WriteLine(Loc.GetString("cmd-econ-paysalary-success", ("multiplier", multiplier)));
+        shell.WriteLine(Loc.GetString("stories-cmd-econ-paysalary-success", ("multiplier", multiplier)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
-            return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-multiplier"));
+            return CompletionResult.FromHint(Loc.GetString("stories-cmd-econ-arg-multiplier"));
         return CompletionResult.Empty;
     }
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class FineAllCommand : LocalizedCommands
+public sealed partial class FineAllCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public override string Command => "econ_fineall";
 
@@ -298,20 +298,20 @@ public sealed class FineAllCommand : LocalizedCommands
                     if (accountToMind.TryGetValue(accountNum, out var mindId))
                     {
                         economySystem.TrySendNotification(mindId,
-                            Loc.GetString("bank-app-notification-fine-title"),
-                            Loc.GetString("bank-app-notification-fine-body", ("amount", amount)));
+                            Loc.GetString("stories-bank-app-notification-fine-title"),
+                            Loc.GetString("stories-bank-app-notification-fine-body", ("amount", amount), ("reason", Loc.GetString("stories-bank-app-notification-fine-reason-admin"))));
                     }
                 }
             }
         }
 
-        shell.WriteLine(Loc.GetString("cmd-econ-fineall-success", ("count", count), ("amount", amount)));
+        shell.WriteLine(Loc.GetString("stories-cmd-econ-fineall-success", ("count", count), ("amount", amount)));
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
         if (args.Length == 1)
-            return CompletionResult.FromHint(Loc.GetString("cmd-econ-arg-amount"));
+            return CompletionResult.FromHint(Loc.GetString("stories-cmd-econ-arg-amount"));
         return CompletionResult.Empty;
     }
 }
