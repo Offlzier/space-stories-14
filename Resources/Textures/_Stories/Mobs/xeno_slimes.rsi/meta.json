@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from paradise at commit https://github.com/ss220-space/Paradise/blob/master220/icons/mob/slimes.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "angry",
+      "directions": 4
+    },
+    {
+      "name": "happy",
+      "directions": 4
+    },
+    {
+      "name": "mischievous",
+      "directions": 4
+    },
+    {
+      "name": "pleased",
+      "directions": 4
+    },
+    {
+      "name": "pout",
+      "directions": 4
+    },
+    {
+      "name": "sad",
+      "directions": 4
+    },
+    {
+      "name": "grey_adult",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "grey_adult_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "grey_baby",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "grey_baby_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "grey_baby_dead"
+    },
+    {
+      "name": "grey_baby_dead_nocore"
+    },
+    {
+      "name": "blue_adult",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "blue_adult_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "blue_baby",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "blue_baby_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "blue_baby_dead"
+    },
+    {
+      "name": "blue_baby_dead_nocore"
+    },
+    {
+      "name": "pink_adult",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "pink_adult_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "pink_baby",
+      "delays": [
+        [
+          0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.3
+        ]
+      ]
+    },
+    {
+      "name": "pink_baby_eat",
+      "delays": [
+        [
+          0.1, 0.1, 0.1, 0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "pink_baby_dead"
+    },
+    {
+      "name": "pink_baby_dead_nocore"
+    }
+  ]
+}

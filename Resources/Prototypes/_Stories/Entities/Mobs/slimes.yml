@@ -1,0 +1,194 @@
+﻿- type: entity
+  name: basic slime
+  id: STBaseMobAdultXenoSlimes
+  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat, BaseSlicingRefinable, MobNightVision ]
+  abstract: true
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: TTS # Stories-TTS
+    voice: charlotte
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: blue_adult_slime
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSlime
+  - type: Tag
+    tags:
+    - FootstepSound
+    - DoorBumpOpener
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeatSlime
+      amount: 2
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 15
+  - type: Damageable
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Slime
+        Quantity: 150
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 0.05 #Same as slime species
+      - !type:PopupMessage
+        type: Local
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+        path: /Audio/Weapons/punch3.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 4
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+  - type: TypingIndicator
+    proto: slime
+  - type: MobCollision # Stories-Collision
+
+- type: entity
+  name: basic slime
+  id: STMobAdultXenoSlimes
+  parent: STBaseMobAdultXenoSlimes
+  abstract: true
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: ReplacementAccent
+    accent: slimes
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-slimes-name
+    description: ghost-role-information-slimes-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+    allowedEmotes: ['Squish']
+  - type: TypingIndicator
+    proto: slime
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+
+- type: entity
+  name: серый слайм
+  id: STMobBabyXenoSlimesGrey
+  parent: STMobAdultXenoSlimes #obAdultSlimesYellowAngry
+  components:
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: grey_baby
+        Dead:
+          Base: grey_baby_dead
+    - type: XenoSlime
+      baseXenoSlimeProto: STMobBabyXenoSlimesGrey
+      extract: STGreyExtractXenoSlime
+      typeSlime: TypeGreySlime
+      typeSlimeMutation:
+        - TypeBlueSlime
+    - type: Sprite
+      sprite: _Stories/Mobs/xeno_slimes.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: grey_baby
+    - type: Appearance
+    - type: ToolRefinable
+      refineResult:
+      - id: STGreyExtractXenoSlime
+        amount: 1
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: STExtractReclaimer
+  name: переработчик экстрактов
+  description: Извлекает экстракт из живых организмов. Ужасно.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/Medical/biomass_reclaimer.rsi
+    state: icon
+    snapCardinals: true
+  - type: XenoSlimeReclaimer
+  - type: Climbable
+    delay: 1
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/reclaimer_ambience.ogg
+  - type: Machine
+    board: BiomassReclaimerMachineCircuitboard #чинить

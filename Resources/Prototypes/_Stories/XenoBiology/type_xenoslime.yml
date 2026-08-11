@@ -1,0 +1,63 @@
+- type: typeXenoSlime
+  id: TypeGreySlime
+  name: серый слайм
+  components:
+    - type: XenoSlime
+      extract: STGreyExtractXenoSlime
+      typeSlime: TypeGreySlime
+      typeSlimeMutation:
+        - TypeBlueSlime
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: grey_baby
+        Dead:
+          Base: grey_baby_dead
+    - type: Sprite
+      sprite: _Stories/Mobs/xeno_slimes.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: grey_baby
+
+- type: typeXenoSlime
+  id: TypeBlueSlime
+  name: синий слайм
+  components:
+    - type: XenoSlime
+      extract: STBlueExtractXenoSlime
+      typeSlime: TypeBlueSlime
+      typeSlimeMutation:
+        - TypeGreySlime
+        - TypePinkSlime
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: blue_baby
+        Dead:
+          Base: blue_baby_dead
+    - type: Sprite
+      sprite: _Stories/Mobs/xeno_slimes.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: blue_baby
+
+- type: typeXenoSlime
+  id: TypePinkSlime
+  name: розовый слайм
+  components:
+    - type: XenoSlime
+      extract: STPinkExtractXenoSlime
+      typeSlime: TypePinkSlime
+      typeSlimeMutation:
+        - TypeBlueSlime
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: pink_baby
+        Dead:
+          Base: pink_baby_dead
+    - type: Sprite
+      sprite: _Stories/Mobs/xeno_slimes.rsi
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: pink_baby

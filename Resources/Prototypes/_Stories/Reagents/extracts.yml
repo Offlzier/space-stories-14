@@ -1,0 +1,8 @@
+- type: reagent
+  id: STGreySlimeExtract
+  name: серый экстракт
+  group: Biological
+  desc: Экстракт серого слизня.
+  physicalDesc: липкое
+  flavor: горький
+  color: "#808080"

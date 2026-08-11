@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseItem
+  id: STBaseExtractXenoSlime
+  name: экстракт
+  description: Экстракт слизи, на что он способен?
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/xeno_biology/extract.rsi
+    state: grey
+  - type: Item
+    size: Small
+  - type: DrawableSolution
+    solution: solution
+  - type: InjectableSolution
+    solution: solution
+  - type: Extract
+  - type: Solution
+    solution:
+      maxVol: 60
+
+- type: entity
+  parent: STBaseExtractXenoSlime
+  id: STGreyExtractXenoSlime
+  name: серый экстракт
+  components:
+  - type: Sprite
+    sprite: /Textures/_Stories/Objects/Misc/xeno_biology/extract.rsi
+    state: grey
+
+- type: entity
+  parent: STBaseExtractXenoSlime
+  id: STBlueExtractXenoSlime
+  name: синий экстракт
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/xeno_biology/extract.rsi
+    state: blue
+
+- type: entity
+  parent: STBaseExtractXenoSlime
+  id: STPinkExtractXenoSlime
+  name: розовый экстракт
+  components:
+  - type: Sprite
+    sprite: _Stories/Objects/Misc/xeno_biology/extract.rsi
+    state: pink
