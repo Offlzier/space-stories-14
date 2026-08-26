@@ -1,0 +1,45 @@
+- type: reagent
+  id: STCondensedCapsaicin
+  name: конденсированный капсаицин
+  desc: Химическое вещество, используемое для самообороны и в работе полиции.
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: stincineratingagony
+  group: Other
+  color: "#B31008"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages: [ "У вас сильно болит голова." ]
+        probability: 0.15
+      - !type:Vomit
+        probability: 0.05
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy
+        probability: 0.1
+        time: 4
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+        - !type:Emote
+          emote: Scream
+          showInChat: true
+          probability: 0.1
+        - !type:Emote
+          emote: Crying
+          showInChat: true
+          probability: 0.5
+        - !type:ModifyStatusEffect
+          effectProto: StatusEffectWoozy
+          time: 20
+          type: Set
+        - !type:ModifyKnockdown
+          time: 0.5
+        - !type:MovementSpeedModifier
+          walkSpeedModifier: 0.7
+          sprintSpeedModifier: 0.7
+          time: 5
+        - !type:Jitter

@@ -1,47 +1,77 @@
 - type: entity
   parent: BaseItem
   id: STBaseExtractXenoSlime
-  name: экстракт
-  description: Экстракт слизи, на что он способен?
+  name: экстракт слизи
+  description: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
   abstract: true
   components:
   - type: Sprite
-    sprite: /Textures/_Stories/Objects/Misc/xeno_biology/extract.rsi
+    sprite: _Stories/Objects/Misc/xeno_biology/extract.rsi
     state: grey
-  - type: Item
-    size: Small
-  - type: DrawableSolution
-    solution: solution
-  - type: InjectableSolution
-    solution: solution
-  - type: Extract
+  - type: Extractable
+    grindableSolutionName: solution
   - type: Solution
     solution:
-      maxVol: 60
+      reagents:
+        - ReagentId: STSlimeJelly
+          Quantity: 20
 
 - type: entity
   parent: STBaseExtractXenoSlime
   id: STGreyExtractXenoSlime
-  name: серый экстракт
+  name: серый экстракт слизи
   components:
   - type: Sprite
-    sprite: /Textures/_Stories/Objects/Misc/xeno_biology/extract.rsi
     state: grey
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: STGreySlimeExtract
+        Quantity: 3
+
+- type: entity
+  parent: STBaseExtractXenoSlime
+  id: STOrangeExtractXenoSlime
+  name: оранжевый экстракт слизи
+  components:
+  - type: Sprite
+    state: orange
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: STOrangeSlimeExtract
+        Quantity: 10
 
 - type: entity
   parent: STBaseExtractXenoSlime
   id: STBlueExtractXenoSlime
-  name: синий экстракт
+  name: синий экстракт слизи
   components:
   - type: Sprite
-    sprite: _Stories/Objects/Misc/xeno_biology/extract.rsi
     state: blue
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: STBlueSlimeExtract
+        Quantity: 10
+
+- type: entity
+  parent: STBaseExtractXenoSlime
+  id: STMetalExtractXenoSlime
+  name: металический экстракт слизи
+  components:
+  - type: Sprite
+    state: metal
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: STMetalSlimeExtract
+        Quantity: 5
 
 - type: entity
   parent: STBaseExtractXenoSlime
   id: STPinkExtractXenoSlime
-  name: розовый экстракт
+  name: розовый экстракт слизи
   components:
   - type: Sprite
-    sprite: _Stories/Objects/Misc/xeno_biology/extract.rsi
     state: pink

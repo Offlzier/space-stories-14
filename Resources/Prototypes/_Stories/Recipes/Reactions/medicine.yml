@@ -1,0 +1,9 @@
+- type: reaction
+  id: STRegenerativeJelly
+  reactants:
+    STSlimeJelly:
+      amount: 1
+    Omnizine:
+      amount: 1
+  products:
+    STRegenerativeJelly: 2

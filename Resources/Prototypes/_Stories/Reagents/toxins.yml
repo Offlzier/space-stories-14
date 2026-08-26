@@ -1,0 +1,26 @@
+- type: reagent
+  id: STSlimeJelly
+  name: желе слайма
+  desc: Липкая полужидкость, производимая одним из самых смертоносных живых организмов на Земле. Это невероятно.
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
+  group: Toxins
+  color: "#a6959d"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        probability: 0.23
+        damage:
+          types:
+            Poison: -5
+      - !type:HealthChange
+        probability: 0.05
+        damage:
+          types:
+            Poison: 40
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-burning-insides" ]
+        probability: 0.05

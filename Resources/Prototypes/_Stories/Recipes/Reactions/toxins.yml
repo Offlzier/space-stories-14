@@ -1,0 +1,9 @@
+- type: reaction
+  id: STCondensedCapsaicin
+  reactants:
+    Ethanol:
+      amount: 5
+    CapsaicinOil:
+      amount: 1
+  products:
+    STCondensedCapsaicin: 10

@@ -1,0 +1,79 @@
+#Серый
+- type: reaction
+  id: STGreyExtractWater
+  reactants:
+    STGreySlimeExtract:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    Epinephrine: 3
+
+- type: reaction
+  id: STGreyExtractBlood
+  reactants:
+    STGreySlimeExtract:
+      amount: 1
+    Blood:
+      amount: 1
+  effects:
+    - !type:SpawnEntity
+      entity: MonkeyCube
+
+- type: reaction
+  id: STGreyExtractPlasma
+  reactants:
+    STGreySlimeExtract:
+      amount: 1
+    Plasma:
+      amount: 1
+  effects:
+    - !type:SpawnEntity
+      entity: STMobBabyXenoSlimesGrey
+
+#Оранжевый
+- type: reaction
+  id: STOrangeExtractWater
+  reactants:
+    STOrangeSlimeExtract:
+      amount: 5
+    Water:
+      amount: 5
+  effects:
+    - !type:AreaReactionEffect
+      duration: 10
+      prototypeId: Smoke
+      sound:
+        path: /Audio/Effects/smoke.ogg
+
+- type: reaction
+  id: STOrangeExtractBlood
+  reactants:
+    STOrangeSlimeExtract:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    CapsaicinOil: 20
+
+#Фиолетовый
+- type: reaction
+  id: STPurpleExtractBlood
+  reactants:
+    STPurpleSlimeExtract:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    STRegenerativeJelly: 10
+
+#синий
+- type: reaction
+  id: STBlueExtractPlasma
+  reactants:
+    STBlueSlimeExtract:
+      amount: 1
+    Plasma:
+      amount: 1
+  products:
+    FrostOil: 10

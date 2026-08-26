@@ -1,8 +1,44 @@
 - type: reagent
   id: STGreySlimeExtract
-  name: серый экстракт
+  name: серый экстракт слизи
+  desc: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
   group: Biological
-  desc: Экстракт серого слизня.
-  physicalDesc: липкое
-  flavor: горький
   color: "#808080"
+
+- type: reagent
+  id: STOrangeSlimeExtract
+  name: оранжевый экстракт слизи
+  desc: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
+  group: Biological
+  color: "#ffa500"
+
+- type: reagent
+  id: STPurpleSlimeExtract
+  name: фиолетовый экстракт слизи
+  desc: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
+  group: Biological
+  color: "#8b00ff"
+
+- type: reagent
+  id: STBlueSlimeExtract
+  name: синий экстракт слизи
+  desc: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
+  group: Biological
+  color: "#0000ff"
+
+- type: reagent
+  id: STMetalSlimeExtract
+  name: металический экстракт слизи
+  desc: Слизь, извлеченная из какого-то вещества. По легендам, она обладает «магическими свойствами».
+  physicalDesc: reagent-physical-desc-mucus-like
+  flavor: jelly
+  group: Biological
+  color: "#b5bfbb"
