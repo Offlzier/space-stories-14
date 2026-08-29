@@ -65,3 +65,18 @@
     sprite: _Stories/Clothing/OuterClothing/Vests/inquisitor_armor.rsi
   - type: Clothing
     sprite: _Stories/Clothing/OuterClothing/Vests/inquisitor_armor.rsi
+
+- type: entity
+  parent: ClothingOuterArmorCaptainCarapace
+  id: STClothingOuterArmorBlueShield
+  name: Blue Shield officer's bulletproof vest
+  description: The protective properties of this bulletproof vest exceed those of a regular one and are identical to the armored overcoat of the head of the security service.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/OuterClothing/Vests/blueshield_armor.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/OuterClothing/Vests/blueshield_armor.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: StaminaResistance
+    damageCoefficient: 0.75

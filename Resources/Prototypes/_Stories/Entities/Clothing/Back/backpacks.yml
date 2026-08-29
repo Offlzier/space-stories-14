@@ -55,3 +55,12 @@
   components:
   - type: Sprite
     sprite: _Stories/Clothing/Back/Backpacks/backpacks_rl.rsi
+
+- type: entity
+  parent: ClothingBackpack
+  id: STClothingBackpackBlueShield
+  name: backpack
+  description: You wear this on your back and put items in it.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Back/Backpacks/blueshield_backpack.rsi

@@ -6,3 +6,5 @@ ent-STClothingHeadHatCapcapGeneral = { ent-ClothingHeadHatCapcap }
     .desc = { ent-ClothingHeadHatCapcap.desc }
 ent-STClothingHeadHatCapcapGeneralCMO = { ent-ClothingHeadHatCapcap }
     .desc = { ent-ClothingHeadHatCapcap.desc }
+ent-STClothingHeadHatBeretBlueShield = { ent-ClothingHeadHatCapcap }
+    .desc = { ent-ClothingHeadHatCapcap.desc }

@@ -14,3 +14,4 @@ stories-job-name-party-maker = партимейкер
 JobSTSecurityClown = клоун СБ
 JobSTCommandMaid = горничная капитана
 JobSTPartyMaker = партимейкер
+stories-job-name-blue-shield = офицер синий щит

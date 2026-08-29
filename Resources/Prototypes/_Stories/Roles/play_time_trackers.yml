@@ -25,6 +25,9 @@
 - type: playTimeTracker
   id: STJobJudge
 
+- type: playTimeTracker
+  id: JobSTBlueShieldOfficer
+
 # Event-Restricted-Jobs
 
 - type: playTimeTracker

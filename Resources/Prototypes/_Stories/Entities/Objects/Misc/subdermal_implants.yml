@@ -41,3 +41,13 @@
         Quantity: 15
     solution: bloodstream
     targetUser: true
+
+- type: entity
+  parent: DeathRattleImplant
+  id: STDeathRattleImplantSec
+  name: sec death rattle implant
+  description: This implant will inform the sec radio channel should the user fall into critical condition or die.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RattleOnTrigger
+    radioChannel: Security

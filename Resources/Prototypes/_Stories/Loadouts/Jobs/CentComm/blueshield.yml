@@ -1,0 +1,144 @@
+- type: roleLoadout
+  id: JobSTBlueShieldOfficer
+  groups:
+  - STBlueshieldHead
+  - STBlueshieldNeck
+  - STBlueshieldUniform
+  - STBlueshieldOuter
+  - STBlueshieldBack
+  - Trinkets
+  - SurvivalBlueShield
+
+#Голова
+- type: loadoutGroup
+  id: STBlueshieldHead
+  name: stories-loadout-group-blue-shield-head
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - STBlueshieldHeadBeret
+
+- type: loadout
+  id: STBlueshieldHeadBeret
+  equipment:
+    head: STClothingHeadHatBeretBlueShield
+
+#Аксессуар
+- type: loadoutGroup
+  id: STBlueshieldNeck
+  name: stories-loadout-group-blue-shield-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - STBlueshieldCloak
+  - STBlueshieldMantle
+
+- type: loadout
+  id: STBlueshieldCloak
+  equipment:
+    neck: STClothingNeckCloakBlueShield
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSTBlueShieldOfficer
+      time: 15h #15 часов
+
+- type: loadout
+  id: STBlueshieldMantle
+  equipment:
+    neck: STClothingShoulderMantleBlueShield
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSTBlueShieldOfficer
+      time: 15h #15 часов
+
+#Униформа
+- type: loadoutGroup
+  id: STBlueshieldUniform
+  name: stories-loadout-group-blue-shield-uniform
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - STBlueshieldJumpsuit
+  - STBlueshieldJumpskirt
+
+- type: loadout
+  id: STBlueshieldJumpsuit
+  equipment:
+    jumpsuit: STClothingUniformJumpsuitBlueShield
+
+- type: loadout
+  id: STBlueshieldJumpskirt
+  equipment:
+    jumpsuit: STClothingUniformJumpskirtBlueShield
+
+#Верхняя
+- type: loadoutGroup
+  id: STBlueshieldOuter
+  name: stories-loadout-group-blue-shield-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - STBlueshieldArmor
+
+- type: loadout
+  id: STBlueshieldArmor
+  equipment:
+    outerClothing: STClothingOuterArmorBlueShield
+
+#Рюкзак
+- type: loadoutGroup
+  id: STBlueshieldBack
+  name: stories-loadout-group-blue-shield-back
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - STBlueshieldBackpack
+  - STBlueshieldDuffel
+  - STBlueshieldSatchel
+
+- type: loadout
+  id: STBlueshieldBackpack
+  equipment:
+    back: STClothingBackpackBlueShield
+
+- type: loadout
+  id: STBlueshieldDuffel
+  equipment:
+    back: STClothingBackpackDuffelBlueShield
+
+- type: loadout
+  id: STBlueshieldSatchel
+  equipment:
+    back: STClothingBackpackSatchelBlueShield
+
+# Аварийный набор
+- type: loadoutGroup
+  id: SurvivalBlueShield
+  name: loadout-group-survival-blue-shield
+  minLimit: 1
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenBlueShield
+  - EmergencyOxygenBlueShield
+
+- type: loadout
+  id: EmergencyOxygenBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxSurvivalBlueShield
+
+- type: loadout
+  id: EmergencyNitrogenBlueShield
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxSurvivalNitrogenBlueShield

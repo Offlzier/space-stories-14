@@ -10,3 +10,5 @@ ent-ClothingBackpackSatchelGachi = сумка
     .desc = Модная сумка.
 ent-ClothingBackpackSatchelRl = сумка
     .desc = Модная сумка.
+ent-STClothingBackpackSatchelBlueShield = сумка
+    .desc = Модная сумка.

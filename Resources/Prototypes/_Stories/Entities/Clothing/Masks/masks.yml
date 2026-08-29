@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingMaskGasSecurity
+  id: STClothingMaskGasBlueShield
+  name: guardian's gas mask
+  description: Gas mask of unknown design.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Mask/mask_blueshield.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Mask/mask_blueshield.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

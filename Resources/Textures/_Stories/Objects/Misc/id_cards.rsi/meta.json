@@ -59,6 +59,12 @@
         },
         {
             "name": "idjudge"
+        },
+        {
+            "name": "idblueshield"
+        },
+        {
+            "name": "centcom"
         }
     ]
 }

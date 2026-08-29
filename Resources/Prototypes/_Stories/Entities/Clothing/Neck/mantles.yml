@@ -37,3 +37,14 @@
     sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
   - type: Clothing
     sprite: Clothing/Neck/mantles/hosmantle_shoulder.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: STClothingShoulderMantleBlueShield
+  name: Blue Shield officer's shoulder robe
+  description: This robe is a symbol of dedication to the cause of protecting the station's leaders.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/mantles/blueshield_mantle.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Neck/mantles/blueshield_mantle.rsi

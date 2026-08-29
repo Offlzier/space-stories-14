@@ -1,0 +1,82 @@
+- type: job
+  id: STBlueShieldOfficer
+  name: stories-job-name-blue-shield
+  description: stories-job-description-blue-shield
+  playTimeTracker: JobSTBlueShieldOfficer
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobCaptain
+      time: 36000 #10 часов
+    - !type:RoleTimeRequirement
+      role: JobHeadOfSecurity
+      time: 36000 #10 часов
+    - !type:RoleTimeRequirement
+      role: JobChiefMedicalOfficer
+      time: 18000 #5 часов
+    - !type:SpeciesRequirement
+      species:
+        - Arachnid
+#        - Diona
+        - Dwarf
+        - Human
+        - Moth
+#        - Reptilian
+        - SlimePerson
+#        - Vox
+        - Felinid
+        - Avali
+        - Rodentia
+        - Kidan
+        - Vulpkanin
+  weight: 16
+  startingGear: STBlueShieldOfficerGear
+  icon: "JobIconSTBlueShieldOfficer"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+  # Stories-Economy-Start
+  minBankBalance: 400
+  maxBankBalance: 450
+  # Stories-Economy-End
+
+- type: startingGear
+  id: STBlueShieldOfficerGear
+  equipment:
+    eyes: STClothingEyesBlueShield
+    ears: ClothingHeadsetAltCommand
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJackFilled
+    id: STBlueShieldPDA
+    belt: STClothingBeltBlueShieldFilled
+    pocket1: STWeaponEnergyPistolBlueShield
+    pocket2: STHandheldCrewMonitorCommand
+    suitstorage: WeaponSubMachineGunWt550 #Должен быть в бронике
+  storage:
+    back:
+#    - WeaponSubMachineGunWt550
+    - MedkitCombatFilled
+    - STDeathRattleImplanterSec
+    - STDeathRattleImplanterSec
+    - STDeathRattleImplanterSec
+    - STDeathRattleImplanterSec
+    belt:
+    - MagazinePistolSubMachineGunTopMounted
+    - MagazinePistolSubMachineGunTopMounted
+
+- type: chameleonOutfit
+  id: STBlueShieldOfficerChameleonOutfit
+  job: STBlueShieldOfficer
+  hasMindShield: true
+  equipment:
+    head: STClothingHeadHatBeretBlueShield
+    neck: STClothingNeckCloakBlueShield
+    jumpsuit: STClothingUniformJumpsuitBlueShield
+    outerClothing: STClothingOuterArmorBlueShield
+    back: STClothingBackpackBlueShield

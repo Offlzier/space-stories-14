@@ -105,7 +105,6 @@
   - type: Clothing
     sprite: _Stories/Clothing/Uniforms/Jumpsuit/Scientist_Sweater.rsi
 
-
 - type: entity
   parent: ClothingUniformBase
   id: STClothingUniformJumpsuitProsecutorBlue
@@ -127,3 +126,14 @@
     sprite: _Stories/Clothing/Uniforms/Jumpsuit/prosecutorblack.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Uniforms/Jumpsuit/prosecutorblack.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: STClothingUniformJumpsuitBlueShield
+  name: blueshield's jumpsuit
+  description: blueshield's jumpsuit
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpsuit/blueshield_suit.rsi

@@ -157,3 +157,12 @@
   components:
   - type: Sprite
     sprite: _Stories/Clothing/Neck/Cloaks/golden_qm.rsi
+
+- type: entity
+  parent: ClothingNeckMantleCap
+  id: STClothingNeckCloakBlueShield
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Neck/Cloaks/blueshield_cloak.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Neck/Cloaks/blueshield_cloak.rsi

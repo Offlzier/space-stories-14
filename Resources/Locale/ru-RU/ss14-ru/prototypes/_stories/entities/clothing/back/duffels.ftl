@@ -8,3 +8,5 @@ ent-ClothingBackpackDuffelGachi = вещмешок
     .desc = Большой вещмешок для хранения дополнительных предметов.
 ent-ClothingBackpackDuffelRl = вещмешок
     .desc = Большой вещмешок для хранения дополнительных предметов.
+ent-STClothingBackpackDuffelBlueShield = вещмешок
+    .desc = Большой вещмешок для хранения дополнительных предметов.

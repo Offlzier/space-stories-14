@@ -12,6 +12,19 @@
 
 - type: entity
   parent: IDCardStandard
+  id: STBlueShieldIDCard
+  name: Blue Shield Officer ID card
+  components:
+    - type: Sprite
+      sprite: _Stories/Objects/Misc/id_cards.rsi
+      layers:
+        - state: centcom
+        - state: idblueshield
+    - type: PresetIdCard
+      job: STBlueShieldOfficer
+
+- type: entity
+  parent: IDCardStandard
   id: STJudgeIDCard
   name: judge's ID card
   description: A card required to access various areas of the station.
@@ -31,10 +44,10 @@
   description: A card required to access various areas of the station.
   components:
     - type: Sprite
+      sprite: _Stories/Objects/Misc/id_cards.rsi
       layers:
         - state: centcom
         - state: idguardiannt
-          sprite: _Stories/Objects/Misc/id_cards.rsi
     - type: Item
       heldPrefix: blue
     - type: PresetIdCard

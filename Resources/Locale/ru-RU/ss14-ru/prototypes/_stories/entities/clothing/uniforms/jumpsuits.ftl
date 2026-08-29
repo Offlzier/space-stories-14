@@ -18,3 +18,5 @@ ent-STClothingUniformJumpsuitProsecutorBlue = поношенный костюм
     .desc = Тот, кто носит это, олицетворяет занятость.
 ent-STClothingUniformJumpsuitProsecutorBlack = поношенный костюм
     .desc = Тот, кто носит это, олицетворяет занятость.
+ent-STClothingUniformJumpsuitBlueShield = униформа офицера синего щита
+    .desc = Тот, кто носит это, олицетворяет защиту и спокойствие.

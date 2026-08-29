@@ -54,6 +54,13 @@
     sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
     state: Judge
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSTBlueShieldOfficer
+  icon:
+    sprite: /Textures/_Stories/Interface/Misc/job_icons.rsi
+    state: idblueshield
+
 # Event-Restricted-Jobs
 
 - type: jobIcon

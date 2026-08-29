@@ -1,0 +1,18 @@
+- type: entity
+  id: STHandheldCrewMonitorCommand
+  parent: HandheldCrewMonitor
+  name: blueshield crew monitor
+  description: A hand-held crew monitor showing security and command personnel.
+  components:
+  - type: PdaBorderColor
+    borderColor: "#5C5C73"
+    accentVColor: "#6098F8"
+  - type: CrewMonitoringUiVisuals
+    themeColor: "#6098F8"
+  - type: Sprite
+    sprite: _Stories/Objects/Specific/Medical/command_crewmonitor.rsi
+    state: icon
+    layers:
+      - state: icon
+      - state: scanner
+        shader: unshaded

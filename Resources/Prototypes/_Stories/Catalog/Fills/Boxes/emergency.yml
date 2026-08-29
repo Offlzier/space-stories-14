@@ -1,0 +1,33 @@
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalBlueShield
+  name: survival box
+  description: It's a box with basic internals inside.
+  suffix: Security
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: STClothingMaskGasBlueShield
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull
+
+- type: entity
+  parent: BoxSurvivalSecurity
+  id: BoxSurvivalNitrogenBlueShield
+  suffix: Standard N2
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: STClothingMaskGasBlueShield
+        - id: EmergencyNitrogenTankFilled
+        - id: EmergencyMedipen
+        - id: Flare
+        - id: FoodSnackNutribrick
+        - id: DrinkWaterBottleFull

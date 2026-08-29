@@ -1,3 +1,11 @@
+- type: entity
+  id: STDeathRattleImplanterSec
+  name: sec death rattle implanter
+  parent: BaseImplantOnlyImplanter
+  components:
+  - type: Implanter
+    implant: STDeathRattleImplantSec
+
 #Traitor/Nuclear Operative implanter
 
 - type: entity

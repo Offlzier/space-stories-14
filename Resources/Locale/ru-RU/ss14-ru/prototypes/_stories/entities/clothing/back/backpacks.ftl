@@ -10,3 +10,5 @@ ent-ClothingBackpackGachi = рюкзак
     .desc = Вы носите это на спине и кладёте в него предметы.
 ent-ClothingBackpackRl = рюкзак
     .desc = Вы носите это на спине и кладёте в него предметы.
+ent-STClothingBackpackBlueShield = рюкзак
+    .desc = Вы носите это на спине и кладёте в него предметы.

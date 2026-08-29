@@ -74,6 +74,7 @@
   - ERTEngineer
   - DeathSquad
   - STCommandMaid # Stories-Event-Restricted-Jobs
+  - STBlueShieldOfficer #Stories role
   primary: false
   weight: 100
 

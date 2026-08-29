@@ -22,3 +22,5 @@ ent-STClothingNeckMantleCapGeneral = { ent-ClothingNeckMantleCap }
     .desc = { ent-ClothingNeckMantleCap.desc }
 ent-STClothingNeckCloakQmGold = { ent-ClothingNeckCloakQm }
     .desc = { ent-ClothingNeckCloakQm.desc }
+ent-STClothingNeckCloakBlueShield = плащ офицера синего щита
+    .desc = Придаёт силы.

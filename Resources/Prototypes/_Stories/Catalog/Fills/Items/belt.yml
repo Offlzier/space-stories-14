@@ -9,3 +9,19 @@
     contents:
         - id: WeaponRevolver
         - id: SpeedLoaderMagnum
+
+- type: entity
+  id: STClothingBeltBlueShieldFilled
+  parent: ClothingBeltMilitaryWebbing
+  name: RPS officer of the blue shield
+  description: Convenient and practical RPS.
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityEntityTable
+  - type: Sprite
+    sprite: _Stories/Clothing/Belt/belt_blueshield.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Belt/belt_blueshield.rsi

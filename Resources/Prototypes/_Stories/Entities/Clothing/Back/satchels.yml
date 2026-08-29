@@ -54,3 +54,12 @@
   components:
   - type: Sprite
     sprite: _Stories/Clothing/Back/Satchels/satchel_rl.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: STClothingBackpackSatchelBlueShield
+  name: satchel
+  description: A fashionable bag.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Back/Satchels/blueshield_satchel.rsi

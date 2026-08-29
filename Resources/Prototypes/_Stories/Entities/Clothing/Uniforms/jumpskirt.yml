@@ -19,3 +19,14 @@
     sprite: _Stories/Clothing/Uniforms/Jumpskirt/prosecutorblack.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Uniforms/Jumpskirt/prosecutorblack.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: STClothingUniformJumpskirtBlueShield
+  name: blue jumpskirt
+  description: The one who wears this represents protection and tranquility.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Uniforms/Jumpskirt/blueshield_kirt.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Uniforms/Jumpskirt/blueshield_kirt.rsi

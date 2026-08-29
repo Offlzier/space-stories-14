@@ -45,3 +45,14 @@
     sprite: _Stories/Clothing/Eyes/Glasses/nvg.rsi
   - type: Clothing
     sprite: _Stories/Clothing/Eyes/Glasses/nvg.rsi
+
+- type: entity
+  parent: ClothingEyesGlassesSecurity
+  id: STClothingEyesBlueShield
+  name: Blue Shield Officer's Glasses
+  description: Universal glasses that allow you to work in any conditions!
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Eyes/Glasses/blueshield.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Eyes/Glasses/blueshield.rsi

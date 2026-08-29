@@ -43,3 +43,13 @@
   - type: Clothing
     sprite: _Stories/Clothing/Head/Hats/old_beret_cmo.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: STClothingHeadHatBeretBlueShield
+  name: takes the Blue Shield officer's hat
+  description: Grey beret with the Blue Shield unit's cockade.
+  components:
+  - type: Sprite
+    sprite: _Stories/Clothing/Head/Hats/beret_blueshield.rsi
+  - type: Clothing
+    sprite: _Stories/Clothing/Head/Hats/beret_blueshield.rsi

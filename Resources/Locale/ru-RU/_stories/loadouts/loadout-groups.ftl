@@ -55,3 +55,11 @@ stories-loadout-group-judge-gloves = Судья, перчатки
 stories-loadout-group-judge-shoes = Судья, обувь
 stories-loadout-group-judge-outerclothing = Судья, мантии
 stories-loadout-group-judge-head = Судья, парик
+
+# Офицер синий щит
+
+stories-loadout-group-blue-shield-head = Синий щит, голова
+stories-loadout-group-blue-shield-neck = Синий щит, шея
+stories-loadout-group-blue-shield-uniform = Синий щит, комбинезон
+stories-loadout-group-blue-shield-outerclothing = Синий щит, верхняя одежда
+stories-loadout-group-blue-shield-back = Синий щит, рюкзак
