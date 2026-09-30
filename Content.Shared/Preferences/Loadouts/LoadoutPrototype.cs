@@ -1,5 +1,6 @@
 using Content.Shared.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
+using Content.Shared.Silicons.Laws; // Stories
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Preferences.Loadouts;
@@ -37,6 +38,14 @@ public sealed partial class LoadoutPrototype : IPrototype, IEquipmentLoadout
     /// </summary>
     [DataField]
     public List<LoadoutEffect> Effects = new();
+
+    // Stories-Start
+    /// <summary>
+    /// Lawset applied to the spawned silicon's <c>SiliconLawProviderComponent</c> when this loadout is selected.
+    /// </summary>
+    [DataField]
+    public ProtoId<SiliconLawsetPrototype>? Lawset;
+    // Stories-End
 
     /// <inheritdoc />
     [DataField]

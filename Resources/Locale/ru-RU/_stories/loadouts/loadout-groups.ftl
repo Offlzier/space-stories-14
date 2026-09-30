@@ -62,3 +62,6 @@ stories-loadout-group-blueshield-neck = Наплечные аксессуары 
 stories-loadout-group-blueshield-jumpsuits = Униформа Синего Щита
 stories-loadout-group-blueshield-outer-clothing = Верхняя одежда Синего Щита
 stories-loadout-group-blueshield-backpack = Рюкзак Синего Щита
+
+# Станционный ИИ
+stories-loadout-group-station-ai-lawset = Станционный ИИ, начальный свод законов

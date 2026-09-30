@@ -1,0 +1,52 @@
+- type: loadoutGroup
+  id: STStationAiLawset
+  name: stories-loadout-group-station-ai-lawset
+  loadouts:
+  - STStationAiLawsetNTDefault
+  - STStationAiLawsetCrewsimov
+  - STStationAiLawsetCorporate
+  - STStationAiLawsetPaladin
+  - STStationAiLawsetRobocop
+  - STStationAiLawsetEfficiency
+  - STStationAiLawsetCommandments
+  - STStationAiLawsetLiveLetLive
+
+- type: loadout
+  id: STStationAiLawsetNTDefault
+  dummyEntity: NTDefaultCircuitBoard
+  lawset: NTDefault
+
+- type: loadout
+  id: STStationAiLawsetCrewsimov
+  dummyEntity: AsimovCircuitBoard
+  lawset: Crewsimov
+
+- type: loadout
+  id: STStationAiLawsetCorporate
+  dummyEntity: CorporateCircuitBoard
+  lawset: Corporate
+
+- type: loadout
+  id: STStationAiLawsetPaladin
+  dummyEntity: PaladinCircuitBoard
+  lawset: PaladinLawset
+
+- type: loadout
+  id: STStationAiLawsetRobocop
+  dummyEntity: RobocopCircuitBoard
+  lawset: RobocopLawset
+
+- type: loadout
+  id: STStationAiLawsetEfficiency
+  dummyEntity: StationEfficiencyCircuitBoard
+  lawset: EfficiencyLawset
+
+- type: loadout
+  id: STStationAiLawsetCommandments
+  dummyEntity: CommandmentCircuitBoard
+  lawset: CommandmentsLawset
+
+- type: loadout
+  id: STStationAiLawsetLiveLetLive
+  dummyEntity: LiveLetLiveCircuitBoard
+  lawset: LiveLetLiveLaws

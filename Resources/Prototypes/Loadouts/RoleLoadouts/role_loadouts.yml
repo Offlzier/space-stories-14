@@ -39,6 +39,8 @@
   id: JobStationAi
   nameDataset: NamesAI
   canCustomizeName: true
+  groups: # Stories
+  - STStationAiLawset # Stories
 
 # Civilian
 - type: roleLoadout
