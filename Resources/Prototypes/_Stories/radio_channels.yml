@@ -60,6 +60,15 @@
   ttsCategory: stories-tts-category-radio-other
 
 - type: radioChannel
+  id: STDragonBrood
+  name: stories-chat-radio-dragon-brood
+  frequency: 98768
+  keycode: "ч"
+  color: "#6557b3"
+  longRange: true
+  ttsCategory: stories-tts-category-radio-other
+
+- type: radioChannel
   id: STDSO
   name: stories-chat-radio-DCO
   keycode: 'в'
