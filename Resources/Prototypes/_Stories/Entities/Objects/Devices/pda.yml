@@ -211,7 +211,7 @@
         - id: WantedListCartridge
         - id: MedTekCartridge
         - id: AstroNavCartridge
-        - id: STBankCartridge # Stories-Economy
+        - id: STBankCartridge
 
 - type: entity
   parent: STChiefCentcomPDA

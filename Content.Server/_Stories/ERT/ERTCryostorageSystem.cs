@@ -5,57 +5,50 @@ using Robust.Shared.Containers;
 
 namespace Content.Server._Stories.ERT;
 
-public sealed partial class ERTCryostorageSystem : EntitySystem
+public sealed partial class StoriesERTCryostorageSystem : EntitySystem
 {
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private RandomHumanoidSystem _randomHumanoid = default!;
-    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ERTCryostorageComponent, BoundUIOpenedEvent>(OnUiOpened);
+
         Subs.BuiEvents<ERTCryostorageComponent>(ERTCryostorageUiKey.Key, subs =>
         {
             subs.Event<ERTCryostorageSpawnMessage>(OnSpawnMessage);
         });
-
-        SubscribeLocalEvent<ERTCryostorageComponent, BoundUIOpenedEvent>(OnUiOpened);
     }
 
-    private void OnUiOpened(EntityUid uid, ERTCryostorageComponent component, BoundUIOpenedEvent args)
+    private void OnUiOpened(Entity<ERTCryostorageComponent> ent, ref BoundUIOpenedEvent args)
     {
-        var state = new ERTCryostorageState(
-            component.Options,
-            component.TitleName,
-            component.AdminAccess,
-            component.Blocked);
-
-        _uiSystem.SetUiState(uid, ERTCryostorageUiKey.Key, state);
+        UpdateUi(ent);
     }
 
-    private void OnSpawnMessage(EntityUid uid, ERTCryostorageComponent component, ERTCryostorageSpawnMessage args)
+    private void OnSpawnMessage(Entity<ERTCryostorageComponent> ent, ref ERTCryostorageSpawnMessage args)
     {
-        if (args.OptionIndex < 0 || args.OptionIndex >= component.Options.Count)
+        var comp = ent.Comp;
+
+        if (args.OptionIndex < 0 || args.OptionIndex >= comp.Options.Count)
             return;
 
-        if (component.UseOnce && component.Blocked)
+        if (comp.UseOnce && comp.Blocked)
             return;
 
-        var option = component.Options[args.OptionIndex];
-        if (option.RequiresAdminAllow && !component.AdminAccess)
+        var option = comp.Options[args.OptionIndex];
+        if (option.RequiresAdminAllow && !comp.AdminAccess)
             return;
 
-        if (!_container.TryGetContainer(uid, component.ContainerId, out var container))
-            return;
-
-        if (string.IsNullOrEmpty(option.Settings))
+        if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
 
         var humanoid = _randomHumanoid.SpawnRandomHumanoid(
             option.Settings,
-            Transform(uid).Coordinates,
-            "ERT Operative");
+            Transform(ent).Coordinates,
+            Loc.GetString("stories-ert-cryostorage-default-name"));
 
         if (!_container.Insert(humanoid, container))
         {
@@ -63,17 +56,20 @@ public sealed partial class ERTCryostorageSystem : EntitySystem
             return;
         }
 
-        if (component.UseOnce)
-            component.Blocked = true;
+        if (comp.UseOnce)
+            comp.Blocked = true;
 
-        if (_uiSystem.TryGetUiState<ERTCryostorageState>(uid, ERTCryostorageUiKey.Key, out _))
-        {
-            var newState = new ERTCryostorageState(
-                component.Options,
-                component.TitleName,
-                component.AdminAccess,
-                component.Blocked);
-            _uiSystem.SetUiState(uid, ERTCryostorageUiKey.Key, newState);
-        }
+        UpdateUi(ent);
+    }
+
+    private void UpdateUi(Entity<ERTCryostorageComponent> ent)
+    {
+        var state = new ERTCryostorageState(
+            ent.Comp.Options,
+            ent.Comp.TitleName,
+            ent.Comp.AdminAccess,
+            ent.Comp.Blocked);
+
+        _ui.SetUiState(ent.Owner, ERTCryostorageUiKey.Key, state);
     }
 }

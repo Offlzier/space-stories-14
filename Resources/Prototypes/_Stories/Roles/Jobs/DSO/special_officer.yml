@@ -18,7 +18,7 @@
   supervisors: stories-job-supervisors-admiralty
   accessGroups:
   - AllAccess
-  - STPrisonAllAccess # Stories
+  - STPrisonAllAccess
   access:
   - CentralCommand
   - STDSO

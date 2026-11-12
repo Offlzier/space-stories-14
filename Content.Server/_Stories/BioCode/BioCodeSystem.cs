@@ -12,10 +12,11 @@ using Robust.Shared.Containers;
 
 namespace Content.Server._Stories.BioCode;
 
-public sealed partial class BioCodeSystem : EntitySystem
+public sealed partial class StoriesBioCodeSystem : EntitySystem
 {
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EmagSystem _emag = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private TriggerSystem _trigger = default!;
 
@@ -31,164 +32,114 @@ public sealed partial class BioCodeSystem : EntitySystem
         SubscribeLocalEvent<BioCodeComponent, GotEmaggedEvent>(OnEmagged);
     }
 
-    private void OnEquipped(EntityUid uid, BioCodeComponent comp, GotEquippedEvent args)
+    private void OnEquipped(Entity<BioCodeComponent> ent, ref GotEquippedEvent args)
     {
-        if (!TryComp<DnaComponent>(args.EquipTarget, out var dnaComp) || dnaComp.DNA == null)
+        CheckWearer(ent, args.EquipTarget);
+    }
+
+    private void OnUnequipped(Entity<BioCodeComponent> ent, ref GotUnequippedEvent args)
+    {
+        _trigger.StopTimerTrigger(ent.Owner);
+    }
+
+    private void OnHandEquipped(Entity<BioCodeComponent> ent, ref GotEquippedHandEvent args)
+    {
+        if (ent.Comp.ItemBioCode)
+            CheckWearer(ent, args.User);
+    }
+
+    private void OnHandUnequipped(Entity<BioCodeComponent> ent, ref GotUnequippedHandEvent args)
+    {
+        _trigger.StopTimerTrigger(ent.Owner);
+    }
+
+    private void CheckWearer(Entity<BioCodeComponent> ent, EntityUid user)
+    {
+        var comp = ent.Comp;
+
+        if (!TryComp<DnaComponent>(user, out var dna) || dna.DNA == null)
             return;
 
         if (comp.AutoRecordDNA && comp.RecordedDNA == null)
         {
-            _damageable.TryChangeDamage(args.EquipTarget, comp.DamagePerRecord, true, true);
-            comp.RecordedDNA = dnaComp.DNA;
-            _popup.PopupEntity(Loc.GetString("stories-biocode-successful-recording"), uid);
+            RecordDna(ent, user, dna.DNA);
             return;
         }
 
-        if (comp.RecordedDNA == null || comp.RecordedDNA == dnaComp.DNA)
+        if (comp.RecordedDNA == null || comp.RecordedDNA == dna.DNA)
             return;
 
         if (comp.HardDefense)
-        {
-            EnsureComp<UnremoveableComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("stories-biocode-hard-defense"),
-                args.EquipTarget,
-                args.EquipTarget,
-                PopupType.LargeCaution);
-        }
-        else
-        {
-            _popup.PopupEntity(Loc.GetString("stories-biocode-dna-not-match"),
-                args.EquipTarget,
-                args.EquipTarget,
-                PopupType.LargeCaution);
-        }
+            EnsureComp<UnremoveableComponent>(ent);
 
-        var timer = EnsureComp<TimerTriggerComponent>(uid);
+        var message = comp.HardDefense ? "stories-biocode-hard-defense" : "stories-biocode-dna-not-match";
+        _popup.PopupEntity(Loc.GetString(message), user, user, PopupType.LargeCaution);
 
+        var timer = EnsureComp<TimerTriggerComponent>(ent);
         timer.Delay = TimeSpan.FromSeconds(comp.Delay);
         timer.BeepInterval = TimeSpan.FromSeconds(comp.BeepInterval);
-
-        if (comp.InitialBeepDelay.HasValue)
-            timer.InitialBeepDelay = TimeSpan.FromSeconds(comp.InitialBeepDelay.Value);
-        else
-            timer.InitialBeepDelay = null;
-
+        timer.InitialBeepDelay = comp.InitialBeepDelay is { } initial ? TimeSpan.FromSeconds(initial) : null;
         timer.BeepSound = comp.BeepSound;
 
-        _trigger.ActivateTimerTrigger(uid, args.EquipTarget);
+        _trigger.ActivateTimerTrigger(ent.Owner, user);
     }
 
-    private void OnUnequipped(EntityUid uid, BioCodeComponent comp, GotUnequippedEvent args)
+    private void RecordDna(Entity<BioCodeComponent> ent, EntityUid user, string dna)
     {
-        _trigger.StopTimerTrigger(uid);
+        _damageable.TryChangeDamage(user, ent.Comp.DamagePerRecord, true, true);
+        ent.Comp.RecordedDNA = dna;
+        _popup.PopupEntity(Loc.GetString("stories-biocode-successful-recording"), ent);
     }
 
-    private void OnHandEquipped(EntityUid uid, BioCodeComponent comp, GotEquippedHandEvent args)
+    private void OnGetVerbs(Entity<BioCodeComponent> ent, ref GetVerbsEvent<Verb> args)
     {
-        if (!comp.ItemBioCode)
+        var comp = ent.Comp;
+        var user = args.User;
+
+        if (comp.RecordedDNA != null
+            && TryComp<DnaComponent>(user, out var userDna)
+            && comp.RecordedDNA != userDna.DNA)
             return;
 
-        if (!TryComp<DnaComponent>(args.User, out var dnaComp) || dnaComp.DNA == null)
-            return;
-
-        if (comp.AutoRecordDNA && comp.RecordedDNA == null)
-        {
-            _damageable.TryChangeDamage(args.User, comp.DamagePerRecord, true, true);
-            comp.RecordedDNA = dnaComp.DNA;
-            _popup.PopupEntity(Loc.GetString("stories-biocode-successful-recording"), uid);
-            return;
-        }
-
-        if (comp.RecordedDNA == null || comp.RecordedDNA == dnaComp.DNA)
-            return;
-
-        if (comp.HardDefense)
-        {
-            EnsureComp<UnremoveableComponent>(uid);
-            _popup.PopupEntity(Loc.GetString("stories-biocode-hard-defense"),
-                args.User,
-                args.User,
-                PopupType.LargeCaution);
-        }
-        else
-        {
-            _popup.PopupEntity(Loc.GetString("stories-biocode-dna-not-match"),
-                args.User,
-                args.User,
-                PopupType.LargeCaution);
-        }
-
-        var timer = EnsureComp<TimerTriggerComponent>(uid);
-
-        timer.Delay = TimeSpan.FromSeconds(comp.Delay);
-        timer.BeepInterval = TimeSpan.FromSeconds(comp.BeepInterval);
-
-        if (comp.InitialBeepDelay.HasValue)
-            timer.InitialBeepDelay = TimeSpan.FromSeconds(comp.InitialBeepDelay.Value);
-        else
-            timer.InitialBeepDelay = null;
-
-        timer.BeepSound = comp.BeepSound;
-
-        _trigger.ActivateTimerTrigger(uid, args.User);
-    }
-
-    private void OnHandUnequipped(EntityUid uid, BioCodeComponent comp, GotUnequippedHandEvent args)
-    {
-        _trigger.StopTimerTrigger(uid);
-    }
-
-    private void OnGetVerbs(EntityUid uid, BioCodeComponent comp, GetVerbsEvent<Verb> args)
-    {
-        if (comp.RecordedDNA != null &&
-            TryComp<DnaComponent>(args.User, out var dnaComp) &&
-            comp.RecordedDNA != dnaComp.DNA)
-            return;
-
-        if (_container.TryGetContainingContainer(uid, out var container))
-        {
-            if (container.Owner != args.User)
-                return;
-        }
-        else
+        if (!_container.TryGetContainingContainer(ent.Owner, out var container) || container.Owner != user)
             return;
 
         if (comp.RecordedDNA != null && comp.AllowOverwriting)
         {
-            var deleteDnaVerb = new Verb
+            args.Verbs.Add(new Verb
             {
                 Text = Loc.GetString("stories-biocode-delete-dna-verb"),
-                Act = () => {
+                Act = () =>
+                {
                     comp.RecordedDNA = null;
-                    _popup.PopupEntity(Loc.GetString("stories-biocode-successful-deletion"), uid);
-                }
-            };
-
-            args.Verbs.Add(deleteDnaVerb);
+                    _popup.PopupEntity(Loc.GetString("stories-biocode-successful-deletion"), ent);
+                },
+            });
         }
 
-        var recordDnaVerb = new Verb
+        args.Verbs.Add(new Verb
         {
             Text = Loc.GetString("stories-biocode-record-dna-verb"),
-            Act = () => {
-                if (!TryComp<DnaComponent>(args.User, out var dnaComp) || dnaComp.DNA == null)
+            Act = () =>
+            {
+                if (!TryComp<DnaComponent>(user, out var dna) || dna.DNA == null)
                 {
-                    _popup.PopupEntity(Loc.GetString("stories-biocode-dna-not-found"), uid);
+                    _popup.PopupEntity(Loc.GetString("stories-biocode-dna-not-found"), ent);
                     return;
                 }
 
-                _damageable.TryChangeDamage(args.User, comp.DamagePerRecord, true, true);
-                comp.RecordedDNA = dnaComp.DNA;
-                _popup.PopupEntity(Loc.GetString("stories-biocode-successful-recording"), uid);
+                RecordDna(ent, user, dna.DNA);
             },
-        };
-        args.Verbs.Add(recordDnaVerb);
+        });
     }
 
-    private void OnEmagged(EntityUid uid, BioCodeComponent comp, GotEmaggedEvent args)
+    private void OnEmagged(Entity<BioCodeComponent> ent, ref GotEmaggedEvent args)
     {
-        _popup.PopupEntity(Loc.GetString("stories-biocode-defense-emagged"), uid);
-        RemComp<BioCodeComponent>(uid);
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("stories-biocode-defense-emagged"), ent);
+        RemComp<BioCodeComponent>(ent);
         args.Handled = true;
     }
 }

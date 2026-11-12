@@ -1,3 +1,4 @@
+using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -14,8 +15,8 @@ public sealed partial class ERTCryostorageComponent : Component
     [DataField]
     public bool Blocked = false;
 
-    [DataField]
-    public string ContainerId;
+    [DataField(required: true)]
+    public string ContainerId = string.Empty;
 
     [DataField]
     public List<ERTCryostorageOption> Options = new();
@@ -36,8 +37,8 @@ public sealed partial class ERTCryostorageOption
     [DataField]
     public SpriteSpecifier Sprite;
 
-    [DataField]
-    public string Settings = string.Empty;
+    [DataField(required: true)]
+    public ProtoId<RandomHumanoidSettingsPrototype> Settings;
 
     [DataField]
     public bool RequiresAdminAllow = false;

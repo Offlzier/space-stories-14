@@ -108,8 +108,10 @@
     stampedColor: "#20B2AA"
     stampState: "paper_stamp-chief-centcom"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-chief-centcom
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left
@@ -132,8 +134,10 @@
     stampedColor: "#1F3A3D"
     stampState: "paper_stamp-special-officer"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-special-officer
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left
@@ -156,8 +160,10 @@
     stampedColor: "#3F3A33"
     stampState: "paper_stamp-magistrate"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-magistrate
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left
@@ -180,8 +186,10 @@
     stampedColor: "#000000"
     stampState: "paper_stamp-admirality"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-admirality
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left
@@ -204,8 +212,10 @@
     stampedColor: "#1E453A"
     stampState: "paper_stamp-OSA"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-OSA
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left
@@ -228,8 +238,10 @@
     stampedColor: "#136863"
     stampState: "paper_stamp-quadrant-management"
   - type: Sprite
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     state: stamp-quadrant-management
   - type: Item
+    sprite: _Stories/Objects/Misc/bureaucracy.rsi
     inhandVisuals:
       left:
       - state: stamp-gold-inhand-left

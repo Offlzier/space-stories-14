@@ -45,7 +45,7 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-durathread
-    fiberColor: fibers-regal-turquoise
+    fiberColor: stories-fibers-regal-turquoise
   - type: FingerprintMask
   - type: Armor
     modifiers:

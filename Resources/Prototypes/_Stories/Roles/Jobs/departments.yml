@@ -46,20 +46,17 @@
   description: department-CentralCommand-description
   color: "#0f8551"
   roles:
-  # Head Command
   - STChiefCentcom
   - STOperatorCentcom
   - STRepresentativeCentcom
   - STHeadOfSecurityCentcom
-  # Centcomm Personnel
   - STSecurityOfficerCentcom
   - STMedicCentcom
   - STEngineerCentcom
   - STWorkerCentcom
   - STGuardianNt
-  # Non-Centcomm Personnel
   - STOfficerSpecialAssignments
   - STLogist
   - STAccountant
-  editorHidden: false #true
+  editorHidden: false
   weight: 120
