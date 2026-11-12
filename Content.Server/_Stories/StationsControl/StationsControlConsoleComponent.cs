@@ -6,9 +6,15 @@ namespace Content.Server._Stories.StationsControl;
 [RegisterComponent]
 public sealed partial class StationsControlConsoleComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public List<ProtoId<AlertLevelPrototype>> AllowedAlertLevels = new();
 
-    [DataField, AutoNetworkedField]
-    public bool AllowAnyAlertLevel = false;
+    [DataField]
+    public bool AllowAnyAlertLevel;
+
+    [DataField]
+    public TimeSpan MinEvacTime = TimeSpan.FromMinutes(2);
+
+    [DataField]
+    public TimeSpan MaxEvacTime = TimeSpan.FromMinutes(30);
 }

@@ -306,6 +306,7 @@
     - STPrisonRed
     - STPrisonViolet
     - STPrisonYellow
+  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access: [["CentralCommand"]]
 
@@ -340,6 +341,7 @@
     - Gamma
     - STPrisonDelta
     - STPrisonGamma
+  - type: ActivatableUIRequiresAccess
   - type: AccessReader
     access: [["STDSO"]]
 

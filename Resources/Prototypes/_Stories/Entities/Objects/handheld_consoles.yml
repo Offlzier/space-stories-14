@@ -100,3 +100,6 @@
     - STPrisonRed
     - STPrisonViolet
     - STPrisonYellow
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["CentralCommand"]]

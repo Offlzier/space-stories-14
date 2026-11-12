@@ -19,8 +19,11 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
     private bool _allowAnyAlertLevel;
     private bool _countdownStarted;
     private TimeSpan? _countdownEnd;
+    private TimeSpan? _setAlertLevelUnlock;
 
-    [Dependency] private EntityManager _entManager = default!;
+    private static readonly TimeSpan SetAlertLevelCooldown = TimeSpan.FromSeconds(5);
+
+    [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
 
@@ -70,24 +73,32 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
 
     public void UpdateState(StationsControlConsoleState state)
     {
+        _allowedAlertLevels = state.AllowedAlertLevels;
+        _allowAnyAlertLevel = state.AllowAnyAlertLevel;
+
+        var previous = _selectedStation;
+        var selectIndex = 0;
         StationSelector.Clear();
 
         for (var i = 0; i < state.StationsList.Count; i++)
         {
             StationSelector.AddItem(state.StationsList[i]);
             StationSelector.SetItemMetadata(i, state.StationsNetIds[i]);
+
+            if (state.StationsNetIds[i] == previous)
+                selectIndex = i;
         }
 
         if (StationSelector.ItemCount > 0)
         {
-            StationSelector.Select(0);
-            SelectStation(0);
+            StationSelector.Select(selectIndex);
+            SelectStation(selectIndex);
         }
         else
+        {
+            _selectedStation = null;
             SetAlertLevelButton.Disabled = true;
-
-        _allowedAlertLevels = state.AllowedAlertLevels;
-        _allowAnyAlertLevel = state.AllowAnyAlertLevel;
+        }
 
         _countdownStarted = state.ShuttleTimeLeft.HasValue;
         _countdownEnd = state.ShuttleTimeLeft.HasValue
@@ -99,8 +110,6 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
 
     private void SelectStation(int index)
     {
-        UpdateCurrentAlertLevelLabel(index);
-
         if (index < 0 || index >= StationSelector.ItemCount)
             return;
 
@@ -108,12 +117,12 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
             return;
 
         _selectedStation = netEnt;
+        _selectedAlertLevel = null;
+        AlertLevelSelector.Clear();
         var stationUid = _entManager.GetEntity(netEnt);
 
         if (_entManager.TryGetComponent<AlertLevelComponent>(stationUid, out var alertComp))
         {
-            AlertLevelSelector.Clear();
-
             foreach (var levelId in alertComp.AvailableAlertLevels)
             {
                 if (!_allowAnyAlertLevel && !_allowedAlertLevels.Contains(levelId))
@@ -136,24 +145,18 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
                 SetAlertLevelButton.Disabled = true;
         }
 
-        if (_selectedStation == null || _selectedAlertLevel == null)
-            SetAlertLevelButton.Disabled = true;
-        else
-            SetAlertLevelButton.Disabled = false;
+        SetAlertLevelButton.Disabled = _selectedAlertLevel == null || _gameTiming.CurTime < _setAlertLevelUnlock;
     }
 
-    public void UpdateCurrentAlertLevelLabel(int index)
+    private void UpdateCurrentAlertLevelLabel()
     {
-        Timer.Spawn(TimeSpan.FromSeconds(1), () =>
-        {
-            if (StationSelector.GetItemMetadata(index) is NetEntity netEnt &&
-                _entManager.TryGetEntity(netEnt, out var stationUid) &&
-                _entManager.TryGetComponent<AlertLevelComponent>(stationUid.Value, out var alertComp) &&
-                _protoManager.TryIndex(alertComp.CurrentAlertLevel, out var currentProto))
-            {
-                CurrentAlertLevelLabel.Text = currentProto.LocalizedName;
-            }
-        });
+        if (_selectedStation is not { } netEnt
+            || !_entManager.TryGetEntity(netEnt, out var stationUid)
+            || !_entManager.TryGetComponent<AlertLevelComponent>(stationUid.Value, out var alertComp)
+            || !_protoManager.TryIndex(alertComp.CurrentAlertLevel, out var currentProto))
+            return;
+
+        CurrentAlertLevelLabel.Text = currentProto.LocalizedName;
     }
 
     private void OnSetAlertLevelPressed()
@@ -162,13 +165,9 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
             return;
 
         SetAlertLevelRequested?.Invoke(_selectedStation.Value, _selectedAlertLevel.Value.Id);
-        UpdateCurrentAlertLevelLabel(StationSelector.SelectedId);
 
+        _setAlertLevelUnlock = _gameTiming.CurTime + SetAlertLevelCooldown;
         SetAlertLevelButton.Disabled = true;
-        Timer.Spawn(TimeSpan.FromSeconds(5), () =>
-        {
-            SetAlertLevelButton.Disabled = false;
-        });
     }
 
     private bool TryParseEvacTime(string input, out TimeSpan result)
@@ -189,6 +188,16 @@ public sealed partial class StationsControlConsoleWindow : FancyWindow
     {
         base.FrameUpdate(args);
         UpdateCountdown();
+        UpdateCurrentAlertLevelLabel();
+
+        if (SetAlertLevelButton.Disabled
+            && _selectedAlertLevel != null
+            && _setAlertLevelUnlock != null
+            && _gameTiming.CurTime >= _setAlertLevelUnlock)
+        {
+            _setAlertLevelUnlock = null;
+            SetAlertLevelButton.Disabled = false;
+        }
     }
 
     private void UpdateCountdown()
