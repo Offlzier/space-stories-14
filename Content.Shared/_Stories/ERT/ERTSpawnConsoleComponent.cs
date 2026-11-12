@@ -1,14 +1,21 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Stories.ERT;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class ERTSpawnConsoleComponent : Component
 {
     [DataField]
     public bool AdminAccess = false;
+
+    [DataField]
+    public int ActiveOptionIndex = -1;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? CooldownEnd;
 
     [DataField]
     public int Balance;

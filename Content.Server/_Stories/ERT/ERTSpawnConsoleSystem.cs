@@ -5,115 +5,96 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Stories.ERT;
 
-public sealed partial class ERTSpawnConsoleSystem : EntitySystem
+public sealed partial class StoriesERTSpawnConsoleSystem : EntitySystem
 {
     [Dependency] private GameTicker _gameTicker = default!;
-    [Dependency] private UserInterfaceSystem _uiSystem = default!;
-
-    private Dictionary<EntityUid, int> _activeCooldowns = new();
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<ERTSpawnConsoleComponent, BoundUIOpenedEvent>(OnUiOpened);
-        SubscribeLocalEvent<ERTSpawnConsoleComponent, ERTSpawnConsoleCallMessage>(OnCallMessage);
-    }
 
-    private void OnUiOpened(EntityUid uid, ERTSpawnConsoleComponent component, BoundUIOpenedEvent args)
-    {
-        bool onCooldown = _activeCooldowns.ContainsKey(uid);
-        int activeIndex = onCooldown ? _activeCooldowns[uid] : -1;
-        var availability = GetAvailability(component);
-
-        var state = new ERTSpawnConsoleState(
-            component.Options,
-            onCooldown,
-            activeIndex,
-            component.Balance,
-            component.AdminAccess,
-            availability,
-            component.TitleName,
-            component.BalanceName);
-        _uiSystem.SetUiState(uid, ERTSpawnConsoleUiKey.Key, state);
-    }
-
-    private void OnCallMessage(EntityUid uid, ERTSpawnConsoleComponent component, ERTSpawnConsoleCallMessage args)
-    {
-        if (args.OptionIndex < 0 || args.OptionIndex >= component.Options.Count)
-            return;
-        if (_activeCooldowns.ContainsKey(uid))
-            return;
-
-        var option = component.Options[args.OptionIndex];
-
-        if (option.RequiresAdminAllow && !component.AdminAccess)
-            return;
-        if (option.Price > component.Balance)
-            return;
-
-        _gameTicker.AddGameRule(option.Rule);
-        component.Balance -= option.Price;
-
-        _activeCooldowns[uid] = args.OptionIndex;
-
-        var availabilityDuringCooldown = GetAvailability(component);
-        var cooldownState = new ERTSpawnConsoleState(
-            component.Options,
-            true,
-            args.OptionIndex,
-            component.Balance,
-            component.AdminAccess,
-            availabilityDuringCooldown,
-            component.TitleName,
-            component.BalanceName);
-        _uiSystem.SetUiState(uid, ERTSpawnConsoleUiKey.Key, cooldownState);
-
-        Timer.Spawn(TimeSpan.FromSeconds(component.Delay), () =>
+        Subs.BuiEvents<ERTSpawnConsoleComponent>(ERTSpawnConsoleUiKey.Key, subs =>
         {
-            if (!_activeCooldowns.ContainsKey(uid))
-                return;
-
-            _activeCooldowns.Remove(uid);
-
-            // После снятия кулдауна отправляем обновлённое состояние (если консоль ещё существует)
-            if (!TryComp<ERTSpawnConsoleComponent>(uid, out var comp))
-                return;
-
-            var normalAvailability = GetAvailability(comp);
-            var normalState = new ERTSpawnConsoleState(
-                comp.Options,
-                false,
-                -1,
-                comp.Balance,
-                comp.AdminAccess,
-                normalAvailability,
-                component.TitleName,
-                component.BalanceName);
-            _uiSystem.SetUiState(uid, ERTSpawnConsoleUiKey.Key, normalState);
+            subs.Event<ERTSpawnConsoleCallMessage>(OnCallMessage);
         });
     }
 
-    private List<bool> GetAvailability(ERTSpawnConsoleComponent component)
+    public override void Update(float frameTime)
     {
-        var result = new List<bool>(component.Options.Count);
+        base.Update(frameTime);
 
-        foreach (var option in component.Options)
+        var query = EntityQueryEnumerator<ERTSpawnConsoleComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            if (option.RequiresAdminAllow && !component.AdminAccess)
-            {
-                result.Add(false);
+            if (comp.CooldownEnd is not { } end || _timing.CurTime < end)
                 continue;
-            }
 
-            if (option.Price > component.Balance)
-            {
-                result.Add(false);
-                continue;
-            }
+            comp.CooldownEnd = null;
+            comp.ActiveOptionIndex = -1;
+            UpdateUi((uid, comp));
+        }
+    }
 
-            result.Add(true);
+    private void OnUiOpened(Entity<ERTSpawnConsoleComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        UpdateUi(ent);
+    }
+
+    private void OnCallMessage(Entity<ERTSpawnConsoleComponent> ent, ref ERTSpawnConsoleCallMessage args)
+    {
+        var comp = ent.Comp;
+
+        if (args.OptionIndex < 0 || args.OptionIndex >= comp.Options.Count)
+            return;
+
+        if (comp.CooldownEnd != null)
+            return;
+
+        var option = comp.Options[args.OptionIndex];
+
+        if (!CanCall(comp, option))
+            return;
+
+        _gameTicker.AddGameRule(option.Rule);
+        comp.Balance -= option.Price;
+        comp.ActiveOptionIndex = args.OptionIndex;
+        comp.CooldownEnd = _timing.CurTime + TimeSpan.FromSeconds(comp.Delay);
+
+        UpdateUi(ent);
+    }
+
+    private void UpdateUi(Entity<ERTSpawnConsoleComponent> ent)
+    {
+        var comp = ent.Comp;
+        var availability = new List<bool>(comp.Options.Count);
+
+        foreach (var option in comp.Options)
+        {
+            availability.Add(CanCall(comp, option));
         }
 
-        return result;
+        var state = new ERTSpawnConsoleState(
+            comp.Options,
+            comp.CooldownEnd != null,
+            comp.ActiveOptionIndex,
+            comp.Balance,
+            comp.AdminAccess,
+            availability,
+            comp.TitleName,
+            comp.BalanceName);
+
+        _ui.SetUiState(ent.Owner, ERTSpawnConsoleUiKey.Key, state);
+    }
+
+    private static bool CanCall(ERTSpawnConsoleComponent comp, ERTSpawnOption option)
+    {
+        if (option.RequiresAdminAllow && !comp.AdminAccess)
+            return false;
+
+        return option.Price <= comp.Balance;
     }
 }

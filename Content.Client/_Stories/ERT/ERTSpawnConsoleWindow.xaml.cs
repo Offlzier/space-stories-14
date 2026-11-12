@@ -42,7 +42,7 @@ public sealed partial class ERTSpawnConsoleWindow : FancyWindow
         BalanceLabel.Text = _loc.GetString(balanceName);
         BalanceValueLabel.Text = balance.ToString();
 
-        OptionsContainer.DisposeAllChildren();
+        OptionsContainer.RemoveAllChildren();
 
         for (int i = 0; i < options.Count; i++)
         {
@@ -83,7 +83,7 @@ public sealed partial class ERTSpawnConsoleWindow : FancyWindow
             descLabel.SetMessage(_loc.GetString(option.Desc));
             innerBox.AddChild(descLabel);
 
-            innerBox.AddChild(new Label { Text = $"Стоимость: {option.Price}" });
+            innerBox.AddChild(new Label { Text = _loc.GetString("stories-ert-spawn-price", ("price", option.Price)) });
             if (option.RequiresAdminAllow && !hasAdminAccess)
             {
                 innerBox.AddChild(new Label { Text = _loc.GetString("stories-ert-spawn-requires-admin-allow"), FontColorOverride = Color.OrangeRed, });

@@ -34,7 +34,7 @@ public sealed partial class ERTCryostorageWindow : FancyWindow
     {
         Title = _loc.GetString(titleName);
 
-        OptionsContainer.DisposeAllChildren();
+        OptionsContainer.RemoveAllChildren();
 
         for (int i = 0; i < options.Count; i++)
         {

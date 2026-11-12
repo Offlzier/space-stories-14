@@ -1,6 +1,6 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      Title="ERT Cryostorage"
+                      Title="{Loc 'stories-ert-cryostorage-ert-title'}"
                       MinSize="400 300">
     <BoxContainer Orientation="Vertical" Margin="10">
 

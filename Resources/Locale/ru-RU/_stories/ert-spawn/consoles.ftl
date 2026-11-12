@@ -44,3 +44,5 @@ stories-ert-cryostorage-cburn-title = Криохранилище РХБЗЗ
 stories-ert-cryostorage-cburn-agent = Агент РХБЗЗ
 stories-ert-cryostorage-cburn-commander = Командир РХБЗЗ
 stories-ert-cryostorage-officer-title = Криохранилище Офицерии КБР
+stories-ert-cryostorage-default-name = оперативник ОБР
+stories-ert-spawn-price = Стоимость: { $price }

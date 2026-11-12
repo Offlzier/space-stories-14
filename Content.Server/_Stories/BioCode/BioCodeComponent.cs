@@ -9,20 +9,20 @@ namespace Content.Server._Stories.BioCode;
 [RegisterComponent]
 public sealed partial class BioCodeComponent : Component
 {
-    [DataField("autoRecordDNA")]
-    public bool AutoRecordDNA = false;
+    [DataField]
+    public bool AutoRecordDNA;
 
-    [DataField("allowOverwriting")]
+    [DataField]
     public bool AllowOverwriting = true;
 
-    [DataField("beepInterval")]
+    [DataField]
     public float BeepInterval = 1;
 
-    [DataField("beepSound")]
+    [DataField]
     public SoundSpecifier? BeepSound = new SoundPathSpecifier("/Audio/Machines/Nuke/general_beep.ogg");
 
-    [DataField("damagePerRecord")]
-    public DamageSpecifier DamagePerRecord = new ()
+    [DataField]
+    public DamageSpecifier DamagePerRecord = new()
     {
         DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
         {
@@ -30,18 +30,18 @@ public sealed partial class BioCodeComponent : Component
         },
     };
 
-    [DataField("delay")]
+    [DataField]
     public float Delay = 3f;
 
-    [DataField("hardDefense")]
-    public bool HardDefense = false;
+    [DataField]
+    public bool HardDefense;
 
-    [DataField("initialBeepDelay")]
+    [DataField]
     public float? InitialBeepDelay = 0;
 
-    [DataField("itemBioCode")]
-    public bool ItemBioCode = false;
+    [DataField]
+    public bool ItemBioCode;
 
-    [DataField("recordedDNA")]
-    public string? RecordedDNA = null;
+    [DataField]
+    public string? RecordedDNA;
 }
