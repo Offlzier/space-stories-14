@@ -35,6 +35,26 @@
   - STPartyMaker # Stories-Event-Restricted-Jobs
 
 # Please kill this
+# Stories-CentComm-Start
+#- type: department
+#  id: CentralCommand
+#  name: department-CentralCommand
+#  description: department-CentralCommand-description
+#  color: "#0c344d"
+#  roles:
+#  - CentralCommandOfficial
+#  - CBURN
+#  - ERTLeader
+#  - ERTChaplain
+#  - ERTJanitor
+#  - ERTMedical
+#  - ERTSecurity
+#  - ERTEngineer
+#  - DeathSquad
+#  editorHidden: true
+#  weight: 120
+# Stories-CentComm-End
+
 - type: department
   id: Command
   name: department-Command
